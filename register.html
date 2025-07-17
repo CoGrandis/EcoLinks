@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/register.css">
 </head>
 <body>
-    <form action="" method="post">
-        <input type="text" name="nombre" placeholder="Nombre" required>
-        <input type="text" name="apellido" placeholder="Apellido" required>
-        <input type="text" name="username" placeholder="Usuario" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="direccion" placeholder="Dirección" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <input type="date" name="fechaNacimiento" placeholder="Fecha de Nacimiento" required>
+    <form class="formu-register" method="post">
+        <input class="input" type="text" name="nombre" placeholder="Nombre" required><br>
+        <input class="input" type="text" name="apellido" placeholder="Apellido" required><br>
+        <input class="input"type="text" name="username" placeholder="Usuario" required><br>
+        <input class="input"type="email" name="email" placeholder="Email" required><br>
+        <input class="input"type="text" name="direccion" placeholder="Dirección" required><br>
+        <input class="input"type="password" name="password" placeholder="Contraseña" required><br>
+        <input type="date" name="fechaNacimiento" placeholder="Fecha de Nacimiento" required><br>
         <select name="departamento">
             <option value="">Departamento</option>
             <option value="1">Administración</option>
@@ -21,7 +22,7 @@
             <option value="3">Finanzas y Contabilidad</option>
             <option value="4">Producción</option>
             <option value="5">Recursos Humanos</option>
-        </select>
+        </select><br>
         <input type="submit" value="Register">
     </form>
 </body>
