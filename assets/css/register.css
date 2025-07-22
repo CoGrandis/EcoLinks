@@ -4,15 +4,127 @@
     box-sizing: border-box;
 }
 
-.formu-register {
+body{
+ font-family: 'Poppins', sans-serif;
+}
+.formu-register {   
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 300px;
-    margin: 50px auto;
+     width: 450px;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 15px;
+    background-color: #A5E1F5;
+    order: 1;
 }
+.input {
+    color: rgb(0, 0, 0);
+  background-color: #3c85a7;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  width: 70%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.input::placeholder{
+    color: #000000;
+    font-weight: 600;
    
+}
+.input:hover{
+    background-color: #9673CE;
+    color: #000000;
+}
+
+.encabezado-register {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navegacion a {
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navegacion {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.boton-register {
+  background-color: #3d768a;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+   border: none;
+}
+
+.fechaNacimiento {
+  width: 60%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3c85a7;
+  color: #000000;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  text-align: center;
+}
+.departamento:hover, .fechaNacimiento:hover,.boton-register:hover {
+  background-color: #9673CE;
+  color: #000000;
+}
+.departamento{
+      width: 60%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3c85a7;
+  color: #000000;
+  font-weight: 500;
+  font-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  text-align: center;
+
+}
+
+.caja{
+    background-color: #61A0B5;
+    width: 300px;
+    height: 659px;
+    order: 2;
+    border-radius: 15px;
+}
+.caja-register {
+    display: flex;
+    width: 800px;
+    height: 600px;
+    margin: 50px auto;
+    justify-content: center;
+    align-items: center;
+    
+}       
