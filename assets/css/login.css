@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+ font-family: 'Poppins', sans-serif;
+ flex-direction: column;
+}
+
+.encabezado-register {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navegacion a {
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navegacion {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.boton-login{
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+   width: 360px;
+  height: 66px;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 12px 20px;
+  text-transform: uppercase;
+   border: none;
+}
+
+
+.caja-login{
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+
+
+.formu-login{
+    display: flex;
+    flex-direction: column;
+    margin: 100px auto;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 270px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    order: 2;
+}
+
+
+.imagen-login-registro{
+  width: 579px;
+  height: 100%;
+  padding-left: 100px;
+  padding-top: 30px;
+  order: 1;
+}
+
+.input {
+    color: rgb(0, 0, 0);
+  background-color: #F5F5F5;
+  border: 5px solid #ffffff;
+  border-radius: 6px;
+  padding: 12px 20px;
+  width: 360px;
+  height: 66px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.input::placeholder{
+    color: #000000;
+    font-weight: 600;
+   
+}
+.input:hover{
+    background-color: #9673CE;
+    color: #000000;
+}
