@@ -21,7 +21,6 @@
          <nav class="navegacion">
     <a href="./index.html">Home</a>
     <a href="#">About</a>
-    <a href="./login.html">Iniciar Sesión</a>
     <a href="./register.html" class="boton-register">REGISTRARSE</a>
   </nav>
 </header>
