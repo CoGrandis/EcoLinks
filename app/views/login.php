@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,14 @@
     <link rel="icon" href="../Assets/img/logo/logo.png" type="image/x-icon">
     <title>Ecolinks</title>
 </head>
+
 <body>
     <form action="#" method="post">
-        <input type="text" name="username" placeholder="Username" >
-        <input type="text" name="password" placeholder="Password" >
+        <input type="text" name="username" placeholder="Username">
+        <input type="text" name="password" placeholder="Password">
         <input type="submit" value="Login">
     </form>
-    <p>¿Todavia no te registraste? <a href="register.html">Registarte</a></p>
+    <p>¿Todavia no te registraste? <a href="/registerView">Registarte</a></p>
 </body>
+
 </html>
