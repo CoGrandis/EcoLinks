@@ -18,9 +18,9 @@
             <h3>EchoLinks</h3>
         </section>
         <section class="header-option">
-            <a href="index.html">Home</a>
-            <div class="btn btn-login"><a href="/loginView">Inicia Sesion</a></div>
-            <div class="btn btn-register"><a href="/registerView">Registrarse</a></div>
+            <a href="/">Home</a>
+            <div class="btn btn-login"><a href="/Auth/loginView">Inicia Sesion</a></div>
+            <div class="btn btn-register"><a href="/Auth/registerView">Registrarse</a></div>
         </section>
     </header>
     <main>

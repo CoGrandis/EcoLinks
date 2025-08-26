@@ -19,7 +19,7 @@
         <input type="text" name="password" placeholder="Password">
         <input type="submit" value="Login">
     </form>
-    <p>¿Todavia no te registraste? <a href="/registerView">Registarte</a></p>
+    <p>¿Todavia no te registraste? <a href="/Auth/registerView">Registarte</a></p>
 </body>
 
 </html>
