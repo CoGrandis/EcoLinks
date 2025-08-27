@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/../model/User.php';
+require __DIR__ . '/../model/EmpleadoModel.php';
+
 class AuthController
 {
     public function registerView()
@@ -32,7 +34,25 @@ class AuthController
     }
     public function register()
     {
-        require __DIR__ . '/../views/register.php';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $email = $_POST['email'];
+            $direccion = $_POST['direccion'];
+            $fechaNacimiento = $_POST['fechaNacimiento'];
+            $departamento = $_POST['departamento'];
+
+            $userModel = new UserModel();
+            $employeeModel = new EmpleadoModel();
+
+            /** 
+             * Crear Empleado
+             */
+
+            /**
+             * Crear Usuario
+             */
+        }
     }
 
     public function logout()
