@@ -18,8 +18,8 @@
 
         <nav class="navegacion">
             <a href="/">Home</a>
-            <a href="/Auth//loginView">Iniciar Sesión</a>
-            <a href="/Auth//registerView" class="boton-register">REGISTRARSE</a>
+            <a href="/Auth/loginView">Iniciar Sesión</a>
+            <a href="/Auth/registerView" class="boton-register">REGISTRARSE</a>
         </nav>
     </header>
     </header>
