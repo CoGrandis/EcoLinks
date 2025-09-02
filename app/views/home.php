@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/fonts/fontawesom/fawesome-all.css">
-    <link rel="stylesheet" href="assets/css/style.css">    
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Echolinks</title>
 </head>
+
 <body>
     <header>
         <section class="header-logo">
             <h3>EchoLinks</h3>
         </section>
         <section class="header-option">
-            <a href="index.html">Home</a>
-            <div class="btn btn-login"><a href="login.html">Inicia Sesion</a></div>
-            <div class="btn btn-register"><a href="register.html">Registrarse</a></div>
+            <a href="/">Home</a>
+            <div class="btn btn-login"><a href="/Auth/loginView">Inicia Sesion</a></div>
+            <div class="btn btn-register"><a href="/Auth/registerView">Registrarse</a></div>
         </section>
     </header>
     <main>
@@ -73,4 +75,5 @@
     </main>
     <footer></footer>
 </body>
+
 </html>

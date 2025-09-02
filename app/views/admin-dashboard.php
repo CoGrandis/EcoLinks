@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../Assets/fonts/fontawesom/fawesome-all.css">
     <link rel="stylesheet" href="../Assets/css/style.css">
     <link rel="icon" href="../Assets/img/logo/logo.png" type="image/x-icon">
-    <title>Ecolinks</title>
+    <title>Echolinks</title>
 </head>
 <body class="admin-dashboard">
     <aside>
