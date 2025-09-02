@@ -24,7 +24,7 @@ class Router
 
     private function callAction($controller, $action): void
     {
-        $controllerClass = "App\\controllers\\{$controller}";
+        $controllerClass = "app/controllers/{$controller}";
 
         if (class_exists($controllerClass)) {
             $controllerInstance = new $controllerClass();
