@@ -1,30 +1,36 @@
 <?php
+
 class Router
 {
-    protected static array $routes = [];
+    private static array $routes = [];
 
-    public static function get($route, $controller, $action): void
+    public static function get(string $route, string $controller, string $action): void
     {
         self::$routes['get'][strtolower($route)] = [$controller, $action];
     }
 
-    public function resolve($requestUri, $requestMethod): void
+    public static function post(string $route, string $controller, string $action): void
     {
-        $path = parse_url($requestUri, component: PHP_URL_PATH);
+        self::$routes['post'][strtolower($route)] = [$controller, $action];
+    }
+
+    public static function resolve(string $requestUri, string $requestMethod): void
+    {
+        $path = parse_url($requestUri, PHP_URL_PATH);
         $method = strtolower($requestMethod);
 
         if (isset(self::$routes[$method][$path])) {
             [$controller, $action] = self::$routes[$method][$path];
-            $this->callAction($controller, $action);
+            self::callAction($controller, $action);
             return;
         }
 
-        echo "404 - Page not found!";
+        self::notFound();
     }
 
-    private function callAction($controller, $action): void
+    private static function callAction(string $controller, string $action): void
     {
-        $controllerClass = "app/controllers/{$controller}";
+        $controllerClass = "App\\Controllers\\{$controller}";
 
         if (class_exists($controllerClass)) {
             $controllerInstance = new $controllerClass();
@@ -35,8 +41,13 @@ class Router
             }
         }
 
-        echo "404 - Controller or action not found!";
+        self::notFound();
+    }
+
+    private static function notFound(): void
+    {
+        http_response_code(404);
+        echo "404 - Page not found!";
     }
 }
-
 ?>
