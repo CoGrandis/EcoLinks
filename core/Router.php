@@ -1,53 +1,42 @@
 <?php
+/**
+ * Clase Router
+ */
+class Router{
+    protected $routes = [];
+    
+    public function get($uri, $action) {
+        $uri = str_replace('/', '\/', $uri);
+        $pattern = '/^' . preg_replace('/\{[^\/]+\}/', '([^\/]+)', $uri) . '$/';
 
-class Router
-{
-    private static array $routes = [];
-
-    public static function get(string $route, string $controller, string $action): void
-    {
-        self::$routes['get'][strtolower($route)] = [$controller, $action];
+        $this->routes['GET'][$pattern] = $action;
     }
+    public function resolve() {
+        $uri = $_SERVER['REQUEST_URI'];
+        $method = $_SERVER['REQUEST_METHOD'];
+        foreach ($this->routes[$method] as $pattern => $action) {
+            if (preg_match($pattern, $uri, $matches)) {
+                array_shift($matches);
 
-    public static function post(string $route, string $controller, string $action): void
-    {
-        self::$routes['post'][strtolower($route)] = [$controller, $action];
-    }
+                if (is_array($action) && count($action) === 2) {
+                    $controllerName = $action[0];
+                    $methodName = $action[1];
+                    $controllerFile = __DIR__."/../app/controllers/{$controllerName}.php";
 
-    public static function resolve(string $requestUri, string $requestMethod): void
-    {
-        $path = parse_url($requestUri, PHP_URL_PATH);
-        $method = strtolower($requestMethod);
-
-        if (isset(self::$routes[$method][$path])) {
-            [$controller, $action] = self::$routes[$method][$path];
-            self::callAction($controller, $action);
-            return;
+                    if (file_exists($controllerFile)) {
+                        require_once $controllerFile;
+                        $controllerInstance = new $controllerName();
+                        if (method_exists($controllerInstance, $methodName)) {
+                            call_user_func_array([$controllerInstance, $methodName], $matches);
+                            return;
+                        }
+                    }
+                }
         }
-
-        self::notFound();
-    }
-
-    private static function callAction(string $controller, string $action): void
-    {
-        $controllerClass = "App\\Controllers\\{$controller}";
-
-        if (class_exists($controllerClass)) {
-            $controllerInstance = new $controllerClass();
-
-            if (method_exists($controllerInstance, $action)) {
-                $controllerInstance->$action();
-                return;
-            }
-        }
-
-        self::notFound();
-    }
-
-    private static function notFound(): void
-    {
-        http_response_code(404);
-        echo "404 - Page not found!";
+     }
+    http_response_code(404);
+    echo "404 - Página no encontrada";
     }
 }
+
 ?>
