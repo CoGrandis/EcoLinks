@@ -1,39 +1,41 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+   
 }
 
 body{
  font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
 .formu-register {   
     display: flex;
+    border: 1px solid #ccc;
     flex-direction: column;
     align-items: center;
     justify-content: center;
      width: 450px;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    background-color: #A5E1F5;
-    order: 1;
+    border-radius: 6px;
+   background-color: #ffffff;
+    order: 2;
 }
 .input {
     color: rgb(0, 0, 0);
-  background-color: #3c85a7;
-  border: none;
-  border-radius: 5px;
+  background-color: #F5F5F5;
+  border: 5px solid #ffffff;
+  border-radius: 6px;
   padding: 12px 20px;
   width: 70%;
   text-align: center;
   font-size: 12px;
   font-weight: 700;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, color 0.3s;
 }
 
 .input::placeholder{
-    color: #000000;
+    color: #646464;
     font-weight: 600;
    
 }
@@ -65,12 +67,13 @@ body{
 }
 
 .boton-register {
-  background-color: #3d768a;
-  color: rgb(0, 0, 0);
+  background-color: #000000;
+  color: rgb(255, 255, 255);
   padding: 10px 20px;
-  border-radius: 25px;
+  border-radius: 5px;
   font-size: 12px;
   font-weight: 700;
+  width: 70%;
   text-transform: uppercase;
    border: none;
 }
@@ -80,8 +83,8 @@ body{
   padding: 10px;
   margin-top: 10px;
   border: none;
-  border-radius: 8px;
-  background-color: #3c85a7;
+  border-radius: 6px;
+  background-color: #F5F5F5;
   color: #000000;
   font-weight: 500;
   font-size: 14px;
@@ -99,7 +102,7 @@ body{
   margin-top: 10px;
   border: none;
   border-radius: 8px;
-  background-color: #3c85a7;
+  background-color: #F5F5F5;
   color: #000000;
   font-weight: 500;
   font-size: 14px;
@@ -112,19 +115,15 @@ body{
 
 }
 
-.caja{
-    background-color: #61A0B5;
-    width: 300px;
-    height: 659px;
-    order: 2;
-    border-radius: 15px;
+.imagen-registro{
+    order: 1;
 }
 .caja-register {
     display: flex;
-    width: 800px;
-    height: 600px;
-    margin: 50px auto;
-    justify-content: center;
+    width: 100%;
+    margin: 35px auto;
+
+    justify-content: space-around;
     align-items: center;
     
 }       

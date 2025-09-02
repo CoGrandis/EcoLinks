@@ -1,0 +1,146 @@
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+height: 100vh;
+ font-family: 'Poppins', sans-serif;
+
+}
+
+.barra-lateral{
+    width: 220px;
+  height: 100vh;
+  background-color: #7ba9b8; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  position: fixed;
+}
+
+.seccion-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-circulo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #cce0e8; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo-circulo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nombre-sistema {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin: 10px 0;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 30px;
+  transition: background 0.3s;
+}
+
+.menu a i {
+  margin-right: 10px;
+}
+
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.menu .activo a {
+  background: white;
+  color: #7ba9b8;
+  font-weight: bold;
+}
+
+
+.seccion-interruptor {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+
+.interruptor {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.interruptor input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.deslizador {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 25px;
+  transition: .4s;
+}
+
+.deslizador:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: white;
+  transition: .4s;
+}
+
+.interruptor input:checked + .deslizador {
+  background-color: #4CAF50;
+}
+
+.interruptor input:checked + .deslizador:before {
+  transform: translateX(24px);
+}
