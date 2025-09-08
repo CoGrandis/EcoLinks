@@ -36,7 +36,7 @@ class Post{
     }
 
     public function update($form, $id){
-        $query = $this->conn->prepare("UPDATE posts SET Title = :title, Content_Text = :content, Attachmentpath= :attachment WHERE ID_Post = $id ");
+        $query = $this->conn->prepare("UPDATE posts SET Title = :title, Content_Text = :content, Attachmentpath= :attachment WHERE ID_Post = :id ");
         $query->bindParam(':title', $form['title']);
         $query->bindParam(':content', $form['content']);
         $query->bindParam(':attachment', $form['attachment']);
