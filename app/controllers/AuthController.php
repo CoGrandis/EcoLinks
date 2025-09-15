@@ -2,17 +2,11 @@
 require __DIR__ . '/../model/User.php';
 class AuthController
 {
-    public function registerView()
-    {
-        require __DIR__ . '/../views/register.php';
-    }
-    public function loginView()
-    {
-        require __DIR__ . '/../views/login.php';
-    }
 
     public function login()
     {
+        require __DIR__ . '/../views/login.php';
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -22,10 +16,10 @@ class AuthController
                 if ($user && password_verify($password, $user['hashedPassword'])) {
                     session_start();
                     $_SESSION['username'] = $username;
-                    header('Location: /empleado/list');
+                    header('Location: /admin/dashboard');
                     exit();
                 } else {
-                    require __DIR__ . '/../views/login.php';
+                    header('Location: /auth/login');
                 }
             }
         }
@@ -40,5 +34,7 @@ class AuthController
         session_start();
         session_unset();
         session_destroy();
+        header('Location: /');
+
     }
 }
