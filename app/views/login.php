@@ -6,20 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Assets/fonts/fontawesom/fawesome-all.css">
-    <link rel="stylesheet" href="../Assets/css/style.css">
-    <link rel="icon" href="../Assets/img/logo/logo.png" type="image/x-icon">
-    <title>Ecolinks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/fonts/fontawesom/fawesome-all.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link rel="icon" href="../../assets/img/logo/logo.png" type="image/x-icon">
+    <title>Echolinks</title>
 </head>
 
 <body>
-    <form action="#" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="text" name="password" placeholder="Password">
-        <input type="submit" value="Login">
-    </form>
-    <p>¿Todavia no te registraste? <a href="/Auth/registerView">Registarte</a></p>
+    <header class="header-container">
+        <section class="logo">
+            <h1>EchoLinks</h1>
+        </section>
+        <nav class="navegacion">
+            <a href="/">Home</a>
+            <a href="/auth/login">Inicia Sesion</a>
+            <a href="/auth/register">Registrarse</a>
+
+        </nav>
+    </header>
+    <section class="login-container">
+        <div class="form-container">
+            <form class="form-login" method="POST" action="/auth/login">
+                <h1>Iniciar sesion</h1><br>
+                <input class="input" type="text" name="username" placeholder="Username" >
+                <input class="input" type="password" name="password" placeholder="Password" >
+                <input class="boton-login" type="submit" value="Login">
+                <br>
+                <p class="link-register">¿Todavia no te registraste? </p><a href="register.php">Registarte</a>
+            </form>
+            <div class="imagen-login-registro">
+                <img src="../../assets/img/logo/login.png" >
+            </div>
+        </div>
+        
+
+    </section>
 </body>
 
 </html>
