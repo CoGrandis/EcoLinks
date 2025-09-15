@@ -11,6 +11,13 @@ class Router{
 
         $this->routes['GET'][$pattern] = $action;
     }
+
+    public function post($uri, $action) {
+        $uri = str_replace('/', '\/', $uri);
+        $pattern = '/^' . preg_replace('/\{[^\/]+\}/', '([^\/]+)', $uri) . '$/';
+
+        $this->routes['POST'][$pattern] = $action;
+    }
     public function resolve() {
         $uri = $_SERVER['REQUEST_URI'];
         $method = $_SERVER['REQUEST_METHOD'];

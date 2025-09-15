@@ -1,13 +1,5 @@
-*{
-    margin: 0;
-    padding: 0;
-   
-}
+@import url('style.css');
 
-body{
- font-family: 'Poppins', sans-serif;
-    margin: 0;
-}
 .formu-register {   
     display: flex;
     border: 1px solid #ccc;
@@ -44,27 +36,6 @@ body{
     color: #000000;
 }
 
-.encabezado-register {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.navegacion a {
-  text-decoration: none;
-  color: #1e293b;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navegacion {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
 
 .boton-register {
   background-color: #000000;
@@ -127,3 +98,22 @@ body{
     align-items: center;
     
 }       
+
+
+.imagen-login-registro{
+  margin-top: 100px;
+  width: 579px;
+  height: 100%;
+  order: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.form-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

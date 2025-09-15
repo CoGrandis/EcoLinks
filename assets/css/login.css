@@ -1,105 +1,123 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('style.css');
 
-body{
- font-family: 'Poppins', sans-serif;
- 
-}
-
-.encabezado-register {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.navegacion a {
-  text-decoration: none;
-  color: #1e293b;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navegacion {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.boton-login{
-  background-color: #000000;
-  color: rgb(255, 255, 255);
-   width: 360px;
-  height: 66px;
-  padding: 12px 20px;
-  border-radius: 5px;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 12px 20px;
-  text-transform: uppercase;
-   border: none;
-}
-
-
-.caja-login{
-  display: flex;
-  width: 100%;
-  margin: 0 auto;
-  justify-content: space-around;
-  flex-direction: row;
-}
-
-
-
-.formu-login{
+.formu-register {   
     display: flex;
+    border: 1px solid var(--secondary-color);
     flex-direction: column;
-    margin: 100px auto;
-    justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 270px;
-    background-color: #ffffff;
-    border-radius: 5px;
+    justify-content: center;
+    width: 450px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
     order: 2;
 }
 
-
-.imagen-login-registro{
-  width: 579px;
-  height: 100%;
-  padding-left: 100px;
-  padding-top: 30px;
-  order: 1;
-}
-
 .input {
-    color: rgb(0, 0, 0);
-  background-color: #F5F5F5;
-  border: 5px solid #ffffff;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  border: 2px solid #fff;
   border-radius: 6px;
   padding: 12px 20px;
-  width: 360px;
-  height: 66px;
+  width: 70%;
   text-align: center;
   font-size: 12px;
   font-weight: 700;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, color 0.3s;
 }
 
 .input::placeholder{
-    color: #000000;
+    color: var(--dark-color);
     font-weight: 600;
-   
 }
+
 .input:hover{
-    background-color: #9673CE;
-    color: #000000;
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.boton-register {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  width: 70%;
+  text-transform: uppercase;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.boton-register:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.fechaNacimiento {
+  width: 60%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.departamento:hover, .fechaNacimiento:hover, .boton-register:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.departamento{
+  width: 60%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.imagen-registro{
+    order: 1;
+}
+
+.caja-register {
+    display: flex;
+    width: 100%;
+    margin: 35px auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imagen-login-registro{
+  margin-top: 100px;
+  width: 579px;
+  height: 100%;
+  order: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
