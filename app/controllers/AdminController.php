@@ -1,15 +1,28 @@
 
 <?php
-
 class AdminController
 {
+
     public function dashboard()
     {
-        require __DIR__ . '/../views/admin-dashboard.php';
+        $current_page = basename($_SERVER['REQUEST_URI']);
+        $tpl = new TemplateMotor("admin-dashboard");
+        $tpl->assing(["DASHBOARD_ACTIVE" => (strpos($current_page, 'dashboard') !== false) ? 'active' : '']);
+        $tpl->printToScreen();
     }
     public function news()
     {
-        require __DIR__ . '/../views/admin-news.php';
+        $current_page = basename($_SERVER['REQUEST_URI']);
+        $tpl = new TemplateMotor("admin-news");
+        $tpl->assing(["NEWS_ACTIVE" => (strpos($current_page, 'news') !== false) ? 'active' : '']);
+        $tpl->printToScreen();
+    }
+    public function employees()
+    {
+        $current_page = basename($_SERVER['REQUEST_URI']);
+        $tpl = new TemplateMotor("admin-employees");
+        $tpl->assing(["EMPLOYEES_ACTIVE" => (strpos($current_page, 'employees') !== false) ? 'active' : '']);
+        $tpl->printToScreen();
     }
 
 

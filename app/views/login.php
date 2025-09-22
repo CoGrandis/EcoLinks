@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/fonts/fontawesom/fawesome-all.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/login.css">
-    <link rel="icon" href="../../assets/img/logo/logo.png" type="image/x-icon">
-    <title>Echolinks</title>
-</head>
-
+@extends(head)
+<link rel="stylesheet" href="../../assets/css/login.css">
 <body>
     <header class="header-container">
         <section class="logo">

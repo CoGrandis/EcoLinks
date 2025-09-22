@@ -42,6 +42,7 @@ class Router{
         }
      }
     http_response_code(404);
+    var_dump($_SERVER['REQUEST_URI']);
     echo "404 - Página no encontrada";
     }
 }
