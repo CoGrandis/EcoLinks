@@ -5,7 +5,6 @@ class AuthController
 
     public function login()
     {
-        require __DIR__ . '/../views/login.php';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
@@ -23,10 +22,13 @@ class AuthController
                 }
             }
         }
+        $tpl = new TemplateMotor("login");
+        $tpl->printToScreen();
     }
     public function register()
     {
-        require __DIR__ . '/../views/register.php';
+        $tpl = new TemplateMotor("register");
+        $tpl->printToScreen();
     }
 
     public function logout()
