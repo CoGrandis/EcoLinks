@@ -1,12 +1,12 @@
 <?php
 /* Constantes para la conexion a la base de datos*/
 
-	define("DB_HOST", "localhost");
-	define("DB_USER", "u214138677_ecoadmin");
-	define("DB_PASS", "COnatiz@25Dra");
+	define('DB_HOST', 'localhost');
+	define("DB_USER", "root");
+	define("DB_PASS", "");
 	define("DB_NAME", "u214138677_eco");
 
-	define("APP_URL", "https://echolinks.escuelarobertoarlt.com/");
+	define("APP_URL", "http://localhost/");
 	define("APP_AUTHORS", "Fonseca - Grandis - Herrera - Yustiz");
 	define("APP_NAME", "Echolinks");
 	define("APP_DESCRIPTION", "");
