@@ -1,0 +1,15 @@
+{
+    "name": "constanza/eco-links",
+    "autoload": {
+        "psr-4": {
+            "Constanza\\EcoLinks\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "CoGrandis",
+            "email": "grandisconstanza@gmail.com"
+        }
+    ],
+    "require": {}
+}
