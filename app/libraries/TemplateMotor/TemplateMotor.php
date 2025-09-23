@@ -27,6 +27,7 @@
 			$this->assing(["APP_NAME" => APP_NAME]);
 			$this->assing(["APP_AUTHOR" => APP_AUTHORS]);
 			$this->assing(["APP_DESCRIPTION" => APP_DESCRIPTION]);
+			$this->assing(["APP_URL" => APP_URL]);
 
 		}
 
