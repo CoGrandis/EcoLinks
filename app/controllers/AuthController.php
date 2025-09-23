@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../model/User.php';
+require __DIR__ . '/../model/UserModel.php';
 class AuthController
 {
 
@@ -11,10 +11,10 @@ class AuthController
             $password = $_POST['password'];
             if ($username && $password) {
                 $userModel = new UserModel();
-                $user = $userModel->getUserByUsername($username);
+                $user = $userModel->getByUsername($username);
                 if ($user && password_verify($password, $user['hashedPassword'])) {
                     session_start();
-                    $_SESSION['username'] = $username;
+                    $_SESSION['user'] = $user;
                     header('Location: /admin/dashboard');
                     exit();
                 } else {

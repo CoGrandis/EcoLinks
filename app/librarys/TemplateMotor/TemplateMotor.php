@@ -24,6 +24,10 @@
 
 			$this->buffer_tpl = str_replace("@extends(head)", $buffer_extends, $this->buffer_tpl);
 
+				$buffer_extends = file_get_contents("app/views/extends/adminMenuExtends.php"); 
+
+			$this->buffer_tpl = str_replace("@extends(menu)", $buffer_extends, $this->buffer_tpl);
+
 			$this->assing(["APP_NAME" => APP_NAME]);
 			$this->assing(["APP_AUTHOR" => APP_AUTHORS]);
 			$this->assing(["APP_DESCRIPTION" => APP_DESCRIPTION]);

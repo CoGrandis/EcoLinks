@@ -27,9 +27,9 @@ class EmpleadoModel{
     }
 
     public function searchEmpleado($search){
-        $query = $this->conn->prepare("SELECT * FROM empleado WHERE Nombre LIKE %:search% OR Apellido LIKE %:search% ");
-        $query->bindParam(':search', $search);
-        $query->execute();
+        $query = $this->conn->prepare("SELECT * FROM empleado WHERE Nombre LIKE :search OR Apellido LIKE :search");
+        $searchParam = "%$search%";
+        $query->bindParam(':search', $searchParam);
         return $query->fetch(PDO::FETCH_ASSOC);
     }
 }   
