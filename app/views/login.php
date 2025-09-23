@@ -1,34 +1,46 @@
-@extends(head)
-<link rel="stylesheet" href="../../assets/css/login.css">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/fonts/fontawesom/fawesome-all.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="icon" href="../assets/img/logo/logo.png" type="image/x-icon">
+    <title>Ecolinks</title>
+</head>
+
 <body>
-    <header class="header-container">
-        <section class="logo">
-            <h1>EchoLinks</h1>
-        </section>
-        <nav class="navegacion">
-            <a href="/">Home</a>
-            <a href="/auth/login">Inicia Sesion</a>
-            <a href="/auth/register">Registrarse</a>
+  <div class="login-wrapper">
+    <!-- Panel de la izquierda con imagen -->
+    <div class="login-image">
+      <img src="../../assets/img/pattern.svg" alt="Login ilustración">
+    </div>
 
-        </nav>
-    </header>
-    <section class="login-container">
-        <div class="form-container">
-            <form class="form-login" method="POST" action="/auth/login">
-                <h1>Iniciar sesion</h1><br>
-                <input class="input" type="text" name="username" placeholder="Username" >
-                <input class="input" type="password" name="password" placeholder="Password" >
-                <input class="boton-login" type="submit" value="Login">
-                <br>
-                <p class="link-register">¿Todavia no te registraste? </p><a href="register.php">Registarte</a>
-            </form>
-            <div class="imagen-login-registro">
-                <img src="../../assets/img/logo/login.png" >
-            </div>
+    <!-- Panel de la derecha con formulario -->
+    <div class="login-form">
+      <h1 class="logo">EchoLinks</h1>
+      <h2>Iniciar Sesión</h2>
+        <p class="subtitle">Bienvenido de nuevo! Por favor ingresa tus datos.</p>
+
+      <form method="POST" action="procesar_login.php">
+        <div class="input-group">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" placeholder="ejemplo@email.com" required>
         </div>
-        
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-login">Ingresar</button>
+      </form>
 
-    </section>
+      <p class="extra-link">¿No tienes cuenta? <a href="register.php">Regístrate</a></p>
+    </div>
+  </div>
 </body>
-
 </html>
