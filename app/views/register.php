@@ -1,37 +1,41 @@
 @extends(head)
-<link rel="stylesheet" href="../../assets/css/register.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
 
 <body>
-    <header class="header-container">
-        <section class="logo">
-            <h1>EchoLinks</h1>
-        </section>
-        <nav class="navegacion">
-            <a href="/">Home</a>
-            <a href="/auth/login">Inicia Sesion</a>
-            <a href="/auth/register">Registrarse</a>
-        </nav>
-    </header>
-    <section class="login-container">
-        <div class="form-container">
+  <div class="login-wrapper">
+    <!-- Panel de la izquierda con imagen -->
+    <div class="login-image">
+      <img src="../../assets/img/pattern.svg" alt="Login ilustración">
+    </div>
 
-        <form class="formu-register" method="post">
-            <h1> Registrate</h1> <br>
-            <input class="input" type="text" name="id" placeholder="Nro Identificacion" required><br>
-            <input class="input" type="text" name="username" placeholder="Usuario" required><br>
-            <input class="input" type="email" name="email" placeholder="Email" required><br>
-            <input class="boton-register" type="submit" value="Register">
+    <!-- Panel de la derecha con formulario -->
+    <div class="login-form">
+      <h1 class="logo">EchoLinks</h1>
+      <h2>Registrarse</h2>
+        <p class="subtitle">Bienvenido de nuevo! Por favor ingresa tus datos.</p>
 
-        </form>
-        <div class="imagen-login-registro">
-                <img src="../../assets/img/logo/login.png" >
-            </div>
+      <form method="POST" action="">
+        <div class="input-group">
+          <label for="email">Credencial</label>
+          <input type="email" id="email" name="email" placeholder="2123" required>
         </div>
+        <div class="input-group">
+          <label for="email">Usuario</label>
+          <input type="email" id="email" name="email" placeholder="Usuario" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" placeholder="ejemplo@email.com" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-login">Ingresar</button>
+      </form>
 
-    </section>
-
-
-
+      <p class="extra-link">¿Ya tenes cuenta? <a href="{{ APP_URL }}auth/login">Iniciar Sesion</a></p>
+    </div>
+  </div>
 </body>
-
 </html>

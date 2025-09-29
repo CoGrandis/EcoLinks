@@ -1,0 +1,238 @@
+/* Variables globales */
+@import url('style.css');
+
+/* Reset rápido */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ---------------- HEADER ---------------- */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.nav-item{
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: var(--accent-color);
+}
+
+.menu {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Links en desktop */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-registrarse {
+  padding: 0.5rem 1rem;
+  background: var(--accent-color);
+  color: white !important;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.btn-registrarse:hover {
+  background: #5840d8; /* tono más oscuro */
+}
+
+/* ---------------- HERO ---------------- */
+.main-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 5%;
+  flex-wrap: wrap;
+}
+
+.main-text h1 {
+  font-size: 2.8rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+.main-text h4 {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+.main-img img {
+  width: 350px;
+  max-width: 100%;
+}
+
+/* ---------------- FUNCIONES ---------------- */
+.main-funciones {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 3rem 2rem 0 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.main-funciones h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.funciones-grid {
+  display: grid;
+  width:100%;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.funcion-card {
+  background: white;
+  color: var(--text-color);
+  border-radius: 14px;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+.funcion-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.funcion-card .card-header {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 0.8rem;
+}
+.funcion-card .card-info p {
+  font-weight: 600;
+}
+
+/* ---------------- OLAS ---------------- */
+.wave {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin-top: 2rem;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'><path fill='%23f4f4f4' fill-opacity='1' d='M0,160L40,149.3C80,139,160,117,240,128C320,139,400,181,480,202.7C560,224,640,224,720,213.3C800,203,880,181,960,186.7C1040,192,1120,224,1200,229.3C1280,235,1360,213,1400,202.7L1440,192L1440,320L0,320Z'></path></svg>");
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: waveMove 8s linear infinite;
+}
+
+@keyframes waveMove {
+  from { background-position-x: 0; }
+  to { background-position-x: 1440px; }
+}
+
+/* ---------------- TEAM ---------------- */
+.team-section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  flex-wrap: wrap;
+  background: var(--background-color);
+}
+
+.team-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 230px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform .2s ease-in-out;
+}
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-card .avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+
+.team-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+.team-card p {
+  font-size: 0.9rem;
+  color: #7B7B7B;
+}
+
+/* ---------------- FOOTER ---------------- */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--accent-color);
+  color: white;
+  margin-top: 2rem;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .main-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  .main-text h1 {
+    font-size: 2rem;
+  }
+  .main-img img {
+    margin-top: 2rem;
+    width: 250px;
+  }
+  .menu {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .nav-links.active {
+    display: flex; /* se muestra cuando tenga la clase active */
+  }
+}
