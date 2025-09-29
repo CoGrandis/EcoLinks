@@ -10,9 +10,13 @@
                 <h1>EchoLinks</h1>
             </section>
             <nav class="navegacion">
-                <a href="/">Home</a>
-                <a href="/auth/login">Iniciar Sesión</a>
-                <a href="/auth/register" class="btn-registrarse">Registrarse</a>
+                
+                <i class="fa-solid fa-bars nav-item menu"></i>
+                <div class="nav-links">
+                    <a class="nav-item" href="/">Home</a>
+                    <a class="nav-item" href="/auth/login">Iniciar Sesión</a>
+                    <a class="nav-item btn-registrarse"  href="/auth/register" >Registrarse</a>
+                </div>
             </nav>
         </header>
 
@@ -49,8 +53,6 @@
                         <div class="card-info"><p>Gestión Integral de RRHH</p></div>
                     </div>
                 </div>
-                <!-- Ola animada -->
-                <div class="wave"></div>
             </section>
 
             <!-- Cartas de presentación -->
@@ -58,26 +60,23 @@
                 <div class="team-card">
                     <div class="avatar"></div>
                     <h3>Nahir Fonseca</h3>
-                    <p>Coordinadora de RRHH</p>
                 </div>
                 <div class="team-card">
                     <div class="avatar"></div>
                     <h3>Alondra Herrera</h3>
-                    <p>Analista de Sistemas</p>
                 </div>
                 <div class="team-card">
                     <div class="avatar"></div>
                     <h3>Aroon Yustiz</h3>
-                    <p>Diseñador UX/UI</p>
                 </div>
                 <div class="team-card">
                     <div class="avatar"></div>
                     <h3>Constanza Granids</h3>
-                    <p>Desarrolladora Fullstack</p>
                 </div>
             </section>
         </main>
 
         <footer class="footer"></footer>
+        <script src="../../assets/js/menu.js"></script>
     </body>
 </html>

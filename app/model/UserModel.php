@@ -8,14 +8,14 @@ class UserModel{
         $this->conn = $database->getConnection();
     }
 
-    public function getUserByUsername($username){
+    public function getByUsername($username){
         $query = $this->conn->prepare("SELECT * FROM usuario WHERE Username = :username");
         $query->bindParam(':username', $username);
         $query->execute();
         return $query->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function createUser($username, $password) {
+    public function create($username, $password) {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         $query = $this->conn->prepare("INSERT INTO usuario (Username, hashedPassword) VALUES (:username, :password)");
         $query->bindParam(':username', $username );

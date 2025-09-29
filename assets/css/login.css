@@ -109,3 +109,9 @@ h2 {
   font-weight: 600;
   text-decoration: none;
 }
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .login-image {
+    display: none;
+  }
+}

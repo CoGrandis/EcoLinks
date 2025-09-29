@@ -34,15 +34,29 @@ body {
   color: var(--accent-color);
 }
 
-.navegacion a {
+.nav-item{
   margin-left: 1.5rem;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
   transition: color 0.3s ease;
 }
-.navegacion a:hover {
+
+.nav-item:hover {
   color: var(--accent-color);
+}
+
+.menu {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Links en desktop */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .btn-registrarse {
@@ -97,6 +111,7 @@ body {
 
 .funciones-grid {
   display: grid;
+  width:100%;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
@@ -202,5 +217,22 @@ body {
   .main-img img {
     margin-top: 2rem;
     width: 250px;
+  }
+  .menu {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .nav-links.active {
+    display: flex; /* se muestra cuando tenga la clase active */
   }
 }
