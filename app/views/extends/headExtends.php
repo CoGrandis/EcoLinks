@@ -7,6 +7,7 @@
     <link rel="icon" href="../../assets/img/logo/logo.svg" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../assets/fonts/fontawesom/fawesome-all.css">
+	<link rel="stylesheet" href="../../../assets/css/dashboard.css">
     <meta property="og:description" content="{{ APP_DESCRIPTION }}">
 
 
