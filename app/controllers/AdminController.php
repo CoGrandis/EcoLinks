@@ -17,14 +17,14 @@ class AdminController
         $tpl->assing(["NEWS_ACTIVE" => (strpos($current_page, 'news') !== false) ? 'active' : '']);
         $tpl->printToScreen();
     }
-    public function employee()
+
+        public function files()
     {
         $current_page = basename($_SERVER['REQUEST_URI']);
-        $tpl = new TemplateMotor("employee-form");
-        $tpl->assing(["EMPLOYEES_ACTIVE" => (strpos($current_page, 'employee') !== false) ? 'active' : '']);
+        $tpl = new TemplateMotor("admin-files");
+        $tpl->assing(["FILES_ACTIVE" => (strpos($current_page, 'files') !== false) ? 'active' : '']);
         $tpl->printToScreen();
     }
-
 
 }
 ?>

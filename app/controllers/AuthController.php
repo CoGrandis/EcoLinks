@@ -13,12 +13,9 @@ class AuthController
                 $userModel = new UserModel();
                 $user = $userModel->getByUsername($username);
                 if ($user && password_verify($password, $user['hashedPassword'])) {
-                    session_start();
                     $_SESSION['user'] = $user;
                     header('Location: /admin/dashboard');
                     exit();
-                } else {
-                    header('Location: /auth/login');
                 }
             }
         }
@@ -26,7 +23,25 @@ class AuthController
         $tpl->printToScreen();
     }
     public function register()
-    {
+    {   
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $form = [
+                "username" => $_POST['username'],
+                "password" => $_POST['password'],
+                "credential" => $_POST['credential'] // credencial del empleado
+            ];
+
+            $userModel = new UserModel();
+            $result = $userModel->create($form);
+             if (isset($result['success'])) {
+                header("Location: /auth/login");
+                exit;
+            } else {
+                header("Location: /auth/register");
+                exit;
+            }
+
+            }
         $tpl = new TemplateMotor("register");
         $tpl->printToScreen();
     }

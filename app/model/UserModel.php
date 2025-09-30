@@ -9,21 +9,47 @@ class UserModel{
     }
 
     public function getByUsername($username){
-        $query = $this->conn->prepare("SELECT * FROM usuario WHERE Username = :username");
+        $query = $this->conn->prepare("SELECT * FROM user WHERE Username = :username");
         $query->bindParam(':username', $username);
         $query->execute();
         return $query->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function create($username, $password) {
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $query = $this->conn->prepare("INSERT INTO usuario (Username, hashedPassword) VALUES (:username, :password)");
-        $query->bindParam(':username', $username );
-        $query->bindParam(':password', $hashedPassword);
-        return $query->execute();
-    }
+    public function create($form) {
+        // Verificar credencial
+        $query = $this->conn->prepare("SELECT * FROM employee WHERE ID_EMPLEADO = :id");
+        $query->bindParam(':id', $form['credential']);
+        $query->execute();
+        $empleado = $query->fetch(PDO::FETCH_ASSOC);
 
-}   
+        if (!$empleado) {
+            return ["error" => "Credencial inválida. El empleado no existe."];
+        }
+
+        // Asignar rol según departamento
+        $rol = ($empleado['FK_ID_DEPARTAMENTO'] == 1) ? 2 : 3;
+
+        // Hash de la contraseña
+        $hashedPassword = password_hash($form['password'], PASSWORD_BCRYPT);
+
+        // Insert usuario
+        $query = $this->conn->prepare("
+            INSERT INTO user (Username, hashedPassword, FK_ID_ROL, FK_ID_EMPLEADO) 
+            VALUES (:username, :password, :rol, :empleadoId)
+        ");
+        $query->bindParam(':username', $form['username']);
+        $query->bindParam(':password', $hashedPassword);
+        $query->bindParam(':rol', $rol);
+        $query->bindParam(':empleadoId', $empleado['ID_EMPLEADO']);
+
+        if ($query->execute()) {
+            return $this->conn->lastInsertId(); // Devuelve el id del usuario creado
+        }
+
+        return ["error" => "No se pudo registrar el usuario."];
+    }
+}
+
 
 
 ?>

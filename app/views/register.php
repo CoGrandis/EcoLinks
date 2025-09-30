@@ -16,16 +16,12 @@
 
       <form method="POST" action="">
         <div class="input-group">
-          <label for="email">Credencial</label>
-          <input type="email" id="email" name="email" placeholder="2123" required>
+          <label for="credential">Credencial</label>
+          <input type="credential" id="credential" name="credential" placeholder="2123" required>
         </div>
         <div class="input-group">
-          <label for="email">Usuario</label>
-          <input type="email" id="email" name="email" placeholder="Usuario" required>
-        </div>
-        <div class="input-group">
-          <label for="email">Correo</label>
-          <input type="email" id="email" name="email" placeholder="ejemplo@email.com" required>
+          <label for="username">Usuario</label>
+          <input type="username" id="username" name="username" placeholder="Usuario" required>
         </div>
         <div class="input-group">
           <label for="password">Contraseña</label>
