@@ -6,6 +6,7 @@
 */
 require_once __DIR__ . '/../../config/connection.php';
 class EmpleadoModel{
+    
     private $conn; 
 
     public function __construct() {
@@ -14,23 +15,66 @@ class EmpleadoModel{
     }
 
     public function getAllEmpleados(){
-        $query = $this->conn->prepare("SELECT * FROM empleado");
+        $query = $this->conn->prepare("SELECT * FROM employee");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getEmpleadosById($id){
-        $query = $this->conn->prepare("SELECT * FROM empleado WHERE ID_EMPLEADO = :id");
+        $query = $this->conn->prepare("SELECT * FROM employee WHERE ID_EMPLEADO = :id");
         $query->bindParam(':id', $id);
         $query->execute();
         return $query->fetch(PDO::FETCH_ASSOC);
     }
 
     public function searchEmpleado($search){
-        $query = $this->conn->prepare("SELECT * FROM empleado WHERE Nombre LIKE :search OR Apellido LIKE :search");
+        $query = $this->conn->prepare("SELECT * FROM employee WHERE Nombre LIKE :search OR Apellido LIKE :search");
         $searchParam = "%$search%";
         $query->bindParam(':search', $searchParam);
         return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function register($form){
+        $query = $this->conn->prepare("INSERT INTO `employee`(`Nombre`, `Apellido`, `Email`, `FechaNacimiento`, `Direccion`, `FechaContratacion`, `FK_ID_DEPARTAMENTO`,`FK_ID_PUESTO`) VALUES (:name, :surname, :email, :dateBirth, :address, :hiringDate, :department, :position)");
+        $query->bindParam(':name', $form['name'] );
+        $query->bindParam(':surname', $form['surname'] );
+        $query->bindParam(':email', $form['email'] );
+        $query->bindParam(':dateBirth', $form['dateBirth'] );
+        $query->bindParam(':address', $form['address'] );
+        $query->bindParam(':hiringDate', $form['hiringDate'] );
+        $query->bindParam(':department', $form['department'] );
+        $query->bindParam(':position', $form['position'] );
+        
+        return $query->execute();
+    }
+
+        public function update($form) {
+        $query = $this->conn->prepare("
+            UPDATE employee SET 
+                Nombre = :name, 
+                Apellido = :surname, 
+                Email = :email, 
+                FechaNacimiento = :dateBirth, 
+                Direccion = :address, 
+                FechaContratacion = :hiringDate, 
+                Estado = :estado, 
+                FK_ID_DEPARTAMENTO = :department, 
+                FK_ID_PUESTO = :position 
+            WHERE ID_EMPLEADO = :id
+        ");
+
+        $query->bindParam(':id', $form['id'], PDO::PARAM_INT);
+        $query->bindParam(':name', $form['name']);
+        $query->bindParam(':surname', $form['surname']);
+        $query->bindParam(':email', $form['email']);
+        $query->bindParam(':dateBirth', $form['dateBirth']);
+        $query->bindParam(':address', $form['address']);
+        $query->bindParam(':hiringDate', $form['hiringDate']);
+        $query->bindParam(':estado', $form['estado']);
+        $query->bindParam(':department', $form['department']);
+        $query->bindParam(':position', $form['position']);
+
+        return $query->execute();
     }
 }   
 

@@ -99,7 +99,7 @@ body {
 .main-funciones {
   background-color: var(--secondary-color);
   color: white;
-  padding: 3rem 2rem 0 2rem;
+  padding: 3rem ;
   text-align: center;
   position: relative;
   padding-bottom: 30px;
@@ -107,6 +107,7 @@ body {
 
 .main-funciones h2 {
   font-size: 1.8rem;
+
   font-weight: 700;
 }
 

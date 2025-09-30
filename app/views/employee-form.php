@@ -4,7 +4,7 @@
 <body>
     <section class="admin-dashboard">
         @extends(menu)
-
+  
         <main class="main-dashboard"> 
             <h1 class="form-title">Registra un empleado</h1>
 
