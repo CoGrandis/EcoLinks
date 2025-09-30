@@ -1,5 +1,5 @@
 @extends(head)
-<link rel="stylesheet" href="assets/css/formu.css">
+<link rel="stylesheet" href="../../assets/css/formu.css">
 
 <body>
     <section class="admin-dashboard">

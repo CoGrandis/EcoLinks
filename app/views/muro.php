@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muro | EchoLink</title>
-    <link rel="stylesheet" href="assets/css/muro.css">
+    <link rel="stylesheet" href="../../assets/css/muro.css">
 </head>
 <body>
+    <section class="admin-dashboard">
     @extends(menu)
 
+      <main class="main-dashboard"> 
     <main class="muro-container">
         <!-- Caja para crear post -->
         <section class="post-box">
@@ -42,5 +44,7 @@
 
         <!-- Más posts debajo -->
     </main>
+   </main>
+</section>
 </body>
 </html>

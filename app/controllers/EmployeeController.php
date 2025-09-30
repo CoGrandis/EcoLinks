@@ -37,6 +37,7 @@ class EmployeeController {
     }
 
     public function list() {
+        $current_page = basename($_SERVER['REQUEST_URI']);
         $tpl = new TemplateMotor("employee-list");
         $tpl->assing([
             "EMPLOYEES_ACTIVE" => (strpos($current_page, 'employee') !== false) ? 'active' : '',

@@ -16,6 +16,7 @@ $router->get('/', ['HomeController', 'index']);
 
 /* ADMIN ROUTES */
     $router->get('/admin/dashboard', ['AdminController','dashboard'])->only([1]);
+    $router->get('/admin/profile', ['AdminController','profile'])->only([1]);
     $router->get('/admin/news', ['AdminController', 'news'])->only([1]);
     $router->get('/admin/files', ['AdminController', 'files'])->only([1]);
     $router->get('/admin/employee/register', ['EmployeeController', 'register'])->only([1]);

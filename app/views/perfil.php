@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil | EchoLink</title>
-    <link rel="stylesheet" href="assets/css/perfil.css">
+    <link rel="stylesheet" href="../../assets/css/perfil.css">
 </head>
 <body>
+    <section  class="admin-dashboard">
+     
     @extends(menu)
 
-    <main class="perfil-container">
+
+      <main class="main-dashboard"> 
         <!-- Cabecera perfil -->
         <section class="perfil-header">
             <div class="perfil-img"></div>
             <div class="perfil-info">
-                <h1 class="perfil-nombre">Don fulano de tal</h1>
-                <h2 class="perfil-puesto">gerente de rrhh</h2>
+                <h1 class="perfil-nombre">John Doe</h1>
+                <h2 class="perfil-puesto">Administrador</h2>
                 <a href="#" class="perfil-link">Insertar link de LinkedIn</a>
             </div>
         </section>
@@ -41,5 +44,7 @@
             </aside>
         </section>
     </main>
+    </section>
+
 </body>
 </html>
