@@ -4,7 +4,7 @@
         @extends(menu)
     </aside>
     <main class="main-dashboard"> 
-            <h1>Gestiòn de Empleados</h1>
+            <h1>Bienvenido al Panel de Administración</h1>
     </main>
     </section>
     
