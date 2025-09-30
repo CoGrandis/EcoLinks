@@ -99,15 +99,15 @@ body {
 .main-funciones {
   background-color: var(--secondary-color);
   color: white;
-  padding: 3rem ;
+  padding: 3rem 2rem 0 2rem;
   text-align: center;
   position: relative;
-  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-funciones h2 {
   font-size: 1.8rem;
-
   font-weight: 700;
 }
 
@@ -115,8 +115,8 @@ body {
   display: grid;
   width:100%;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  margin: 2rem;
 }
 
 .funcion-card {
