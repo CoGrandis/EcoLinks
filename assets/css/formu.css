@@ -1,21 +1,9 @@
 @import url('style.css');
 
-body {
-    font-family: var(--font-family);
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-}
-
-.main-dashboard {
-    margin-left: 220px; 
-    padding: 30px;
-}
-
 .form-title {
     font-size: 24px;
     color: var(--text-color);
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 /* Formulario */
@@ -28,6 +16,7 @@ body {
     border-radius: 12px;
     border: 1px solid var(--primary-color);
     box-shadow: 0 2px 6px rgba(0,0,0,.05);
+    margin:20px;
 }
 
 /* Inputs */

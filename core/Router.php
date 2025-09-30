@@ -52,7 +52,6 @@ class Router {
 
                 // 🔐 Validación de roles
                 if (!empty($route['roles'])) {
-                    session_start();
                     if (!isset($_SESSION['user'])) {
                         header("Location: /");
                         exit;
