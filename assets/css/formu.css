@@ -1,0 +1,81 @@
+@import url('style.css');
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.main-dashboard {
+    margin-left: 220px; 
+    padding: 30px;
+}
+
+.form-title {
+    font-size: 24px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+.employee-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* dos columnas */
+    gap: 20px 30px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+
+/* Inputs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--dark-color);
+}
+
+.employee-form input,
+.employee-form select {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.employee-form input:focus,
+.employee-form select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 4px var(--accent-color);
+}
+
+/* Botón */
+.form-actions {
+    grid-column: span 2; /* ocupa todo el ancho */
+    text-align: right;
+}
+
+.submit-btn {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: var(--dark-color);
+}

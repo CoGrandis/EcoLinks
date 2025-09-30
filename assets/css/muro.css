@@ -1,0 +1,128 @@
+
+@import url('style.css');
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.muro-container {
+    margin-left: 220px; /* deja espacio para el menú lateral */
+    padding: 20px;
+}
+
+/* Caja para crear un post */
+.post-box {
+    background: #fff;
+    border: 1px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.05);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: var(--text-color);
+    background: transparent;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.icon-btn {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--dark-color);
+}
+
+.submit-btn {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: var(--dark-color);
+}
+
+/* Post card */
+.post-card {
+    background: #fff;
+    border: 1px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.05);
+}
+
+.post-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.username {
+    font-weight: bold;
+    margin-left: 10px;
+    color: var(--text-color);
+    flex: 1;
+}
+
+.date {
+    font-size: 12px;
+    color: var(--secondary-color);
+}
+
+.post-content {
+    margin: 15px 0;
+    color: var(--text-color);
+}
+
+.post-footer {
+    display: flex;
+    gap: 10px;
+}
+
+.post-footer button {
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.post-footer button:hover {
+    background: var(--dark-color);
+}

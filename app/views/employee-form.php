@@ -1,21 +1,68 @@
 @extends(head)
+<link rel="stylesheet" href="assets/css/formu.css">
+
 <body>
     <section class="admin-dashboard">
         @extends(menu)
-    <main class="main-dashboard"> 
-        <h1>Registra un empleado</h1>
-        <form method="POST" action="">
-            <input type="text" name="name">
-            <input type="text" name="surname">
-            <input type="text" name="email">
-            <input type="date" name="birthday">
-            <input type="text" name="address">
-            <input type="date" name="hiringDate">
-            <select name="department" id=""></select>
-            <select name="position" id=""></select>
-            <input type="submit">
-        </form>
-    </main>
+  
+        <main class="main-dashboard"> 
+            <h1 class="form-title">Registra un empleado</h1>
+
+            <form action="" method="POST" class="employee-form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="surname">Apellido</label>
+                    <input type="text" id="surname" name="surname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthday">Fecha de nacimiento</label>
+                    <input type="date" id="birthday" name="birthday" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Dirección</label>
+                    <input type="text" id="address" name="address">
+                </div>
+
+                <div class="form-group">
+                    <label for="hiringDate">Fecha de contratación</label>
+                    <input type="date" id="hiringDate" name="hiringDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Departamento</label>
+                    <select id="department" name="department" required>
+                        <option value="" disabled selected>Seleccione...</option>
+                        <option value="rh">Recursos Humanos</option>
+                        <option value="it">IT</option>
+                        <option value="ventas">Ventas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Puesto</label>
+                    <select id="position" name="position" required>
+                        <option value="" disabled selected>Seleccione...</option>
+                        <option value="junior">Junior</option>
+                        <option value="senior">Senior</option>
+                        <option value="manager">Manager</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <input type="submit" value="Registrar" class="submit-btn">
+                </div>
+            </form>
+        </main>
     </section>
-    
 </body>

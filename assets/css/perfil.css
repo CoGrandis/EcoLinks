@@ -1,0 +1,103 @@
+@import url('style.css');
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.perfil-container {
+    margin-left: 220px; 
+    padding: 30px;
+}
+
+/* Header */
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.perfil-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    background-size: cover;
+    background-position: center;
+}
+
+.perfil-info h1 {
+    font-size: 28px;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.perfil-info h2 {
+    font-size: 18px;
+    color: var(--dark-color);
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.perfil-link {
+    font-size: 14px;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.perfil-link:hover {
+    text-decoration: underline;
+}
+
+.perfil-divider {
+    border: none;
+    border-top: 1px solid var(--primary-color);
+    margin: 20px 0;
+}
+
+/* Cuerpo perfil */
+.perfil-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+/* Trayectoria */
+.perfil-trayectoria h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.perfil-trayectoria p {
+    font-size: 14px;
+    color: var(--text-color);
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Sidebar botones */
+.perfil-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.perfil-btn {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.perfil-btn:hover {
+    background: var(--dark-color);
+}
