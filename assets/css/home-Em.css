@@ -1,0 +1,227 @@
+@import url('style.css');
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
+.home-main {
+    margin-left: 220px; /* espacio para el menú lateral */
+    padding: 40px;
+    transition: margin-left 0.3s ease;
+}
+
+/* Encabezado */
+.home-header h1 {
+    font-size: 28px;
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.home-header span {
+    color: var(--accent-color);
+}
+
+.home-header p {
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-top: 6px;
+}
+
+/* Contenedor principal */
+.home-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* Tarjetas */
+.home-card, .home-sidebar div {
+    background-color: var(--primary-color);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Tarjeta de estadísticas */
+.stats-card h2 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.chart-placeholder {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    height: 180px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-placeholder img {
+    width: 80%;
+    opacity: 0.9;
+}
+
+.home-link {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+.home-link:hover {
+    text-decoration: underline;
+}
+
+/* Lateral */
+.home-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.date-card, .pending-card {
+    background: var(--secondary-color);
+    border-radius: 16px;
+    text-align: center;
+    padding: 15px;
+}
+
+.date-card p {
+    color: var(--text-color);
+    margin: 0 0 8px 0;
+    font-weight: 500;
+}
+
+.date-box {
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 12px;
+    padding: 10px 0;
+}
+
+.date-box .day {
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.date-box .month {
+    display: block;
+    font-size: 14px;
+    text-transform: lowercase;
+}
+
+.pending-card p {
+    margin: 4px 0;
+    color: var(--text-color);
+}
+
+.no-pending {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.side-link {
+    align-self: flex-end;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    text-align: right;
+}
+.side-link:hover {
+    text-decoration: underline;
+}
+
+/* -------------------- */
+/* 📱 RESPONSIVE DESIGN */
+/* -------------------- */
+
+/* Tablets (max 1024px) */
+@media (max-width: 1024px) {
+    .home-main {
+        margin-left: 180px;
+        padding: 25px;
+    }
+
+    .home-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .home-header h1 {
+        font-size: 24px;
+    }
+
+    .chart-placeholder {
+        height: 160px;
+    }
+}
+
+/* Móviles grandes (max 768px) */
+@media (max-width: 768px) {
+    .home-main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .home-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-card, .home-sidebar div {
+        padding: 15px;
+    }
+
+    .home-header h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .home-header p {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .chart-placeholder img {
+        width: 100%;
+    }
+
+    .side-link, .home-link {
+        text-align: center;
+        font-size: 13px;
+    }
+}
+
+/* Móviles pequeños (max 480px) */
+@media (max-width: 480px) {
+    .home-main {
+        padding: 15px;
+    }
+
+    .home-header h1 {
+        font-size: 20px;
+    }
+
+    .date-box .day {
+        font-size: 22px;
+    }
+
+    .date-box .month {
+        font-size: 12px;
+    }
+
+    .chart-placeholder {
+        height: 140px;
+    }
+}
