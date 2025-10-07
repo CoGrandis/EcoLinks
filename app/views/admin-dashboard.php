@@ -1,13 +1,16 @@
 @extends(head)
 <link rel="stylesheet" href="../../assets/css/home-Em.css">
-<section class="dashboard">
-    @extends(menu)
-
-    <main class="home-main">
-        <section class="home-header">
-            <h1>Bienvenido de nuevo <span>{usuario}</span>!</h1>
-            <p>¿Qué vamos a hacer hoy?</p>
-        </section>
+<body>
+    <section class="admin-dashboard">
+        @extends(menu)
+  
+      <main class="main-dashboard"> 
+            
+        <main class="home-main">
+          <section class="home-header">
+              <h1>Bienvenido de nuevo <span>{usuario}</span>!</h1>
+              <p>¿Qué vamos a hacer hoy?</p>
+          </section>
 
         <section class="home-content">
             <!-- Panel de estadísticas -->
@@ -37,9 +40,9 @@
                 <a href="#" class="home-link side-link">ver más ></a>
             </aside>
         </section>
-    </main>
-</section>
-
+        </main>
+    </section>
+</body>
 <!-- Script para mostrar el día actual -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
