@@ -41,21 +41,17 @@
 
                 <div class="form-group">
                     <label for="department">Departamento</label>
-                    <select id="department" name="department" required>
+                    <select id="department" name="department" >
                         <option value="" disabled selected>Seleccione...</option>
-                        <option value="rh">Recursos Humanos</option>
-                        <option value="it">IT</option>
-                        <option value="ventas">Ventas</option>
+                        {{ DEPARTMENT_OPTIONS }}
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="position">Puesto</label>
-                    <select id="position" name="position" required>
+                    <select id="position" name="position" >
                         <option value="" disabled selected>Seleccione...</option>
-                        <option value="junior">Junior</option>
-                        <option value="senior">Senior</option>
-                        <option value="manager">Manager</option>
+                        {{ POSITION_OPTIONS }}
                     </select>
                 </div>
 

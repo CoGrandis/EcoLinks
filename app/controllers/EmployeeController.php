@@ -1,11 +1,16 @@
 <?php
 require __DIR__ . '/../model/EmpleadoModel.php';
-    
+require __DIR__ . '/../model/PositionModel.php';
+require __DIR__ . '/../model/DepartmentModel.php';
 class EmployeeController {
     private $empleadoModel;
+    private $positionModel;
+    private $departmentModel;
 
     public function __construct() {
         $this->empleadoModel = new EmpleadoModel();
+        $this->positionModel = new PositionModel();
+        $this->departmentModel = new DepartmentModel();
     }
 
     public function register() {
@@ -24,7 +29,7 @@ class EmployeeController {
             $insertedId = $this->empleadoModel->register($form);
 
             if ($insertedId) {
-                header("Location: /admin/employee");
+                header("Location: /admin/employee/register");
                 exit;
             } else {
                 echo "Error al registrar el empleado.";
@@ -32,7 +37,26 @@ class EmployeeController {
         }
         $current_page = basename($_SERVER['REQUEST_URI']);
         $tpl = new TemplateMotor("employee-form");
-        $tpl->assing(["EMPLOYEES_ACTIVE" => (strpos($current_page, 'employee') !== false) ? 'active' : '']);
+        // Obtener puestos para el select
+        $positions = $this->positionModel->getAll();
+        $optionsHTML = "";
+        foreach ($positions as $pos) {
+            $optionsHTML .= "<option value='{$pos['ID_PUESTO']}'>{$pos['puesto']}</option>";
+        }
+
+        //Obterner departamentos para el select
+        $departments = $this->departmentModel->getAll();
+        $optionsDepartmentHTML = "";
+        foreach ($departments as $dept) {
+            $optionsDepartmentHTML .= "<option value='{$dept['ID_DEPARTAMENTO']}'>{$dept['departamento']}</option>";
+        }
+
+        
+        $tpl->assing(["EMPLOYEES_ACTIVE" => (strpos($current_page, 'register') !== false) ? 'active' : '' ]);
+        $tpl->assing([
+            "POSITION_OPTIONS" => $optionsHTML,
+            "DEPARTMENT_OPTIONS" => $optionsDepartmentHTML
+        ]);
         $tpl->printToScreen();
     }
 

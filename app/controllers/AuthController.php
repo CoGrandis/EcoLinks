@@ -14,7 +14,7 @@ class AuthController
                 $user = $userModel->getByUsername($username);
                 if ($user && password_verify($password, $user['hashedPassword'])) {
                     $_SESSION['user'] = $user;
-                    header('Location: /admin/dashboard');
+                    header('Location: /admin/profile');
                     exit();
                 }
             }
