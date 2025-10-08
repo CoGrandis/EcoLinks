@@ -66,12 +66,20 @@ class EmployeeController {
 
         $objectHTML = "";
         foreach ($employees as $emp) {
-            $objectHTML .= "<tr
+            $objectHTML .= "
+            <tr>
                 <td>{$emp['ID_EMPLEADO']}</td>
                 <td>{$emp['Nombre']}</td>
                 <td>{$emp['Apellido']}</td>
                 <td>{$emp['Email']}</td>
-            </tr>";
+                <td>{$emp['FK_ID_DEPARTAMENTO']}</td>
+                <td>{$emp['FK_ID_PUESTO']}</td>
+                <td>
+                    <a href='/admin/employee/profile/{$emp['ID_EMPLEADO']}'>Ver perfil</a>
+                    <a href='/admin/employee/delete/{$emp['ID_EMPLEADO']}' onclick=\"return confirm('¿Estás seguro de que deseas eliminar este empleado?');\">Eliminar</a>
+                </td>
+            </tr>
+        ";
         }
         $tpl = new TemplateMotor("employee-list");
         $tpl->assing([
@@ -80,5 +88,33 @@ class EmployeeController {
         ]);
         $tpl->printToScreen();
     }
-}
+
+    public function profile($id){
+        $empleadoModel = new EmpleadoModel();
+        $empleado = $empleadoModel->getEmpleadosById($id);
+
+        // Cargar plantilla con datos
+        $tpl = new TemplateMotor("perfil");
+        $tpl->assing([
+            "EMPLOYEE_NAME" => $empleado['Nombre'] . " " . $empleado['Apellido'],
+            "EMPLOYEE_POSITION" => $empleado['Puesto'] ?? 'Sin asignar',
+            "EMPLOYEE_DEPARTMENT" => $empleado['Departamento'] ?? 'No asignado',
+            "EMPLOYEE_HIRING_DATE" => $empleado['FechaContratacion']?? '',
+            "EMPLOYEE_BIRTH_DATE" => $empleado['FechaNacimiento']?? '',
+            "EMPLOYEE_EMAIL" => $empleado['Email']?? '',
+            "EMPLOYEE_ADDRESS" => $empleado['Direccion']?? '',
+            "EMPLOYEE_STATUS" => $empleado['Estado'] ?? 'Activo'
+        ]);
+
+        $tpl->printToScreen();
+    }
+
+    public function delete($id) {
+        // Lógica para eliminar un empleado
+        $empleadoModel = new EmpleadoModel();
+        $empleadoModel->delete($id);
+        header("Location: /admin/employee");
+        exit;
+    }   
+}   
 ?>
