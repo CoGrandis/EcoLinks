@@ -1,0 +1,123 @@
+@import url('style.css');
+
+/* Estructura general */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 80px;
+}
+
+/* Contenedor de texto */
+#error {
+    max-width: 500px;
+    text-align: left;
+}
+
+#error h1 {
+    font-size: 100px;
+    color: var(--accent-color);
+    margin: 0;
+}
+
+#error h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-transform: capitalize;
+    color: var(--dark-color);
+}
+
+#error p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+#error a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--accent-color);
+    border: 1.8px solid var(--accent-color);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    background-color: transparent;
+}
+
+#error a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* Imagen */
+body img {
+    width: 550px;
+    max-width: 100%;
+}
+/* --- OLA ANIMADA --- */
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 280px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg"><path d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z" fill="%2390B3BF"/></svg>');
+    background-size: 50% 100%;
+    animation: wave 7s linear infinite;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.wave:nth-child(3) {
+    animation-delay: -3s;
+    opacity: 0.4;
+}
+
+/* Animación */
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 40px;
+    }
+
+    body img {
+        display: none;
+    }
+
+    #error {
+        max-width: 100%;
+    }
+
+    #error h1 {
+        font-size: 80px;
+    }
+
+    #error h2 {
+        font-size: 20px;
+    }
+     .wave {
+        height: 120px;
+    }
+}
