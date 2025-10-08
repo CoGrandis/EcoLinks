@@ -1,7 +1,14 @@
 
 <?php
+    require __DIR__ . '/../model/PostModel.php';
+
 class AdminController
 {
+    private $postModel;
+
+    public function __construct() {
+        $this->postModel = new PostModel();
+    }
 
     public function dashboard()
     {
@@ -13,6 +20,7 @@ class AdminController
     public function news()
     {
         $current_page = basename($_SERVER['REQUEST_URI']);
+        $posts = $this->postModel->get();
         $tpl = new TemplateMotor("muro");
         $tpl->assing(["NEWS_ACTIVE" => (strpos($current_page, 'news') !== false) ? 'active' : '']);
         $tpl->printToScreen();

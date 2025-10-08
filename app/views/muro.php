@@ -21,7 +21,17 @@
             </div>
             <div class="post-actions">
                 <button class="icon-btn"><i class="bi bi-calendar"></i></button>
-                <button class="icon-btn"><i class="bi bi-paperclip"></i></button>
+                <button type="button" class="icon-btn" onclick="document.getElementById('fileInput').click()">
+                <i class="fa-solid fa-paperclip"></i>
+                </button>
+
+                <input 
+                type="file" 
+                id="fileInput" 
+                name="files[]" 
+                multiple 
+                hidden
+    >
                 <button class="submit-btn">Subir</button>
             </div>
         </section>

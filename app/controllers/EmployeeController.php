@@ -62,9 +62,21 @@ class EmployeeController {
 
     public function list() {
         $current_page = basename($_SERVER['REQUEST_URI']);
+        $employees = $this->empleadoModel->getAllEmpleados();
+
+        $objectHTML = "";
+        foreach ($employees as $emp) {
+            $objectHTML .= "<tr
+                <td>{$emp['ID_EMPLEADO']}</td>
+                <td>{$emp['Nombre']}</td>
+                <td>{$emp['Apellido']}</td>
+                <td>{$emp['Email']}</td>
+            </tr>";
+        }
         $tpl = new TemplateMotor("employee-list");
         $tpl->assing([
             "EMPLOYEES_ACTIVE" => (strpos($current_page, 'employee') !== false) ? 'active' : '',
+            "EMPLOYEE_LIST" => $objectHTML
         ]);
         $tpl->printToScreen();
     }
