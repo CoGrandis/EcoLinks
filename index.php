@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include '.env.php';
 include 'core/Router.php';
 include 'app/librarys/TemplateMotor/TemplateMotor.php';
@@ -22,7 +24,10 @@ $router->get('/', ['HomeController', 'index']);
     $router->get('/admin/employee/register', ['EmployeeController', 'register'])->only([1]);
     $router->post('/admin/employee/register', ['EmployeeController', 'register'])->only([1]);
     $router->get('/admin/employee', ['EmployeeController', 'list'])->only([1]);
+    $router->get('/admin/employee/profile/{id}', ['EmployeeController', 'profile'])->only([1]);
+    $router->get('/admin/employee/delete/{id}', ['EmployeeController', 'delete'])->only([1]);
 
 
 $router->resolve();
+
 ?>

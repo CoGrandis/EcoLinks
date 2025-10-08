@@ -1,9 +1,6 @@
 @extends(head)
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="../../assets/css/perfil.css">
-</head>
+    <link rel="stylesheet" href="../../../assets/css/perfil.css">
+
 <body>
     <section  class="admin-dashboard">
      
