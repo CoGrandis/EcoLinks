@@ -1,16 +1,14 @@
 @extends(head)
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil | EchoLink</title>
-    <link rel="stylesheet" href="../../assets/css/perfil.css">
-</head>
+    <link rel="stylesheet" href="../../../assets/css/perfil.css">
+
 <body>
     <section  class="admin-dashboard">
      
-    @extends(menu)
+    <?php if ($_SESSION['user']['FK_ID_ROL'] === 3) : ?>
+        @extends(menuEmployee)
+    <?php else: ?>
+        @extends(menu)
+    <?php endif; ?>
 
 
       <main class="main-dashboard"> 
@@ -18,9 +16,8 @@
         <section class="perfil-header">
             <div class="perfil-img"></div>
             <div class="perfil-info">
-                <h1 class="perfil-nombre">John Doe</h1>
-                <h2 class="perfil-puesto">Administrador</h2>
-                <a href="#" class="perfil-link">Insertar link de LinkedIn</a>
+                <h1 class="perfil-nombre">{{ EMPLOYEE_NAME }}</h1>
+                <h2 class="perfil-puesto">{{ EMPLOYEE_POSITION }}</h2>
             </div>
         </section>
 
@@ -31,8 +28,7 @@
             <div class="perfil-trayectoria">
                 <h3>Trayectoria</h3>
                 <p>
-                    Aquí va la descripción profesional del usuario, con su experiencia, logros y demás detalles.
-                    Este bloque debe mostrar un texto más largo sobre su perfil laboral.
+                    {{ EMPLOYEE_HIRING_DATE }} - Fecha de contratación<br>
                 </p>
             </div>
 

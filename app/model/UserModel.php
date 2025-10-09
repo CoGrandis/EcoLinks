@@ -43,10 +43,9 @@ class UserModel{
         $query->bindParam(':empleadoId', $empleado['ID_EMPLEADO']);
 
         if ($query->execute()) {
-            return $this->conn->lastInsertId(); // Devuelve el id del usuario creado
+            return $query->execute();
         }
 
-        return ["error" => "No se pudo registrar el usuario."];
     }
 }
 
