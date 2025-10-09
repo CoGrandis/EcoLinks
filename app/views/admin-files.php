@@ -4,7 +4,6 @@
         @extends(menu)
     </aside>
     <main class="main-dashboard"> 
-            <h1>Gestiòn de Empleados</h1>
     </main>
     </section>
     
