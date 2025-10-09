@@ -14,6 +14,11 @@ class AuthController
                 $user = $userModel->getByUsername($username);
                 if ($user && password_verify($password, $user['hashedPassword'])) {
                     $_SESSION['user'] = $user;
+
+                    if ($user['FK_ID_ROL'] == 3) {
+                        header('Location: /news');
+                        exit();
+                    }
                     header('Location: /admin/dashboard');
                     exit();
                 }

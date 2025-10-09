@@ -8,6 +8,7 @@
 .main-dashboard{
   flex:5;
   height: 100vh;
+  overflow:scroll;
 }
 .admin-menu{
   flex:1;

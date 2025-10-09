@@ -4,8 +4,6 @@
         @extends(menu)
         
         <main class="main-dashboard"> 
-            <h1>Lista de empleados</h1>
-
             <section class="employee-list">
                 <table>
                     <thead>

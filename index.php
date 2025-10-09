@@ -19,14 +19,21 @@ $router->get('/', ['HomeController', 'index']);
 /* ADMIN ROUTES */
     $router->get('/admin/dashboard', ['AdminController','dashboard'])->only([1]);
     $router->get('/admin/profile/{id}', ['EmployeeController','profile'])->only([1]);
-    $router->get('/admin/news', ['AdminController', 'news'])->only([1]);
+    $router->get('/admin/news', ['PostController', 'muro'])->only([1]);
+    $router->post('/admin/news', ['PostController', 'muro'])->only([1]);
     $router->get('/admin/files', ['AdminController', 'files'])->only([1]);
     $router->get('/admin/employee/register', ['EmployeeController', 'register'])->only([1]);
     $router->post('/admin/employee/register', ['EmployeeController', 'register'])->only([1]);
     $router->get('/admin/employee', ['EmployeeController', 'list'])->only([1]);
     $router->get('/admin/employee/profile/{id}', ['EmployeeController', 'profile'])->only([1]);
     $router->get('/admin/employee/delete/{id}', ['EmployeeController', 'delete'])->only([1]);
+    
 
+/* EMPLOYEE ROUTES */
+    $router->get('/profile/{id}', ['EmployeeController','profile']);
+    $router->get('/news', ['PostController', 'muro']);
+    $router->post('/news', ['PostController', 'muro']);
+    $router->get('/files', ['EmployeeController', 'files']);
     $router->resolve();
 
 ?>
