@@ -9,7 +9,7 @@ class UserModel{
     }
 
     public function getByUsername($username){
-        $query = $this->conn->prepare("SELECT * FROM user WHERE Username = :username");
+        $query = $this->conn->prepare("SELECT * FROM usuario WHERE usuario = :usuario");
         $query->bindParam(':username', $username);
         $query->execute();
         return $query->fetch(PDO::FETCH_ASSOC);
@@ -17,7 +17,7 @@ class UserModel{
 
     public function create($form) {
         // Verificar credencial
-        $query = $this->conn->prepare("SELECT * FROM employee WHERE ID_EMPLEADO = :id");
+        $query = $this->conn->prepare("SELECT * FROM empleado WHERE ID_EMPLEADO = :id");
         $query->bindParam(':id', $form['credential']);
         $query->execute();
         $empleado = $query->fetch(PDO::FETCH_ASSOC);
@@ -34,11 +34,11 @@ class UserModel{
 
         // Insert usuario
         $query = $this->conn->prepare("
-            INSERT INTO user (Username, hashedPassword, FK_ID_ROL, FK_ID_EMPLEADO) 
-            VALUES (:username, :password, :rol, :empleadoId)
+            INSERT INTO usuario (usuario, hashContraseña, FK_ID_ROL, FK_ID_EMPLEADO) 
+            VALUES (:usuario, :contraseña, :rol, :empleadoId)
         ");
-        $query->bindParam(':username', $form['username']);
-        $query->bindParam(':password', $hashedPassword);
+        $query->bindParam(':usuario', $form['usuario']);
+        $query->bindParam(':contraseña', $hashedContraseña);
         $query->bindParam(':rol', $rol);
         $query->bindParam(':empleadoId', $empleado['ID_EMPLEADO']);
 

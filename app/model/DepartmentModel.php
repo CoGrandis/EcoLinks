@@ -11,7 +11,7 @@ class DepartmentModel {
     }
 
     public function getAll() {
-        $query = $this->conn->prepare("SELECT * FROM department");
+        $query = $this->conn->prepare("SELECT * FROM departamento");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
