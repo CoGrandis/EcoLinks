@@ -62,29 +62,17 @@ class EmployeeController {
 
     public function list() {
         $current_page = basename($_SERVER['REQUEST_URI']);
+
         $employees = $this->empleadoModel->getAllEmpleados();
 
-        $objectHTML = "";
-        foreach ($employees as $emp) {
-            $objectHTML .= "
-            <tr>
-                <td>{$emp['ID_EMPLEADO']}</td>
-                <td>{$emp['Nombre']}</td>
-                <td>{$emp['Apellido']}</td>
-                <td>{$emp['Email']}</td>
-                <td>{$emp['FK_ID_DEPARTAMENTO']}</td>
-                <td>{$emp['FK_ID_PUESTO']}</td>
-                <td>
-                    <a href='/admin/employee/profile/{$emp['ID_EMPLEADO']}'>Ver perfil</a>
-                    <a href='/admin/employee/delete/{$emp['ID_EMPLEADO']}' onclick=\"return confirm('¿Estás seguro de que deseas eliminar este empleado?');\">Eliminar</a>
-                </td>
-            </tr>
-        ";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $employees = $this->empleadoModel->searchEmpleado($_POST["search"]);
         }
+
         $tpl = new TemplateMotor("employee-list");
         $tpl->assing([
             "EMPLOYEES_ACTIVE" => (strpos($current_page, 'employee') !== false) ? 'active' : '',
-            "EMPLOYEE_LIST" => $objectHTML
+            "employees" => $employees
         ]);
         $tpl->printToScreen();
     }

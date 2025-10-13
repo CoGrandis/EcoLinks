@@ -34,7 +34,7 @@
         }
         public function searchEmpleado($search){
         $query = $this->conn->prepare("SELECT e.*, d.departamento AS Departamento, p.puesto AS Puesto FROM employee e LEFT JOIN department d ON e.FK_ID_DEPARTAMENTO = d.ID_DEPARTAMENTO LEFT JOIN position p ON e.FK_ID_PUESTO = p.ID_PUESTO WHERE e.Nombre LIKE :search OR e.Apellido LIKE :search");
-        $searchParam = "%$search%";
+        $searchParam = "%".$search."%";
         $query->bindParam(':search', $searchParam);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
