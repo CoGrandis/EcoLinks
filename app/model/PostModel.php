@@ -12,7 +12,7 @@ class PostModel {
 
     }
     public function getAllWithFiles() {
-        $stmt = $this->conn->prepare("SELECT post.*, user.Username AS username FROM post JOIN user ON post.FK_ID_USER = user.ID_USUARIO ORDER BY post.createdAt DESC; ");
+        $stmt = $this->conn->prepare("SELECT post.*, usuario.usuario AS username FROM post JOIN usuario ON post.FK_ID_USUARIO = usuario.ID_USUARIO ORDER BY post.fechCreado DESC; ");
         $stmt->execute();
         $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -23,7 +23,7 @@ class PostModel {
         return $posts;
     }
     public function create($userId, $title, $content) {
-        $query = $this->conn->prepare("INSERT INTO post (FK_ID_USER, title, content) VALUES (:id, :title, :content)");
+        $query = $this->conn->prepare("INSERT INTO post (FK_ID_USUARIO, titulo, contenido) VALUES (:id, :title, :content)");
         $query->bindParam(':title', $title);
         $query->bindParam(':content', $content);
         $query->bindParam(':id', $userId);
@@ -31,7 +31,7 @@ class PostModel {
         return $this->conn->lastInsertId();
     }
     public function update($form) {
-        $query = $this->conn->prepare("UPDATE post SET title = :title, content = :content WHERE FK_ID_USER = :id");
+        $query = $this->conn->prepare("UPDATE post SET titulo = :title, contenido = :content WHERE FK_ID_USUARIO = :id");
         $query->bindParam(':title', $form['title']);
         $query->bindParam(':content', $form['content']);
         $query->bindParam(':id', $_SESSION['user']['ID_USUARIO']);
