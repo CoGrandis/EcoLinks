@@ -11,7 +11,7 @@ class PositionModel {
     }
 
     public function getAll() {
-        $query = $this->conn->prepare("SELECT * FROM position");
+        $query = $this->conn->prepare("SELECT * FROM puesto");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }

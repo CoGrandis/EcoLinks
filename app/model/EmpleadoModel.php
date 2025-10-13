@@ -28,12 +28,12 @@
         }
 
         public function delete($id) {
-            $query = $this->conn->prepare("DELETE FROM employee WHERE ID_EMPLEADO = :id");
+            $query = $this->conn->prepare("DELETE FROM empleado WHERE ID_EMPLEADO = :id");
             $query->bindParam(':id', $id, PDO::PARAM_INT);
             return $query->execute();
         }
         public function searchEmpleado($search){
-        $query = $this->conn->prepare("SELECT e.*, d.departamento AS Departamento, p.puesto AS Puesto FROM employee e LEFT JOIN department d ON e.FK_ID_DEPARTAMENTO = d.ID_DEPARTAMENTO LEFT JOIN position p ON e.FK_ID_PUESTO = p.ID_PUESTO WHERE e.Nombre LIKE :search OR e.Apellido LIKE :search");
+        $query = $this->conn->prepare("SELECT e.*, d.departamento AS Departamento, p.puesto AS Puesto FROM empleado e LEFT JOIN departamento d ON e.FK_ID_DEPARTAMENTO = d.ID_DEPARTAMENTO LEFT JOIN puesto p ON e.FK_ID_PUESTO = p.ID_PUESTO WHERE e.Nombre LIKE :search OR e.Apellido LIKE :search");
         $searchParam = "%".$search."%";
         $query->bindParam(':search', $searchParam);
         $query->execute();
@@ -42,7 +42,7 @@
 
 
         public function register($form){
-            $query = $this->conn->prepare("INSERT INTO `employee`(`Nombre`, `Apellido`, `Email`, `FechaNacimiento`, `Direccion`, `FechaContratacion`, `FK_ID_DEPARTAMENTO`,`FK_ID_PUESTO`) VALUES (:name, :surname, :email, :dateBirth, :address, :hiringDate, :department, :position)");
+            $query = $this->conn->prepare("INSERT INTO empleado (`Nombre`, `Apellido`, `Email`, `FechaNacimiento`, `Direccion`, `FechaContratacion`, `FK_ID_DEPARTAMENTO`,`FK_ID_PUESTO`) VALUES (:name, :surname, :email, :dateBirth, :address, :hiringDate, :department, :position)");
             $query->bindParam(':name', $form['name'] );
             $query->bindParam(':surname', $form['surname'] );
             $query->bindParam(':email', $form['email'] );
@@ -57,7 +57,7 @@
 
             public function update($form) {
             $query = $this->conn->prepare("
-                UPDATE employee SET 
+                UPDATE empleado SET 
                     Nombre = :name, 
                     Apellido = :surname, 
                     Email = :email, 
