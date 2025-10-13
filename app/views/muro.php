@@ -13,7 +13,7 @@
     <main class="muro-container">
 
         <section class="post-box">
-            <form method="POST" enctype="multipart/form-data">
+            <form action="admin/news" method="POST" enctype="multipart/form-data">
                 <div class="post-header">
                     <div class="avatar"></div>
                     <input type="text" name="title" class="post-input" placeholder="Título del post" required>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="post-content">
                         <h3><?= htmlspecialchars($post['title']) ?></h3>
-                        <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+                        <p><?= htmlspecialchars($post['content']) ?></p>
                     </div>
 
                     <?php if (!empty($post['files'])) : ?>

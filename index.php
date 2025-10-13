@@ -24,10 +24,11 @@ $router->get('/', ['HomeController', 'index']);
     $router->get('/admin/files', ['AdminController', 'files'])->only([1]);
     $router->get('/admin/employee/register', ['EmployeeController', 'register'])->only([1]);
     $router->post('/admin/employee/register', ['EmployeeController', 'register'])->only([1]);
-    $router->get('/admin/employee', ['EmployeeController', 'list'])->only([1]);
     $router->get('/admin/employee/profile/{id}', ['EmployeeController', 'profile'])->only([1]);
     $router->get('/admin/employee/delete/{id}', ['EmployeeController', 'delete'])->only([1]);
     
+    $router->get('/admin/employee', ['EmployeeController', 'list'])->only([1]);
+    $router->post('/admin/employee', ['EmployeeController', 'list'])->only([1]);
 
 /* EMPLOYEE ROUTES */
     $router->get('/profile/{id}', ['EmployeeController','profile']);

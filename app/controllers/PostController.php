@@ -38,8 +38,11 @@ class PostController {
 
         $posts = $this->postModel->getAllWithFiles();
         $tpl = new TemplateMotor("muro");
-
-        $tpl->assing(["posts" => $posts]);
+        $current_page = basename($_SERVER['REQUEST_URI']);
+        $tpl->assing([
+            "NEWS_ACTIVE" => (strpos($current_page, 'news') !== false) ? 'active' : '',
+            "posts" => $posts
+        ]);
         $tpl->printToScreen();
     }
 

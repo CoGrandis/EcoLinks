@@ -1,4 +1,6 @@
 <?php
+
+require_once __DIR__ . '/../app/controllers/ErrorController.php';
 class Router {
     protected $routes = [];
 
@@ -84,7 +86,8 @@ class Router {
 
         // Si no matcheó ninguna ruta
         http_response_code(404);
-        echo "404 - Página no encontrada";
-        
+        $errorController = new ErrorController();
+        $errorController->error404();
+                
     }
 }
