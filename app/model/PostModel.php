@@ -12,9 +12,9 @@ class PostModel {
 
     }
     public function getAllWithFiles() {
-        $stmt = $this->conn->prepare("SELECT post.*, usuario.usuario AS username FROM post JOIN usuario ON post.FK_ID_USUARIO = usuario.ID_USUARIO ORDER BY post.fechCreado DESC; ");
-        $stmt->execute();
-        $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $query = $this->conn->prepare("SELECT post.*, usuario.usuario AS username FROM post JOIN usuario ON post.FK_ID_USUARIO = usuario.ID_USUARIO ORDER BY post.fechaCreado DESC; ");
+        $query->execute();
+        $posts = $query->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($posts as &$post) {
             $post['files'] = $this->fileModel->getByPost($post['ID_POST']);
