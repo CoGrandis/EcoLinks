@@ -15,6 +15,7 @@ class EmployeeController {
 
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $token = bin2hex(random_bytes(32));
             $form = [
                 "name" => $_POST['name'],
                 "surname" => $_POST['surname'],
@@ -23,7 +24,8 @@ class EmployeeController {
                 "address" => $_POST['address'],
                 "hiringDate" => $_POST['hiringDate'],
                 "department" => $_POST['department'],
-                "position" => $_POST['position']
+                "position" => $_POST['position'],
+                "token" => $token
             ];
 
             $insertedId = $this->empleadoModel->register($form);

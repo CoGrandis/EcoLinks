@@ -9,7 +9,7 @@ class UserModel{
     }
 
     public function getByUsername($username){
-        $query = $this->conn->prepare("SELECT * FROM usuario WHERE usuario = :usuario");
+        $query = $this->conn->prepare("SELECT * FROM usuario WHERE usuario = :username");
         $query->bindParam(':username', $username);
         $query->execute();
         return $query->fetch(PDO::FETCH_ASSOC);
@@ -27,28 +27,31 @@ class UserModel{
         }
 
         // Asignar rol según departamento
-        $rol = ($empleado['FK_ID_DEPARTAMENTO'] == 1) ? 2 : 3;
+        $rol = 3;
 
         // Hash de la contraseña
         $hashedPassword = password_hash($form['password'], PASSWORD_BCRYPT);
 
         // Insert usuario
         $query = $this->conn->prepare("
-            INSERT INTO usuario (usuario, hashContraseña, FK_ID_ROL, FK_ID_EMPLEADO) 
-            VALUES (:usuario, :contraseña, :rol, :empleadoId)
+            INSERT INTO usuario (usuario, hashContrasenia, FK_ID_ROL, FK_ID_EMPLEADO) 
+            VALUES (:usuario, :password, :rol, :empleadoId)
         ");
-        $query->bindParam(':usuario', $form['usuario']);
-        $query->bindParam(':contraseña', $hashedContraseña);
+        $query->bindParam(':usuario', $form['username']);
+        $query->bindParam(':password', $hashedPassword);
         $query->bindParam(':rol', $rol);
         $query->bindParam(':empleadoId', $empleado['ID_EMPLEADO']);
+        $query->execute();
+        if ($query->rowCount() > 0) {
+            return ["success" => "Usuario creado exitosamente."];
+        } else {
+            return ["error" => "Error al crear el usuario."];
+        
 
-        if ($query->execute()) {
-            return $query->execute();
         }
 
     }
 }
-
 
 
 ?>

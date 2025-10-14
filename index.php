@@ -4,8 +4,9 @@ ini_set('display_errors', 1);
 include '.env.php';
 include 'core/Router.php';
 include 'app/librarys/TemplateMotor/TemplateMotor.php';
-$router =  new Router();    
 session_start();
+
+$router =  new Router();    
 $router->get('/', ['HomeController', 'index']);
 
 
@@ -15,7 +16,6 @@ $router->get('/', ['HomeController', 'index']);
     $router->get('/auth/logout', ['AuthController', 'logout']);
     $router->get('/auth/register', ['AuthController', 'register']);
     $router->post('/auth/register', ['AuthController', 'register']);
-
 /* ADMIN ROUTES */
     $router->get('/admin/dashboard', ['AdminController','dashboard'])->only([1]);
     $router->get('/admin/profile/{id}', ['EmployeeController','profile'])->only([1]);
@@ -31,10 +31,9 @@ $router->get('/', ['HomeController', 'index']);
     $router->post('/admin/employee', ['EmployeeController', 'list'])->only([1]);
 
 /* EMPLOYEE ROUTES */
-    $router->get('/profile/{id}', ['EmployeeController','profile']);
-    $router->get('/news', ['PostController', 'muro']);
-    $router->post('/news', ['PostController', 'muro']);
-    $router->get('/files', ['EmployeeController', 'files']);
+    $router->get('/profile/{id}', ['EmployeeController','profile'])->only([3]);
+    $router->get('/news', ['PostController', 'muro'])->only([3]);
+    $router->get('/files', ['EmployeeController', 'files'])->only([3]);
     $router->resolve();
 
 ?>
