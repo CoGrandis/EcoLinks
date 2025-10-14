@@ -1,0 +1,179 @@
+@import url('style.css');
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+}
+
+/* CONTENEDOR PRINCIPAL */
+.reclamo-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.reclamo-container h2 {
+    text-align: center;
+    color: var(--dark-color);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+/* FORMULARIO */
+.reclamo-form .input-group {
+    margin-bottom: 20px;
+}
+
+.reclamo-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark-color);
+}
+
+.reclamo-form input,
+.reclamo-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid var(--secondary-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.reclamo-form input:focus,
+.reclamo-form textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 6px rgba(109, 80, 255, 0.3);
+}
+
+/* INPUTS DOBLES */
+.dual-input {
+    display: flex;
+    gap: 10px;
+}
+
+/* FIRMA */
+#signature {
+    border: 2px dashed var(--secondary-color);
+    border-radius: 10px;
+    background-color: #fff;
+    display: block;
+    margin: 10px 0;
+    cursor: crosshair;
+    width: 100%;
+    max-width: 350px;
+}
+
+.firma-text {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    margin-top: 8px;
+}
+
+.btn-clear {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1.5px solid var(--accent-color);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.btn-clear:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* BOTÓN PRINCIPAL */
+.btn-submit {
+    display: block;
+    width: 100%;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-submit:hover {
+    background-color: var(--dark-color);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .reclamo-container {
+        padding: 25px 20px;
+        margin: 20px;
+    }
+
+    .reclamo-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .dual-input {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    #signature {
+        width: 100%;
+        height: 100px;
+    }
+
+    .btn-submit {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reclamo-container {
+        margin: 10px;
+        border-radius: 10px;
+    }
+
+    .reclamo-container h2 {
+        font-size: 1.3rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    .btn-submit {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .btn-clear {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+}
