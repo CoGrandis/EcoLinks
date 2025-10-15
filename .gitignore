@@ -5,4 +5,4 @@ config.php
 
 .vscode/**
 /vendor/
-uploads/
+uploads/**
