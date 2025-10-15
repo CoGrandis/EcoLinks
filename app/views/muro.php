@@ -13,7 +13,7 @@
     <main class="muro-container">
 
         <section class="post-box">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form  method="POST" enctype="multipart/form-data">
                 <div class="post-header">
                     <div class="avatar"></div>
                     <input type="text" name="title" class="post-input" placeholder="Título del post" required>
@@ -54,15 +54,10 @@
                     <?php if (!empty($post['files'])) : ?>
                         <div class="post-files">
                             <h4>Archivos adjuntos:</h4>
-                            <ul>
                                 <?php foreach ($post['files'] as $file) : ?>
-                                    <li>
-                                        <a href="<?= htmlspecialchars($file['filepath']) ?>" target="_blank">
-                                            <?= htmlspecialchars($file['filename']) ?>
-                                        </a>
-                                    </li>
+
+
                                 <?php endforeach; ?>
-                            </ul>
                         </div>
                     <?php endif; ?>
 

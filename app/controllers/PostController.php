@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../model/PostModel.php';
 require_once __DIR__ . '/../model/PostFilesModel.php';
-require_once __DIR__ . '/../services/uploadService.php';
+require_once __DIR__ . '/../services/UploadService.php';
 
 class PostController {   
     private $postModel;
@@ -21,8 +21,9 @@ class PostController {
             $postId = $this->postModel->create($userId, $title, $content);
             
             if (!empty($_FILES['files']['name'][0])) {
-                $uploader = new UploadService();
-                $uploadedFiles = $uploader->upload($_FILES['files'], "posts/$postId");
+                $uploadService = new UploadService();
+                $uploadedFiles = $uploadService->uploadFiles($_FILES['files']);
+
                 foreach ($uploadedFiles as $file) {
                     $this->fileModel->create([
                         'FK_ID_POST' => $postId,
@@ -32,7 +33,7 @@ class PostController {
                 }
             }
 
-            header("Location: /admin/news");
+            header('Location: /admin/news');
             exit;
         }
 
