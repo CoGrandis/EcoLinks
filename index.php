@@ -7,7 +7,6 @@ include 'app/librarys/TemplateMotor/TemplateMotor.php';
 session_start();
 
 $router =  new Router();    
-session_start();
 $router->get('/', ['HomeController', 'index']);
 
 
