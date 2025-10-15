@@ -8,7 +8,21 @@
     class EmpleadoModel{
         
         private $conn; 
+    <?php
+    /** 
+     * EmpleadoModel.php
+     * Modelo para manejar los datos de los empleados.
+     * 
+    */
+    require_once __DIR__ . '/../../config/connection.php';
+    class EmpleadoModel{
+        
+        private $conn; 
 
+        public function __construct() {
+            $database = new Database();
+            $this->conn = $database->getConnection();
+        }
         public function __construct() {
             $database = new Database();
             $this->conn = $database->getConnection();
@@ -19,7 +33,18 @@
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
+        public function getAllEmpleados(){
+            $query = $this->conn->prepare("SELECT * FROM empleado");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
 
+        public function getEmpleadosById($id){
+            $query = $this->conn->prepare("SELECT e.*, d.departamento AS Departamento, p.puesto AS Puesto FROM empleado e LEFT JOIN departamento d ON e.FK_ID_DEPARTAMENTO = d.ID_DEPARTAMENTO LEFT JOIN puesto p ON e.FK_ID_PUESTO = p.ID_PUESTO WHERE ID_EMPLEADO = :id");
+            $query->bindParam(':id', $id);
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
         public function getEmpleadosById($id){
             $query = $this->conn->prepare("SELECT e.*, d.departamento AS Departamento, p.puesto AS Puesto FROM empleado e LEFT JOIN departamento d ON e.FK_ID_DEPARTAMENTO = d.ID_DEPARTAMENTO LEFT JOIN puesto p ON e.FK_ID_PUESTO = p.ID_PUESTO WHERE ID_EMPLEADO = :id");
             $query->bindParam(':id', $id);
@@ -85,4 +110,5 @@
         }
     }   
 
+    ?>
     ?>

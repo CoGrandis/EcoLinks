@@ -52,7 +52,12 @@ class Router {
             if (preg_match($pattern, $uri, $matches)) {
                 array_shift($matches);
 
-                // 🔐 Validación de roles
+                // Excluir rutas públicas del chequeo de sesión
+                $publicRoutes = ['/auth/login', '/auth/register', '/'];
+                if (in_array($uri, $publicRoutes)) {
+                    $route['roles'] = [];
+                }
+
                 if (!empty($route['roles'])) {
                     if (!isset($_SESSION['user'])) {
                         header("Location: /");
