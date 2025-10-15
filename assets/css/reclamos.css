@@ -177,3 +177,11 @@ body {
         padding: 5px 10px;
     }
 }
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 20px;
+    display: inline-block;
+}
