@@ -18,6 +18,13 @@ class ReclamoController{
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $idReclamo = $this->reclamoModel->create($form);
         }
+
+        $tpl = new TemplateMotor("reclamos");
+        $current_page = basename($_SERVER['REQUEST_URI']);
+        $tpl->assing([
+            "RECLAMO_ACTIVE" => (strpos($current_page, 'reclamo') !== false) ? 'active' : '',
+        ]);
+        $tpl->printToScreen();
     }
 
     public function updateReclamo(){
