@@ -30,7 +30,7 @@
         <input type="submit" class="btn-login" value="Registrarse">
     </form>
 
-      <p class="extra-link">¿Ya tenes cuenta? <a href="{{ APP_URL }}auth/login">Iniciar Sesion</a></p>
+      <p class="extra-link">¿Ya tenes cuenta? <a href="{{ APP_URL }}login">Iniciar Sesion</a></p>
     </div>
   </div>
 </body>

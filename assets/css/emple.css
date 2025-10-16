@@ -1,0 +1,157 @@
+@import url('style.css');
+
+.emple-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 40px 20px;
+    background-color: var(--background-color);
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+/* 🔹 Tarjeta izquierda */
+.emple-card {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Buscador */
+.emple-searchbar {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 25px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    
+}
+
+.emple-searchbar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: white;
+    padding: 8px 10px;
+    font-family: var(--font-family);
+    outline: none;
+}
+
+.emple-searchbar button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Lista */
+.emple-list section {
+    margin-bottom: 15px;
+}
+
+.emple-list h3 {
+    color: var(--dark-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+}
+
+.emple-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.emple-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.emple-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-color);
+}
+
+.emple-info i {
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+.emple-actions i {
+    color: var(--dark-color);
+    font-size: 16px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.emple-actions i:hover {
+    color: var(--primary-color);
+}
+
+/* 🔹 Panel lateral derecho */
+.emple-actions-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 200px;
+}
+
+.emple-actions-panel button {
+    background-color: var(--dark-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-family: var(--font-family);
+    transition: 0.2s ease;
+}
+
+.emple-actions-panel button i {
+    font-size: 18px;
+}
+
+.emple-actions-panel button:hover {
+    background-color: var(--primary-color);
+}
+
+/* 🔹 Responsive */
+@media (max-width: 900px) {
+    .emple-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .emple-actions-panel {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .emple-actions-panel button {
+        flex: 1 1 45%;
+        text-align: center;
+        justify-content: center;
+    }
+}

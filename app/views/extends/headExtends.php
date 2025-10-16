@@ -8,6 +8,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../assets/fonts/fontawesom/fawesome-all.css">
 	<link rel="stylesheet" href="../../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../../assets/css/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
 
     <meta property="og:description" content="{{ APP_DESCRIPTION }}">
 

@@ -1,25 +1,23 @@
 @extends(head)
-
-<!DOCTYPE html>
-<html lang="es">
-<html>
-    <link rel="stylesheet" href="assets/css/home.css">
     <body>
         <header class="header-container">
             <section class="logo">
+                <img src="../../assets/img/logo/logo.svg" alt="">
                 <h1>EchoLinks</h1>
+                
             </section>
             <nav class="navegacion">
                 
                 <i class="fa-solid fa-bars nav-item menu"></i>
                 <div class="nav-links">
-                    <a class="nav-item" href="/">Home</a>
-                    <a class="nav-item" href="/auth/login">Iniciar Sesión</a>
-                    <a class="nav-item btn-registrarse"  href="/auth/register" >Registrarse</a>
+                    <a class="nav-item" href="/">que somos</a>
+                    <a class="nav-item" href="/login">Iniciar Sesión</a>
+                    <a class="nav-item btn-registrarse"  href="/register" >Registrarse</a>
                 </div>
             </nav>
         </header>
 
+       
         <main class="main-container">
             <!-- Hero principal -->
             <section class="main-info">
@@ -28,10 +26,16 @@
                     <h4>Simplifica la gestión de Recursos Humanos y de empleados. </h4>
                 </div>
                 <div class="main-img">
-                    <img src="assets/img/undraw_data-points_uc3j.svg" alt="">
+                    <img src="../../assets/img/ejemplo.svg" alt="">
                 </div>
             </section>
-
+             <!-- introducion -->
+            <section class="main-intro">
+                <img src="" alt="">
+                <h2>¿Qué es EchoLinks?</h2>
+                <p>EchoLinks es una plataforma de gestión de recursos humanos y empleados diseñada para simplificar y optimizar las operaciones diarias de las empresas. Nuestra solución integral ofrece una amplia gama de herramientas y funcionalidades que permiten a los departamentos de recursos humanos gestionar eficientemente el ciclo de vida del empleado, desde la contratación hasta la jubilación.</p>
+            </section>
+            
             <!-- Funcionalidades -->
             <section class="main-funciones">
                 <h2>SIMPLIFICA LA GESTIÓN DE TU EMPRESA</h2>
@@ -55,8 +59,10 @@
                 </div>
             </section>
 
+
             <!-- Cartas de presentación -->
             <section class="team-section">
+                <h2>Quienes somos?</h2>
                 <div class="team-card">
                     <div class="avatar"></div>
                     <h3>Nahir Fonseca</h3>
