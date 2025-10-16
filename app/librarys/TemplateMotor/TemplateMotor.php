@@ -38,6 +38,7 @@
 			$this->assing(["APP_URL" => APP_URL]);
 			if(isset($_SESSION['user'])){
 				$this->assing(["EMPLOYEE" => $_SESSION['user']['FK_ID_EMPLEADO']]);
+				$this->assing(["USER" => $_SESSION['user']['usuario']]);
 
 			}
 

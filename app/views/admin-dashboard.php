@@ -1,5 +1,5 @@
 @extends(head)
-<link rel="stylesheet" href="../../assets/css/home-Em.css">
+<link rel="stylesheet" href="../../../assets/css/home-Em.css">
 <body>
     <section class="admin-dashboard">
         @extends(menu)
@@ -8,7 +8,7 @@
             
         <main class="home-main">
           <section class="home-header">
-              <h1>Bienvenido de nuevo <span>{usuario}</span>!</h1>
+              <h1>Bienvenido de nuevo <span>{{ USER }}</span>!</h1>
               <p>¿Qué vamos a hacer hoy?</p>
           </section>
 
@@ -26,7 +26,7 @@
             <aside class="home-sidebar">
                 <div class="date-card">
                     <p>Recuerda que hoy es</p>
-                    <div class="date-box">
+                    <div class="date-box" id="hola">
                         <span class="day">11</span>
                         <span class="month">noviembre</span>
                     </div>

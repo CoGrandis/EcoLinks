@@ -90,10 +90,18 @@ body {
 }
 
 .date-card, .pending-card {
-    background: var(--secondary-color);
     border-radius: 16px;
     text-align: center;
     padding: 15px;
+}
+
+#hola{
+    background-color:var(--background-color);
+    color:var(--accent-color);
+}
+
+#border{
+    border: 10px solid var(--primary-color);
 }
 
 .date-card p {

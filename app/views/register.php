@@ -14,10 +14,10 @@
       <h2>Registrarse</h2>
         <p class="subtitle">Bienvenido de nuevo! Por favor ingresa tus datos.</p>
 
-      <form method="POST" action="">
-        <div class="input-group">
+      <form method="POST">
+         <div class="input-group">
           <label for="credential">Credencial</label>
-          <input type="credential" id="credential" name="credential" placeholder="2123" required>
+          <input type="number" id="credential" name="credential" placeholder="2123" required>
         </div>
         <div class="input-group">
           <label for="username">Usuario</label>
@@ -27,10 +27,10 @@
           <label for="password">Contraseña</label>
           <input type="password" id="password" name="password" placeholder="••••••••" required>
         </div>
-        <button type="submit" class="btn-login">Ingresar</button>
-      </form>
+        <input type="submit" class="btn-login" value="Registrarse">
+    </form>
 
-      <p class="extra-link">¿Ya tenes cuenta? <a href="{{ APP_URL }}auth/login">Iniciar Sesion</a></p>
+      <p class="extra-link">¿Ya tenes cuenta? <a href="{{ APP_URL }}login">Iniciar Sesion</a></p>
     </div>
   </div>
 </body>
