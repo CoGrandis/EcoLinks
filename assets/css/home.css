@@ -79,15 +79,23 @@ body {
 
 /* ---------------- HERO ---------------- */
 .main-info {
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 3rem 5%;
   flex-wrap: wrap;
+  background-color: var(--secondary-color);
 }
-
+.main-text {
+  flex: 1;
+  min-width: 300px;
+  margin-right: 2rem;
+  
+}
 .main-text h1 {
-  font-size: 2.8rem;
+
+  font-size: 4rem;
   color: var(--text-color);
   margin-bottom: 1rem;
 }
@@ -95,24 +103,81 @@ body {
   font-size: 1.1rem;
   color: var(--dark-color);
 }
-
+.main-img {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  background-color: var(--background-color);
+  border-radius:  100% 30% 60% 70% /
+    /* vertical */
+    50% 40% 70% 70%;;
+}
 .main-img img {
-  width: 750px;
+  width: 720px;
   max-width: 100%;
 }
-.main-intro {
-  text-align: center;
-  padding: 2rem 5%;
+/* Efecto de texto rotativo */
+#flip {
+  height: 45px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
 }
 
-/* ---------------- FUNCIONES ---------------- */
+#flip div {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.2rem;
+  background: var(--dark-color);
+  padding: 6px 14px;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slide 21s ease-in-out infinite;
+}
+#flip div:nth-child(1) { animation-delay: 0s; }
+#flip div:nth-child(2) { animation-delay: 3s; }
+#flip div:nth-child(3) { animation-delay: 6s; }
+#flip div:nth-child(4) { animation-delay: 9s; }
+#flip div:nth-child(5) { animation-delay: 12s; }
+#flip div:nth-child(6) { animation-delay: 15s; }
+#flip div:nth-child(7) { animation-delay: 18s; }
+
+@keyframes slide {
+  0%   { opacity: 0; transform: translateY(30px); }
+  10%  { opacity: 1; transform: translateY(0); }
+  25%  { opacity: 1; transform: translateY(0); }
+  35%  { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+/* ---------------- INTRO ---------------- */
+.main-intro {
+
+  padding: 2rem 5%;
+}
+.main-intro h2 {
+  font-size:2rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+  text-align: left;
+}
+.main-intro p {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  text-align: left;
+
+}
 /* ---------------- FUNCIONES ---------------- */
 .main-funciones {
     /* ELIMINA: position: relative; ya no es necesario aquí */
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: white;
     /* Ajusta el padding para considerar que ya no hay ola interna */
-    padding: 3rem 2rem; 
+    padding: 4rem 5%;
+    margin-top: 2rem; 
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -151,7 +216,6 @@ body {
 .funcion-card .card-info p {
   font-weight: 600;
 }
-
 
 
 /* ---------------- TEAM ---------------- */
@@ -195,6 +259,24 @@ body {
   color: #7B7B7B;
 }
 
+.team-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+.team-card img:hover {
+  transform: scale(1.05);
+  transition: transform .3s ease-in-out;
+}
+.team-section h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--dark-color);
+}
 /* ---------------- FOOTER ---------------- */
 .footer {
   text-align: center;
