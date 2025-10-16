@@ -1,5 +1,5 @@
 @extends(head)
-<link rel="stylesheet" href="../../assets/css/home-Em.css">
+<link rel="stylesheet" href="../../../assets/css/home-Em.css">
 <body>
     <section class="admin-dashboard">
         @extends(menu)
@@ -8,7 +8,7 @@
             
         <main class="home-main">
           <section class="home-header">
-              <h1>Bienvenido de nuevo <span>{usuario}</span>!</h1>
+              <h1>Bienvenido de nuevo <span>{{ USER }}</span>!</h1>
               <p>¿Qué vamos a hacer hoy?</p>
           </section>
 

@@ -1,6 +1,6 @@
 @extends('head')
 
-<link rel="stylesheet" href="../../assets/css/reclamos.css">
+<link rel="stylesheet" href="../../../assets/css/reclamos.css">
 
 <body>
     <a href="">volver</a>

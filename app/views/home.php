@@ -1,11 +1,4 @@
 @extends(head)
-
-<!DOCTYPE html>
-<html lang="es">
-<html>
-    <link rel="stylesheet" href="../../assets/css/home.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-     <link rel="stylesheet" href="../../assets/fonts/fontawesom/fawesome-all.css">
     <body>
         <header class="header-container">
             <section class="logo">
