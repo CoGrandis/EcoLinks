@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 include '.env.php';
 include 'core/Router.php';
 include 'app/librarys/TemplateMotor/TemplateMotor.php';
@@ -11,29 +9,29 @@ $router->get('/', ['HomeController', 'index']);
 
 
 /* AUTH ROUTES */
-    $router->post('/auth/login', ['AuthController', 'login']);
-    $router->get('/auth/login', ['AuthController', 'login']);
-    $router->get('/auth/logout', ['AuthController', 'logout']);
-    $router->get('/auth/register', ['AuthController', 'register']);
-    $router->post('/auth/register', ['AuthController', 'register']);
+    $router->post('/login', ['AuthController', 'login']);
+    $router->get('/login', ['AuthController', 'login']);
+    $router->get('/logout', ['AuthController', 'logout']);
+    $router->get('/register', ['AuthController', 'register']);
+    $router->post('/register', ['AuthController', 'register']);
+
+
+    $router->get('/perfil', ['EmployeeController','profile'])->only([1 , 2, 3]);
+
+
 /* ADMIN ROUTES */
-    $router->get('/admin/dashboard', ['AdminController','dashboard'])->only([1]);
-    $router->get('/admin/profile/{id}', ['EmployeeController','profile'])->only([1]);
-    $router->get('/admin/news', ['PostController', 'muro'])->only([1]);
-    $router->post('/admin/news', ['PostController', 'muro'])->only([1]);
-    $router->get('/admin/files', ['AdminController', 'files'])->only([1]);
-    $router->get('/admin/employee/register', ['EmployeeController', 'register'])->only([1]);
-    $router->post('/admin/employee/register', ['EmployeeController', 'register'])->only([1]);
-    $router->get('/admin/employee/profile/{id}', ['EmployeeController', 'profile'])->only([1]);
-    $router->get('/admin/employee/delete/{id}', ['EmployeeController', 'delete'])->only([1]);
-    
-    $router->get('/admin/employee', ['EmployeeController', 'list'])->only([1]);
-    $router->post('/admin/employee', ['EmployeeController', 'list'])->only([1]);
+    $router->get('/dashboard', ['AdminController','dashboard'])->only([1]);
+    $router->get('/noticias', ['PostController', 'muro'])->only([1,2,3]);
+    $router->post('/noticias', ['PostController', 'muro'])->only([1]);
+    $router->get('/documentos', ['AdminController', 'files'])->only([1,2,3]);
+    $router->get('/empleados/register', ['EmployeeController', 'register'])->only([1]);
+    $router->post('/empleados/register', ['EmployeeController', 'register'])->only([1]);
+    $router->get('/empleados/perfil', ['EmployeeController', 'profile'])->only([1]);
+
+    $router->get('/empleados', ['EmployeeController', 'list'])->only([1]);
+    $router->post('/empleados', ['EmployeeController', 'list'])->only([1]);
 
 /* EMPLOYEE ROUTES */
-    $router->get('/profile/{id}', ['EmployeeController','profile'])->only([3]);
-    $router->get('/news', ['PostController', 'muro'])->only([3]);
-    $router->get('/files', ['EmployeeController', 'files'])->only([3]);
     $router->resolve();
 
 ?>

@@ -11,8 +11,8 @@
                 <i class="fa-solid fa-bars nav-item menu"></i>
                 <div class="nav-links">
                     <a class="nav-item" href="/">que somos</a>
-                    <a class="nav-item" href="/auth/login">Iniciar Sesión</a>
-                    <a class="nav-item btn-registrarse"  href="/auth/register" >Registrarse</a>
+                    <a class="nav-item" href="/login">Iniciar Sesión</a>
+                    <a class="nav-item btn-registrarse"  href="/register" >Registrarse</a>
                 </div>
             </nav>
         </header>

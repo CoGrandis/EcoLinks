@@ -63,24 +63,29 @@ class EmployeeController {
     }
 
     public function list() {
-        $current_page = basename($_SERVER['REQUEST_URI']);
-
-        $employees = $this->empleadoModel->getAllEmpleados();
-
+        $employees = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $employees = $this->empleadoModel->searchEmpleado($_POST["search"]);
+            $search = $_POST['search'] ?? '';
+            $employees = $this->empleadoModel->searchEmpleado($search);
+        } else {
+            $employees = $this->empleadoModel->getAllEmpleados();
         }
 
-        $tpl = new TemplateMotor("employee-list");
+        $current_page = basename($_SERVER['REQUEST_URI']);
+
+       
+        $tpl = new TemplateMotor("lista");
         $tpl->assing([
-            "EMPLOYEES_ACTIVE" => (strpos($current_page, 'employee') !== false) ? 'active' : '',
+            "EMPLOYEES_ACTIVE" => (strpos($current_page, 'empleados') !== false) ? 'active' : '',
             "employees" => $employees
         ]);
         $tpl->printToScreen();
     }
 
-    public function profile($id){
+    public function profile(){
         $empleadoModel = new EmpleadoModel();
+        
+        $id = $_SESSION['user']['FK_ID_EMPLEADO'];
         $empleado = $empleadoModel->getEmpleadosById($id);
 
         // Cargar plantilla con datos

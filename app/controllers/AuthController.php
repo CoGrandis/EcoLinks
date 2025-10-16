@@ -14,12 +14,12 @@ class AuthController
                 $user = $userModel->getByUsername($username);
                 if ($user && password_verify($password, $user['hashContrasenia'])) {
                     $_SESSION['user'] = $user;
-                    if ($_SESSION['user']['FK_ID_ROL'] == 3) {
-                        header('Location: /news');
+                    if ($_SESSION['user']['FK_ID_ROL'] === 1) {
+                        header('Location: /dashboard');
                         exit();
                     }
-                    header('Location: /admin/dashboard');
-                    exit();
+                        header('Location: /noticias');
+                        exit();
                 }
             }
         }
@@ -38,10 +38,10 @@ class AuthController
             $userModel = new UserModel();
             $result = $userModel->create($form);
             if (isset($result['success'])) {
-                header("Location: /auth/login");
+                header("Location: /login");
                 exit;
             } else {
-                header("Location: /auth/register");
+                header("Location: /register");
                 exit;
             }
         }

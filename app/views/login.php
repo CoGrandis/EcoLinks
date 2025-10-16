@@ -26,7 +26,7 @@
         <button type="submit" class="btn-login">Ingresar</button>
       </form>
 
-      <p class="extra-link">¿No tienes cuenta? <a href="{{ APP_URL }}auth/register">Regístrate</a></p>
+      <p class="extra-link">¿No tienes cuenta? <a href="{{ APP_URL }}register">Regístrate</a></p>
     </div>
   </div>
 </body>
