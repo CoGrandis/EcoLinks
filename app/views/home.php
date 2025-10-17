@@ -27,13 +27,13 @@
                     <h1>EchoLinks <br> mas que</h1>
 
                     <div id="flip">
-                    <div>Una aplicación</div>
-                    <div>Una comunidad</div>
-                    <div>Gestión de RRHH</div>
-                    <div>Un equipo</div>
-                    <div>Un futuro</div>
-                    <div>Un cambio</div>
-                    <div>Una solución</div>
+                        <span>Una aplicación</span>
+                        <span>Una comunidad</span>
+                        <span>Gestión de RRHH</span>
+                        <span>Un equipo</span>
+                        <span>Un futuro</span>
+                        <span>Un cambio</span>
+                        <span>Una solución</span>
                     </div>
                     
                     <h2> al alcance de la mano!</h2>

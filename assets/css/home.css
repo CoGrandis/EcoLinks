@@ -116,43 +116,45 @@ body {
   width: 720px;
   max-width: 100%;
 }
-/* Efecto de texto rotativo */
+
+
 #flip {
-  height: 45px;
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-}
-
-#flip div {
-  position: absolute;
-  left: 0;
+  display: inline-block;       /* mantiene el texto en línea con h1 */
+  height: 45px;   
   width: 100%;
-  color: #fff;
-  font-weight: 500;
-  font-size: 1.2rem;
-  background: var(--dark-color);
-  padding: 6px 14px;
-  border-radius: 6px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: slide 21s ease-in-out infinite;
+  vertical-align: middle;
+  overflow: hidden;     
+  position: relative;
 }
-#flip div:nth-child(1) { animation-delay: 0s; }
-#flip div:nth-child(2) { animation-delay: 3s; }
-#flip div:nth-child(3) { animation-delay: 6s; }
-#flip div:nth-child(4) { animation-delay: 9s; }
-#flip div:nth-child(5) { animation-delay: 12s; }
-#flip div:nth-child(6) { animation-delay: 15s; }
-#flip div:nth-child(7) { animation-delay: 18s; }
 
-@keyframes slide {
-  0%   { opacity: 0; transform: translateY(30px); }
-  10%  { opacity: 1; transform: translateY(0); }
-  25%  { opacity: 1; transform: translateY(0); }
-  35%  { opacity: 0; transform: translateY(-30px); }
-  100% { opacity: 0; transform: translateY(-30px); }
+#flip span {
+  position:absolute;
+  width: 100%;
+  display: block;              /* cada palabra ocupa la altura del contenedor */
+  opacity: 0;
+  transform: translateY(100%); /* empieza fuera de la vista */
+  animation: flip 16s  linear infinite;
 }
+
+/* delays para que roten una tras otra */
+#flip span:nth-child(1) { animation-delay: 2s; }
+#flip span:nth-child(2) { animation-delay: 4s; }
+#flip span:nth-child(3) { animation-delay: 6s; }
+#flip span:nth-child(4) { animation-delay: 8s; }
+#flip span:nth-child(5) { animation-delay: 10s; }
+#flip span:nth-child(6) { animation-delay: 12s; }
+#flip span:nth-child(7) { animation-delay: 14s; }
+
+
+
+
+@keyframes flip {
+  0%, 14%   { opacity: 0; transform: translateY(100%); }
+  15%, 25%  { opacity: 1; transform: translateY(0); } /* visible */
+  26%, 28%  { opacity: 0; transform: translateY(-100%); } /* desaparece rápido */
+  100%      { opacity: 0; transform: translateY(-100%); }
+}
+
 /* ---------------- INTRO ---------------- */
 .main-intro {
 
