@@ -3,7 +3,8 @@ include '.env.php';
 include 'core/Router.php';
 include 'app/librarys/TemplateMotor/TemplateMotor.php';
 session_start();
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 $router =  new Router();    
 $router->get('/', ['HomeController', 'index']);
 
@@ -14,6 +15,8 @@ $router->get('/', ['HomeController', 'index']);
     $router->get('/logout', ['AuthController', 'logout']);
     $router->get('/register', ['AuthController', 'register']);
     $router->post('/register', ['AuthController', 'register']);
+    $router->post('/analizar-cv', ['APIController', 'subirCV']);
+    $router->get('/subir-cv', ['APIController', 'formCV']);
 
 
     $router->get('/perfil', ['EmployeeController','profile'])->only([1 , 2, 3]);
