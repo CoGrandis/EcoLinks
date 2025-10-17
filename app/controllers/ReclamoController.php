@@ -10,8 +10,15 @@ class ReclamoController{
         $this->reclamoModel = new ReclamoModel();
     }
 
-    public function reclamos(){
+    public function lista(){
         $reclamos = $this->reclamoModel->get();
+        $tpl = new TemplateMotor("lista-reclamos");
+        $current_page = basename($_SERVER['REQUEST_URI']);
+        $tpl->assing([
+            "RECLAMO_ACTIVE" => (strpos($current_page, 'reclamo') !== false) ? 'active' : '',
+            "RECLAMOS" => $reclamos
+        ]);
+        $tpl->printToScreen();
     }
 
     public function createReclamo(){

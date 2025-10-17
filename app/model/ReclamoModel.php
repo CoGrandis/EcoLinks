@@ -77,23 +77,27 @@ class ReclamoModel {
     }
 
     public function get(){
-        $query = $this->conn->prepare("SELECT * FROM `reclamo`");
+        $query = $this->conn->prepare("SELECT * FROM `reclamo` INNER JOIN tipo_reclamo ON reclamo.FK_ID_TIPO = tipo_reclamo.ID_TIPO");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getByStatus($estado){
-        $query = $this->conn->prepare("SELECT * FROM `reclamo` WHERE `estado` = :estado");
+        $query = $this->conn->prepare("SELECT * FROM `reclamo` INNER JOIN tipo_reclamo ON reclamo.FK_ID_TIPO = tipo_reclamo.ID_TIPO WHERE `estado` = :estado");
         $query->bindParam(':estado', $estado);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getById($id){
-        $query = $this->conn->prepare("SELECT * FROM `reclamo` WHERE `ID_RECLAMO` = :id");
+        $query = $this->conn->prepare("SELECT * FROM `reclamo` WHERE `ID_RECLAMO` = :id INNER JOIN tipo_reclamo ON reclamo.FK_ID_TIPO = tipo_reclamo.ID_TIPO WHERE `estado` = :estado");
         $query->bindParam(':id', $id);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getStatus(){
+        
     }
 }
 ?>

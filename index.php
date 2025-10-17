@@ -8,7 +8,7 @@ $router =  new Router();
 $router->get('/', ['HomeController', 'index']);
 
 
-/* AUTH ROUTES */
+/* RUTAS AUTH */
     $router->post('/login', ['AuthController', 'login']);
     $router->get('/login', ['AuthController', 'login']);
     $router->get('/logout', ['AuthController', 'logout']);
@@ -19,7 +19,6 @@ $router->get('/', ['HomeController', 'index']);
     $router->get('/perfil', ['EmployeeController','profile'])->only([1 , 2, 3]);
 
 
-/* ADMIN ROUTES */
     $router->get('/dashboard', ['AdminController','dashboard'])->only([1]);
     $router->get('/noticias', ['PostController', 'muro'])->only([1,2,3]);
     $router->post('/noticias', ['PostController', 'muro'])->only([1]);
@@ -28,11 +27,12 @@ $router->get('/', ['HomeController', 'index']);
     $router->post('/empleados/registrar', ['EmployeeController', 'register'])->only([1]);
     $router->get('/empleados/perfil', ['EmployeeController', 'profile'])->only([1]);
 
+
     $router->get('/empleados', ['EmployeeController', 'list'])->only([1]);
     $router->post('/empleados', ['EmployeeController', 'list'])->only([1]);
     $router->get('/reclamo', ['ReclamoController', 'createReclamo']);
+    $router->get('/reclamos', ['ReclamoController', 'lista']);
 
-/* EMPLOYEE ROUTES */
     $router->resolve();
 
 ?>
