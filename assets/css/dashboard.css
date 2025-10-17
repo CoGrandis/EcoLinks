@@ -62,3 +62,7 @@ a{
 .active a{
   color: var(--dark-color)
 }
+img{
+  width: 8rem;
+  margin: 20px 0;
+}
