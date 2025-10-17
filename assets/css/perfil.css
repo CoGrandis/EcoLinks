@@ -125,7 +125,8 @@ body {
     display: block;
     margin-bottom: 15px;
     color: var(--text-color);
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: 600;
 }
 .formulario input[type="text"],
 .formulario input[type="email"],
@@ -137,6 +138,9 @@ body {
     border-radius: 8px;
     font-size: 14px;
     transition: border-color 0.3s;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-top: 5px;
 }
 .formulario button {
     background-color: transparent;
