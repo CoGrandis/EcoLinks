@@ -1,0 +1,262 @@
+@import url('style.css');
+
+/* === CONTENEDOR GENERAL === */
+.admin-dashboard {
+  display: flex;
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.main-dashboard {
+  flex: 1;
+  padding: 40px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* === ANIMACIONES === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.7s ease forwards;
+}
+
+/* === SECCIÓN PRINCIPAL === */
+.ofertas-section {
+  margin-left: 220px;
+}
+
+.ofertas-section h2 {
+  color: var(--dark-color);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* === CONTENEDOR DE POSTULACIONES === */
+.postulaciones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* === FORMULARIO NUEVA OFERTA === */
+.form-oferta {
+  background-color: #fff;
+  border: 1px solid var(--primary-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.7s ease-out;
+}
+
+.oferta-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.perfil {
+  width: 45px;
+  height: 45px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.oferta-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  background-color: transparent;
+  font-style: italic;
+}
+
+.oferta-body {
+  padding: 0 1rem;
+}
+
+.oferta-textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  min-height: 90px;
+  font-size: 0.95rem;
+  font-family: var(--font-family);
+  resize: none;
+  color: var(--text-color);
+  padding: 0.5rem 0;
+}
+
+.oferta-footer {
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-top: 1px solid var(--dark-color);
+}
+
+.footer-left i {
+  color: white;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: 0.3s ease;
+}
+
+.footer-left i:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.btn-subir {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-subir:hover {
+  background-color: #5a3de0;
+  transform: translateY(-2px);
+}
+
+/* === POSTULACIONES PENDIENTES === */
+.subtitulo {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-weight: 500;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.postulacion-card {
+  background-color: #fff;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.postulacion-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.postulacion-top {
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--dark-color);
+}
+
+.postulacion-top .perfil {
+  width: 35px;
+  height: 35px;
+}
+
+.info h4 {
+  margin: 0;
+  color: white;
+  font-size: 1rem;
+}
+
+.info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: white;
+  opacity: 0.9;
+}
+
+.postulacion-body {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.postulacion-footer {
+  background-color: var(--secondary-color);
+  text-align: right;
+  padding: 0.6rem 1rem;
+}
+
+.btn-cv {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cv:hover {
+  background-color: #5a3de0;
+  transform: translateY(-2px);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .ofertas-section {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .form-oferta,
+  .postulacion-card {
+    border-radius: 8px;
+  }
+
+  .oferta-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .oferta-input {
+    width: 100%;
+  }
+
+  .oferta-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-left {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .btn-subir,
+  .btn-cv {
+    width: 100%;
+  }
+
+  .postulacion-body p {
+    font-size: 0.85rem;
+  }
+}
