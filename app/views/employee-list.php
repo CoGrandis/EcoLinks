@@ -4,25 +4,18 @@
         @extends(menu)
         
         <main class="main-dashboard"> 
+            <h1>Lista de Empleados</h1>
+            <form action="" method="post">
+                <input type="text" name="search"placeholder="Buscar empleado...">
+                <input type="submit" value="">
+            </form>
+            
             <section class="employee-list">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Departamento</th>
-                            <th>Puesto</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{ EMPLOYEE_LIST }}
-                    </tbody>
-                </table>
+                    
+            <?php foreach ($employees as $employee) : ?>
+                <?= $employee["Nombre"] ?>
+            <?php endforeach;?>
             </section>
-        </main>
     </section>
 </body>
 </html>

@@ -13,7 +13,7 @@
     <main class="muro-container">
 
         <section class="post-box">
-            <form method="POST" enctype="multipart/form-data">
+            <form  method="POST" enctype="multipart/form-data">
                 <div class="post-header">
                     <div class="avatar"></div>
                     <input type="text" name="title" class="post-input" placeholder="Título del post" required>
@@ -44,25 +44,20 @@
                     <div class="post-top">
                         <div class="avatar"></div>
                         <span class="username"><?= htmlspecialchars($post['username']) ?></span>
-                        <span class="date"><?= date("d/m/Y H:i", strtotime($post['createdAt'])) ?></span>
+                        <span class="date"><?= date("d/m/Y H:i", strtotime($post['fechaCreado'])) ?></span>
                     </div>
                     <div class="post-content">
-                        <h3><?= htmlspecialchars($post['title']) ?></h3>
-                        <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+                        <h3><?= htmlspecialchars($post['titulo']) ?></h3>
+                        <p><?= htmlspecialchars($post['contenido']) ?></p>
                     </div>
 
                     <?php if (!empty($post['files'])) : ?>
                         <div class="post-files">
                             <h4>Archivos adjuntos:</h4>
-                            <ul>
                                 <?php foreach ($post['files'] as $file) : ?>
-                                    <li>
-                                        <a href="<?= htmlspecialchars($file['filepath']) ?>" target="_blank">
-                                            <?= htmlspecialchars($file['filename']) ?>
-                                        </a>
-                                    </li>
+
+
                                 <?php endforeach; ?>
-                            </ul>
                         </div>
                     <?php endif; ?>
 

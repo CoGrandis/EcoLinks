@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="birthday">Fecha de nacimiento</label>
-                    <input type="date" id="birthday" name="birthday" required>
+                    <label for="dateBirth">Fecha de nacimiento</label>
+                    <input type="date" id="dateBirth" name="dateBirth" required>
                 </div>
 
                 <div class="form-group">

@@ -15,6 +15,7 @@ class EmployeeController {
 
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $token = bin2hex(random_bytes(32));
             $form = [
                 "name" => $_POST['name'],
                 "surname" => $_POST['surname'],
@@ -23,7 +24,8 @@ class EmployeeController {
                 "address" => $_POST['address'],
                 "hiringDate" => $_POST['hiringDate'],
                 "department" => $_POST['department'],
-                "position" => $_POST['position']
+                "position" => $_POST['position'],
+                "token" => $token
             ];
 
             $insertedId = $this->empleadoModel->register($form);
@@ -61,36 +63,29 @@ class EmployeeController {
     }
 
     public function list() {
-        $current_page = basename($_SERVER['REQUEST_URI']);
-        $employees = $this->empleadoModel->getAllEmpleados();
-
-        $objectHTML = "";
-        foreach ($employees as $emp) {
-            $objectHTML .= "
-            <tr>
-                <td>{$emp['ID_EMPLEADO']}</td>
-                <td>{$emp['Nombre']}</td>
-                <td>{$emp['Apellido']}</td>
-                <td>{$emp['Email']}</td>
-                <td>{$emp['FK_ID_DEPARTAMENTO']}</td>
-                <td>{$emp['FK_ID_PUESTO']}</td>
-                <td>
-                    <a href='/admin/employee/profile/{$emp['ID_EMPLEADO']}'>Ver perfil</a>
-                    <a href='/admin/employee/delete/{$emp['ID_EMPLEADO']}' onclick=\"return confirm('¿Estás seguro de que deseas eliminar este empleado?');\">Eliminar</a>
-                </td>
-            </tr>
-        ";
+        $employees = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $search = $_POST['search'] ?? '';
+            $employees = $this->empleadoModel->searchEmpleado($search);
+        } else {
+            $employees = $this->empleadoModel->getAllEmpleados();
         }
-        $tpl = new TemplateMotor("employee-list");
+
+        $current_page = basename($_SERVER['REQUEST_URI']);
+
+       
+        $tpl = new TemplateMotor("lista");
         $tpl->assing([
-            "EMPLOYEES_ACTIVE" => (strpos($current_page, 'employee') !== false) ? 'active' : '',
-            "EMPLOYEE_LIST" => $objectHTML
+            "EMPLOYEES_ACTIVE" => (strpos($current_page, 'empleados') !== false) ? 'active' : '',
+            "employees" => $employees
         ]);
         $tpl->printToScreen();
     }
 
-    public function profile($id){
+    public function profile(){
         $empleadoModel = new EmpleadoModel();
+        
+        $id = $_SESSION['user']['FK_ID_EMPLEADO'];
         $empleado = $empleadoModel->getEmpleadosById($id);
 
         // Cargar plantilla con datos
