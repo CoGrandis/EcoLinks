@@ -47,8 +47,7 @@
             <button><i class="bi bi-megaphone"></i> Reclamos</button>
             <button><i class="bi bi-bell"></i> Pendientes</button>
             <button><i class="bi bi-file-earmark-text"></i> Informe</button>
-            <button><i class="bi bi-people"></i> Presentismo</button>
-            <button><i class="bi bi-person-plus"></i> Agregar personal</button>
+            <a href="/empleados/register"><button><i class="bi bi-person-plus"></i> Agregar personal</button>
         </aside>
     </article>
 

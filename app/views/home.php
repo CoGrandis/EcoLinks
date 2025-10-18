@@ -1,4 +1,6 @@
 @extends(head)
+    <link rel="stylesheet" href="../../../assets/css/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <body>
         <header class="header-container">
             <section class="logo">
@@ -8,7 +10,6 @@
             </section>
             <nav class="navegacion">
                 
-                <i class="fa-solid fa-bars nav-item menu"></i>
                 <div class="nav-links">
                     <a class="nav-item" href="/">que somos</a>
                     <a class="nav-item" href="/login">Iniciar Sesión</a>
@@ -22,8 +23,20 @@
             <!-- Hero principal -->
             <section class="main-info">
                 <div class="main-text">
-                    <h1>GESTIÓN <br>EFICAZ Y FÁCIL </h1>
-                    <h4>Simplifica la gestión de Recursos Humanos y de empleados. </h4>
+
+                    <h1>EchoLinks <br> mas que</h1>
+
+                    <div id="flip">
+                        <span>Una aplicación</span>
+                        <span>Una comunidad</span>
+                        <span>Gestión de RRHH</span>
+                        <span>Un equipo</span>
+                        <span>Un futuro</span>
+                        <span>Un cambio</span>
+                        <span>Una solución</span>
+                    </div>
+                    
+                    <h2> al alcance de la mano!</h2>
                 </div>
                 <div class="main-img">
                     <img src="../../assets/img/ejemplo.svg" alt="">
@@ -64,25 +77,25 @@
             <section class="team-section">
                 <h2>Quienes somos?</h2>
                 <div class="team-card">
-                    <div class="avatar"></div>
+                    <div class="avatar"> <img src="../../../assets/img/nosotros/nanu.JPG" alt=""></div>
                     <h3>Nahir Fonseca</h3>
                 </div>
                 <div class="team-card">
-                    <div class="avatar"></div>
+                    <div class="avatar"><img src="../../../assets/img/nosotros/alon.JPG" alt=""></div>
                     <h3>Alondra Herrera</h3>
                 </div>
                 <div class="team-card">
-                    <div class="avatar"></div>
+                    <div class="avatar"><img src="../../../assets/img/nosotros/aron.JPG" alt=""></div>
                     <h3>Aroon Yustiz</h3>
                 </div>
                 <div class="team-card">
-                    <div class="avatar"></div>
+                    <div class="avatar"><img src="../../../assets/img/nosotros/coni.JPG" alt=""></div>
                     <h3>Constanza Granids</h3>
                 </div>
             </section>
         </main>
 
         <footer class="footer"></footer>
-        <script src="../../assets/js/menu.js"></script>
+        <script src="../../../assets/js/menu.js"></script>
     </body>
 </html>

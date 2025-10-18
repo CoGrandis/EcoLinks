@@ -1,0 +1,140 @@
+@import url('style.css');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------- */
+/*    SECCIÓN POSTULACIONES  */
+/* ------------------------- */
+.postulaciones-section {
+  padding: 30px;
+}
+
+.postulaciones-section h2 {
+  font-size: 20px;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.postulaciones-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ------------------------- */
+/*         TARJETAS          */
+/* ------------------------- */
+.post-card {
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Header */
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary-color);
+  padding: 10px 15px;
+  color: #fff;
+}
+
+.post-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.post-info {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.post-info h3 {
+  font-size: 15px;
+  margin: 0;
+  color: #fff;
+}
+
+.post-info p {
+  font-size: 13px;
+  margin: 0;
+  opacity: 0.9;
+  color: #f3f3f3;
+}
+
+.post-header i {
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Cuerpo */
+.post-body {
+  padding: 15px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-body p {
+  font-size: 14px;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Botón Enviar CV */
+.btn-cv {
+  align-self: flex-end;
+  background: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-cv:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .postulaciones-section {
+    padding: 20px;
+  }
+
+  .post-info h3 {
+    font-size: 14px;
+  }
+
+  .post-body p {
+    font-size: 13px;
+  }
+
+  .btn-cv {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+}

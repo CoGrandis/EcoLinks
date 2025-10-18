@@ -1,4 +1,6 @@
+
 <nav class="admin-menu">
+   
     <ul>
         <li class="{{ PROFILE_ACTIVE }}"><i class=" icon fa-solid fa-user"></i><a href="{{ APP_URL }}perfil">Perfil</a></li>
         <li class="{{ FILES_ACTIVE }}"><i class=" icon fa-solid fa-file"></i><a href="{{ APP_URL }}documentos">Documentos</a></li>

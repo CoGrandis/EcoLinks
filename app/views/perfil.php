@@ -1,6 +1,5 @@
 @extends(head)
-    <link rel="stylesheet" href="../../../assets/css/perfil.css">
-
+    <link rel="stylesheet" href="../../assets/css/perfil.css">
 <body>
     <section  class="admin-dashboard">
      
@@ -34,9 +33,10 @@
 
             <!-- Accesos laterales -->
             <aside class="perfil-sidebar">
-                <button class="perfil-btn">📊 Estadísticas</button>
-                <button class="perfil-btn">📁 Mis proyectos</button>
-                <button class="perfil-btn">📌 Recordatorios pendientes</button>
+                <button class="perfil-btn"> <i class="bi bi-file-earmark-person"></i> Mis datos</button>
+                <button class="perfil-btn"> <i class="bi bi-exclamation-diamond"></i>Mis Reclamos</button>
+                <button class="perfil-btn"><i class="bi bi-inbox-fill"></i>mis archivos</button>
+            
             </aside>
         </section>
     </main>
