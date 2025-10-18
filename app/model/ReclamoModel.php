@@ -13,24 +13,54 @@ class ReclamoModel {
 
     }
 
-    public function create($form){
+    public function create($form) {
         $query = $this->conn->prepare("
-            INSERT INTO `reclamo`
-            (`FK_ID_EMPLEADO`, `FK_ID_TIPO`, `asunto`,`descripcion`)
-            VALUES
-            (:idEmpleado, :idTipo, :asunto, :descripcion)
-
+            INSERT INTO reclamo (
+                FK_ID_EMPLEADO, 
+                FK_ID_SUPERVISOR, 
+                empresa, 
+                fecha_denuncia, 
+                descripcion, 
+                impacto, 
+                solucion, 
+                comentarios, 
+                firma_digital, 
+                asunto
+                )
+            VALUES (
+                :idEmpleado,
+                :idSupervisor,
+                :empresa,
+                :fecha,
+                :descripcion,
+                :impacto,
+                :solucion,
+                :comentarios,
+                :firmaDigital,
+                :asunto
+            )
         ");
 
-        $query->bindParam(':idEmpleado', $form['usuario']);
-        $query->bindParam(':idTipo', $form['tipo']);
-        $query->bindParam(':asunto', $form['asunto']);
+        $query->bindParam(':idEmpleado', $_SESSION['user']['FK_ID_EMPLEADO']);
+        $query->bindParam(':idSupervisor', $form['supervisor']);
+        $query->bindParam(':empresa', $form['empresa']);
+        $query->bindParam(':fecha', $form['fecha']);
         $query->bindParam(':descripcion', $form['descripcion']);
-        return $this->conn->lastInsertId();
+        $query->bindParam(':impacto', $form['impacto']);
+        $query->bindParam(':solucion', $form['solucion']);
+        $query->bindParam(':comentarios', $form['comentarios']);
+        $query->bindParam(':firmaDigital', $form['signature']);
+        $query->bindParam(':asunto', $form['asunto']); // tomar del formulario
 
-    }
+        if($query->execute()) {
+            return $this->conn->lastInsertId();
+        }
 
-    public function update($form){
+     
+}
+
+
+    public function update(){
         $query = $this->conn->prepare("
             UPDATE `reclamo`
             SET
@@ -39,13 +69,13 @@ class ReclamoModel {
                 `asunto` = :asunto,
                 `descripcion` = :descripcion
             WHERE `id` = :id
-        ");
+        "); 
 
-        $query->bindParam(':idEmpleado', $form['usuario']);
-        $query->bindParam(':idTipo', $form['tipo']);
-        $query->bindParam(':asunto', $form['asunto']);
-        $query->bindParam(':descripcion', $form['descripcion']);
-        $query->bindParam(':id', $form['id']);
+        $query->bindParam(':idEmpleado', $_SESSION['user']['FK_ID_EMPLOYEE']);
+        $query->bindParam(':idTipo', $_POST['tipo']);
+        $query->bindParam(':asunto', $_POST['asunto']);
+        $query->bindParam(':descripcion', $_POST['descripcion']);
+        $query->bindParam(':id', $_POST['id']);
         $query->execute();
         return $this->conn->lastInsertId();
     }
@@ -77,7 +107,7 @@ class ReclamoModel {
     }
 
     public function get(){
-        $query = $this->conn->prepare("SELECT * FROM `reclamo` INNER JOIN tipo_reclamo ON reclamo.FK_ID_TIPO = tipo_reclamo.ID_TIPO");
+        $query = $this->conn->prepare("SELECT * FROM `reclamo`");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }

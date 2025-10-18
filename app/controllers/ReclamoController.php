@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../model/ReclamoModel.php';
+require_once __DIR__ . '/../model/EmpleadoModel.php';
 
 
 class ReclamoController{ 
@@ -16,20 +17,25 @@ class ReclamoController{
         $current_page = basename($_SERVER['REQUEST_URI']);
         $tpl->assing([
             "RECLAMO_ACTIVE" => (strpos($current_page, 'reclamo') !== false) ? 'active' : '',
-            "RECLAMOS" => $reclamos
+            "reclamos" => $reclamos
         ]);
         $tpl->printToScreen();
     }
 
     public function createReclamo(){
+
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $form = $_POST;
             $idReclamo = $this->reclamoModel->create($form);
         }
 
+        $empleadoModel = new EmpleadoModel();
+        $employees = $empleadoModel->getAllEmpleados();
         $tpl = new TemplateMotor("reclamos");
         $current_page = basename($_SERVER['REQUEST_URI']);
         $tpl->assing([
             "RECLAMO_ACTIVE" => (strpos($current_page, 'reclamo') !== false) ? 'active' : '',
+            "employees" => $employees
         ]);
         $tpl->printToScreen();
     }

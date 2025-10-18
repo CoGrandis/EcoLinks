@@ -5,23 +5,19 @@
 <body>
     <section class="admin-dashboard">
         @extends(menuEmployee)
-
     <main class="main-dashboard">
         <main class="reclamo-container">
             <h2>Formulario de Reclamo</h2>
 
-            <form class="reclamo-form" action="submit_reclamo.php" method="post" onsubmit="return onSubmit(this)">
-                <div class="input-group">
-                    <label>Nombre del empleado</label>
-                    <div class="dual-input">
-                        <input type="text" name="nombre" placeholder="Primer nombre" required>
-                        <input type="text" name="apellido" placeholder="Apellido" required>
-                    </div>
-                </div>
-
+            <form class="reclamo-form" action="" method="post" onsubmit="return onSubmit(this)">
                 <div class="input-group">
                     <label>Nombre de empresa</label>
                     <input type="text" name="empresa" placeholder="Ej: EchoLinks S.A." required>
+                </div>
+
+                <div class="input-group">
+                    <label>Asunto</label>
+                    <input type="text" name="asunto" placeholder="Ej: Problema con el servicio" required>
                 </div>
 
                 <div class="input-group">
@@ -30,16 +26,20 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Nombre del supervisor</label>
+                    <label>Supervisor</label>
                     <div class="dual-input">
-                        <input type="text" name="nombre_supervisor" placeholder="Primer nombre" required>
-                        <input type="text" name="apellido_supervisor" placeholder="Apellido" required>
+                        <select name="supervisor" id="supervisor">
+                            <option value="">Seleccione un supervisor</option>
+                            <?php foreach($employees as $employee): ?>
+                                <option value="<?php echo $employee['ID_EMPLEADO']; ?>"><?php echo $employee['Nombre'] . ' ' . $employee['Apellido']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
 
                 <div class="input-group">
                     <label>Describa con precisión los detalles de su queja y a quién involucra</label>
-                    <textarea name="detalle" rows="4" required></textarea>
+                    <textarea name="descripcion" rows="4" required></textarea>
                 </div>
 
                 <div class="input-group">

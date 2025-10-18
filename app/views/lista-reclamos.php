@@ -11,25 +11,10 @@
         <h1>Lista de Reclamos</h1>
         <div class="reclamos-container">
                 <?php foreach ($reclamos as $reclamo) : ?>
-                        <table class="reclamo-table">
-                            <thead>
-                                <tr>
-                                    <th>Asunto</th>
-                                    <th>Descripción</th>
-                                    <th>Prioridad</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><?= htmlspecialchars($reclamo['asunto']) ?></td>
-                                    <td><?= nl2br(htmlspecialchars($reclamo['descripcion'])) ?></td>
-                                    <td><?= htmlspecialchars($reclamo['prioridad']) ?></td>
-                                    <td><?= htmlspecialchars($reclamo['estado']) ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                <?php endforeach; ?>
+                       
+                <?= htmlspecialchars($reclamo['asunto']) ?>
+                
+            <?php endforeach; ?>
         </div>
     </main>
     </section>
