@@ -1,0 +1,90 @@
+@import url('style.css');
+
+.reclamo-detalle {
+  margin-left: 220px;
+  padding: 2rem;
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+.reclamo-detalle h2 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--dark-color);
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s;
+}
+.btn-volver:hover { color: var(--accent-color); }
+
+.reclamo-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: .8rem;
+  background: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.reclamo-detalles h3 {
+  margin-top: 1.2rem;
+  color: var(--dark-color);
+}
+
+.reclamo-detalles p {
+  background: #fff;
+  padding: .8rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.reclamo-gestion {
+  margin-top: 2rem;
+  background: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.input-group select,
+.input-group textarea {
+  padding: .7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: var(--font-family);
+}
+
+.btn-guardar {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: .8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .3s;
+}
+.btn-guardar:hover { background: var(--dark-color); }
+
+@media (max-width: 768px) {
+  .reclamo-detalle { margin-left: 0; padding: 1rem; }
+  .reclamo-info { grid-template-columns: 1fr; }
+}
