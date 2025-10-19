@@ -92,7 +92,7 @@
                 </div>
                 <div class="team-card">
                     <div class="avatar"><img src="../../../assets/img/nosotros/coni.JPG" alt=""></div>
-                    <h3>Constanza Granids</h3>
+                    <h3>Constanza Grandis</h3>
                 </div>
             </section>
         </main>
