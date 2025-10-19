@@ -30,9 +30,10 @@ $router->get('/', ['HomeController', 'index']);
 
     $router->get('/empleados', ['EmployeeController', 'list'])->only([1]);
     $router->post('/empleados', ['EmployeeController', 'list'])->only([1]);
+    $router->get('/reclamos', ['ReclamoController', 'lista']);
     $router->get('/reclamo', ['ReclamoController', 'createReclamo']);
     $router->post('/reclamo', ['ReclamoController', 'createReclamo']);
-    $router->get('/reclamos', ['ReclamoController', 'lista']);
+    $router->get('/reclamo/detalle/{id}', ['ReclamoController', 'detalleReclamo']);
 
     $router->resolve();
 

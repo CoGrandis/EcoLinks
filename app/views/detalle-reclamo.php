@@ -1,6 +1,5 @@
-@extends('head')
+@extends(head)
 <link rel="stylesheet" href="../../assets/css/VistaDeReclamos.css">
-<link rel="stylesheet" href="../../assets/fonts/fontawesom/fawesome-all.css">
 
 <body>
   <section class="admin-dashboard">
@@ -12,36 +11,36 @@
 
     <main class="main-dashboard">
       <section class="reclamo-detalle">
-        <a href="ListaReclamos.php" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver</a>
-        <h2>Reclamo #<?= $reclamo['ID_RECLAMO'] ?? '001' ?></h2>
+        <h2>Reclamo #<?= $reclamo['ID_RECLAMO'] ?></h2>
 
         <div class="reclamo-info">
           <div class="info-item">
-            <strong>Empleado:</strong> <?= $reclamo['nombre_empleado'] ?? 'Juan Pérez' ?>
+            <strong>Empleado:</strong> <?= $reclamo['FK_ID_EMPLEADO'] ?>
           </div>
           <div class="info-item">
-            <strong>Fecha:</strong> <?= $reclamo['fecha'] ?? '2025-10-17' ?>
+            <strong>Fecha:</strong> <?= $reclamo['fecha'] ?>
           </div>
           <div class="info-item">
-            <strong>Supervisor:</strong> <?= $reclamo['supervisor'] ?? 'María López' ?>
+            <strong>Supervisor:</strong> <?= $reclamo['supervisor']  ?>
           </div>
         </div>
 
         <div class="reclamo-detalles">
           <h3>Detalles del Reclamo</h3>
-          <p><?= $reclamo['detalle'] ?? 'Descripción del reclamo aquí...' ?></p>
+          <p><?= $reclamo['detalle']?></p>
 
           <h3>Impacto</h3>
-          <p><?= $reclamo['impacto'] ?? 'Cómo afectó al empleado...' ?></p>
+          <p><?= $reclamo['impacto']?></p>
 
           <h3>Propuesta de Solución</h3>
-          <p><?= $reclamo['solucion'] ?? 'Propuesta enviada por el empleado...' ?></p>
+          <p><?= $reclamo['solucion'] ?></p>
 
           <h3>Comentarios Adicionales</h3>
-          <p><?= $reclamo['comentarios'] ?? 'Comentarios extra...' ?></p>
+          <p><?= $reclamo['comentarios']?></p>
         </div>
 
-        <form class="reclamo-gestion" method="POST" action="actualizar_estado.php">
+        <form class="reclamo-gestion" method="POST" action="/reclamo/estado">
+          <input type="hidden" name="id_reclamo" value="<?= $reclamo['ID_RECLAMO'] ?>">
           <div class="input-group">
             <label for="estado"><i class="fas fa-flag"></i> Estado del reclamo</label>
             <select name="estado" id="estado">

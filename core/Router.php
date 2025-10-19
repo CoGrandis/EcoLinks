@@ -18,7 +18,7 @@ class Router {
 
     // Método interno para agregar ruta
     private function addRoute($method, $uri, $action) {
-        $pattern = '/^' . str_replace('/', '\/', preg_replace('/\{[^\/]+\}/', '([^\/]+)', $uri)) . '$/';
+        $pattern = "#^" . preg_replace('/\{[^\/]+\}/', '([^\/]+)', $uri) . "$#";
         $this->routes[$method][$pattern] = [
             'action' => $action,
             'roles'  => []

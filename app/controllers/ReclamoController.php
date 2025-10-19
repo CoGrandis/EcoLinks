@@ -40,21 +40,33 @@ class ReclamoController{
         $tpl->printToScreen();
     }
 
-    public function updateReclamo(){
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $reclamo = $this->reclamoModel->update($form);
-        }
-    }
 
-    public function updateStatus(){
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $reclamo = $this->reclamoModel->updateStatus($status);
-        }
-    }
     public function updatePriority(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $reclamo = $this->reclamoModel->updatePriority($priority);
         }
+    }
+
+    public function detalleReclamo($id){
+            $reclamo = $this->reclamoModel->getById($id);
+            $tpl = new TemplateMotor("detalle-reclamo");
+            $current_page = basename($_SERVER['REQUEST_URI']);
+            $tpl->assing([
+                "RECLAMO_ACTIVE" => (strpos($current_page, 'reclamo') !== false) ? 'active' : '',
+                "reclamo" => $reclamo[0]
+            ]);
+            $tpl->printToScreen();
+    }
+
+    public function responderReclamo(){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $form = $_POST;
+            $reclamo = $this->reclamoModel->responderReclamo($form);
+            $estado = $this->reclamoModel->cambiarEstadoReclamo($form['idReclamo'], $form['estado']);
+            
+        }
+        header('Location: /reclamo/detalle/' . $form['idReclamo']);
+        echo "<script>alert('Respuesta enviada con éxito.');</script>";
     }
 }
 

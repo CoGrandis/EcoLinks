@@ -80,7 +80,7 @@ class ReclamoModel {
         return $this->conn->lastInsertId();
     }
 
-    public function updateStatus($id, $estado){
+    public function cambiarEstadoReclamo($id, $estado){
         $query = $this->conn->prepare("
             UPDATE `reclamo`
             SET
@@ -93,7 +93,7 @@ class ReclamoModel {
         return $query->execute();
     }
 
-    public function updatePriority($id, $prioridad){
+    public function cambiarPrioridadReclamo($id, $prioridad){
         $query = $this->conn->prepare("
             UPDATE `reclamo`
             SET
@@ -107,7 +107,7 @@ class ReclamoModel {
     }
 
     public function get(){
-        $query = $this->conn->prepare("SELECT * FROM `reclamo`");
+        $query = $this->conn->prepare("SELECT * FROM reclamo");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -120,14 +120,36 @@ class ReclamoModel {
     }
 
     public function getById($id){
-        $query = $this->conn->prepare("SELECT * FROM `reclamo` WHERE `ID_RECLAMO` = :id INNER JOIN tipo_reclamo ON reclamo.FK_ID_TIPO = tipo_reclamo.ID_TIPO WHERE `estado` = :estado");
+        $query = $this->conn->prepare("SELECT * FROM `reclamo` WHERE `ID_RECLAMO` = :id");
         $query->bindParam(':id', $id);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getStatus(){
-        
+    public function responderReclamo($form){
+        $query = $this->conn->prepare("
+            INSERT INTO 
+            `respuesta_reclamo`
+            (
+                `FK_ID_RECLAMO`, 
+                `FK_ID_EMPLEADO`, `
+                respuesta`
+            )
+            VALUES
+            (
+                :id_reclamo,
+                :id_empleado,
+                :respuesta
+            )
+        ");
+
+        $query->bindParam(':respuesta', $form['respuesta']);
+        $query->bindParam(':id_reclamo', $form['id_reclamo']);
+        $query->bindParam(':id_empleado', $_SESSION['user']['FK_ID_EMPLEADO']);
+        return $query->execute();
+
     }
+
+   
 }
 ?>
