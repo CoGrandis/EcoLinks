@@ -10,13 +10,13 @@ body {
 
 /* Contenedor principal */
 .main-content {
-  margin-left: 220px; /* deja espacio para el menú lateral */
+  margin-left: 220px; 
   display: flex;
   justify-content: center;
   align-items: start;
   padding: 40px;
   gap: 40px;
-  flex-wrap: wrap; /* <-- permite reacomodo en pantallas pequeñas */
+  flex-wrap: wrap; 
 }
 
 /* --- Sección del calendario --- */

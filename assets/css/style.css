@@ -29,7 +29,8 @@ body{
   --secondary-color: #2C3A43;   
   --background-color: #1E1E24;  
   --accent-color: #6D50FF;      
-  --text-color: #EAEAEA;        
+  --text-color: #EAEAEA;
+  --font-family: 'Heebo', sans-serif;
   }
 }
 
@@ -55,10 +56,11 @@ body{
     --accent-color:#6D50FF;
 }
 :root[data-tema="dark"] {
-    --primary-color: #5E9AAB;    
+  --primary-color: #5E9AAB;    
   --dark-color: #90B3BF;        
   --secondary-color: #2C3A43;   
   --background-color: #1E1E24;  
   --accent-color: #6D50FF;      
-  --text-color: #EAEAEA;        
+  --text-color: #EAEAEA;  
+  --font-family: 'Heebo', sans-serif;
 }

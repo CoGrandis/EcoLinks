@@ -11,7 +11,7 @@
     min-height: 100vh;
 }
 
-/* 🔹 Tarjeta izquierda */
+/* Tarjeta izquierda */
 .emple-card {
     width: 100%;
     max-width: 420px;
@@ -103,7 +103,7 @@
     color: var(--primary-color);
 }
 
-/* 🔹 Panel lateral derecho */
+/* panel lateral derecho */
 .emple-actions-panel {
     display: flex;
     flex-direction: column;
@@ -134,7 +134,7 @@
     background-color: var(--primary-color);
 }
 
-/* 🔹 Responsive */
+/* Responsive */
 @media (max-width: 900px) {
     .emple-container {
         flex-direction: column;
