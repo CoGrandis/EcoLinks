@@ -69,10 +69,10 @@ body img {
     bottom: 0;
     left: 0;
     width: 200%;
-    height: 280px;
+    height: 290px;
     background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg"><path d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z" fill="%2390B3BF"/></svg>');
     background-size: 50% 100%;
-    animation: wave 7s linear infinite;
+    animation: wave 8s linear infinite;
     opacity: 0.6;
     z-index: 2;
 }
@@ -119,5 +119,14 @@ body img {
     }
      .wave {
         height: 120px;
+    }
+}
+@media (max-width: 480px) {
+    #error h1 {
+        font-size: 60px;
+    }
+
+    #error h2 {
+        font-size: 18px;
     }
 }

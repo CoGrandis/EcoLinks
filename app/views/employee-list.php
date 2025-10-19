@@ -1,14 +1,19 @@
 @extends(head)
+<link rel="stylesheet" href="../../assets/css/emple.css">
 <body>
     <section class="admin-dashboard">
         @extends(menu)
         
         <main class="main-dashboard"> 
             <h1>Lista de Empleados</h1>
-            <form action="" method="post">
+            <div class=".emple-searchbar">
+                <form action="" method="post">
                 <input type="text" name="search"placeholder="Buscar empleado...">
                 <input type="submit" value="">
             </form>
+                
+            </div>
+           
             
             <section class="employee-list">
                     
