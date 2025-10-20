@@ -21,7 +21,16 @@ body{
     background-color: var(--background-color);
 }
 
+.main-dashboard {
+    margin-left: 250px; /* espacio para el menú */
+}
 
+@media (max-width: 768px) {
+    .main-dashboard {
+    margin-left: 0px; /* espacio para el menú */
+    padding: 0px;      /* opcional, para separar del borde */
+}
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: #5E9AAB;     

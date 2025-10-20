@@ -1,7 +1,15 @@
-@extends('head')
+@extends(head)
 <link rel="stylesheet" href="../../assets/css/calendario.css">
 <body>
-    @include('menu')
+<section class="admin-dashboard">
+    <?php if ($_SESSION['user']['FK_ID_ROL'] === 3) : ?>
+      @extends(menuEmployee)
+    <?php else: ?>
+      @extends(menu)
+    <?php endif; ?>
+    
+    
+
 
         <section class="calendar">
             <div class="calendar-container">
@@ -23,11 +31,12 @@
             <div id="pendiente">
                 <h4>Pendiente del día</h4>
                 <ul id="tasks">
-                    <li>11:50 presentación de tesis</li>
-                    <li>2:00 reunión de auto crítica</li>
+                    <li></li>
+                    <li></li>
                 </ul>
             </div>
         </aside>
-
-    <script src="../../assets/js/calendario.js"></script>
+</section>
 </body>
+</html>
+    <script src="../../assets/js/calendario.js"></script>
