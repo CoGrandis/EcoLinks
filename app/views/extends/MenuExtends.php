@@ -12,4 +12,4 @@
     </ul>
 </nav>
 
-<script src="../../assets/js/fun.js"></script>
+<script src="../../../assets/js/fun.js"></script>

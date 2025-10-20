@@ -1,5 +1,5 @@
 @extends(head)
-    <link rel="stylesheet" href="../../assets/css/home.css">
+    <link rel="stylesheet" href="../../../assets/css/home.css">
        <link rel="stylesheet" href="../../../assets/fonts/fontawesom/fawesome-all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <body>
@@ -9,7 +9,7 @@
                 <h1>EchoLinks</h1>
                 
             </section>
-             <i class="fa-solid fa-bars menu" id="menu-toggle"></i> <!-- Ícono hamburguesa -->
+            <i class="fa-solid fa-bars menu" id="menu-toggle"></i> <!-- Ícono hamburguesa -->
             <nav class="navegacion">
                
                 <div class="nav-links" id="nav-links">
@@ -99,5 +99,5 @@
 
         <footer class="footer"></footer>
     </body>
-<script src="../../assets/js/menu.js"></script>
+<script src="../../../assets/js/menu.js"></script>
 </html>

@@ -1,7 +1,7 @@
 @extends(head)
 
-<link rel="stylesheet" href="../../assets/css/emple.css">
- <link rel="stylesheet" href="../../assets/fonts/fontawesom/fawesome-all.css">
+<link rel="stylesheet" href="../../../assets/css/emple.css">
+ <link rel="stylesheet" href="../../../assets/fonts/fontawesom/fawesome-all.css">
 <body>
 <section class="admin-dashboard">
      @extends(menu)
