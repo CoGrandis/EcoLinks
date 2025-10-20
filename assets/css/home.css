@@ -57,6 +57,9 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
 }
+#menu-toggle{
+  display: none;
+}
 
 /* Links en desktop */
 .nav-links {
@@ -296,6 +299,9 @@ body {
 
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
   .main-info {
     flex-direction: column;
     text-align: center;
@@ -360,5 +366,8 @@ body {
   }
   .funciones-grid {
     grid-template-columns: 1fr; /* una columna */
+  }
+  #menu-toggle {
+    display: block;
   }
 }

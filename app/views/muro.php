@@ -1,5 +1,5 @@
 @extends(head)
-    <link rel="stylesheet" href="../../assets/css/muro.css">
+    <link rel="stylesheet" href="../../../assets/css/muro.css">
      <link rel="stylesheet" href="../../../assets/fonts/fontawesom/fawesome-all.css">
 <body>
     <section class="admin-dashboard">

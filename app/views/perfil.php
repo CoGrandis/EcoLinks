@@ -1,5 +1,5 @@
 @extends(head)
-<link rel="stylesheet" href="../../assets/css/perfil.css">
+<link rel="stylesheet" href="../../../assets/css/perfil.css">
 
 <body>
   <section class="admin-dashboard">
