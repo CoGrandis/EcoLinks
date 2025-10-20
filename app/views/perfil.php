@@ -44,8 +44,14 @@
           </p>
         </div>
 
-    
-      </section>
+            <!-- Accesos laterales -->
+            <aside class="perfil-sidebar">
+                <button class="perfil-btn"> <i class="bi bi-file-earmark-person"></i> Mis datos</button>
+                <button class="perfil-btn"> <i class="bi bi-exclamation-diamond"></i>Mis Reclamos</button>
+                <button class="perfil-btn"><i class="bi bi-inbox-fill"></i>Mis archivos</button>
+            
+            </aside>
+        </section>
     </main>
   </section>
 

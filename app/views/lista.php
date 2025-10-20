@@ -1,20 +1,14 @@
 @extends(head)
 
 <link rel="stylesheet" href="../../../assets/css/emple.css">
- <link rel="stylesheet" href="../../../assets/fonts/fontawesom/fawesome-all.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
 <body>
 <section class="admin-dashboard">
      @extends(menu)
     <main class="main-dashboard">
     <article class="emple-container">
-        <!-- panel de acciones -->
-        <aside class="emple-actions-panel">
-            <button><i class="fa-solid fa-bullhorn"></i> Reclamos</button>
-            <button><i class="fa-solid fa-bell"></i> Pendientes</button>
-            <button><i class="fa-solid fa-file-lines"></i> Informe</button>
-            <button><a href="/empleados/register"><i class="fa-solid fa-user-plus"></i> Agregar personal</a></button>
-        </aside>
-         
+    
         <div class="emple-card">
             <h2>Gestión de Empleados</h2>
             <form method="POST" class="emple-searchbar">
@@ -23,8 +17,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
-
-            <!-- lista de empleados -->
+        <!-- lista de empleados -->
             <div class="emple-list">
                 <section>
                     <h3>Empleados</h3>
@@ -46,7 +39,12 @@
             </div>
         </div>
 
-        
+        <!--panel de acciones -->
+        <aside class="emple-actions-panel">
+            <button onClick="location.href='/reclamos'"><i class="bi bi-megaphone"></i> Reclamos</button>
+            <button onClick="location.href='/reclamos'"><i class="bi bi-file-earmark-text"></i> Informe</button>
+            <button onClick="location.href='/empleados/registrar'"><i class="bi bi-person-plus"></i> Agregar personal</button>
+        </aside>
     </article>
 
     </main>

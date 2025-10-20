@@ -53,9 +53,9 @@
         <label
         > Estado
          <select class="nieve" name="nieve">
-         <option value="">pendiente</option>
-         <option value="chocolate">en proceso</option>
-         <option value="sardina">finalizado</option>
+         <option value="">Pendiente</option>
+         <option value="chocolate">En proceso</option>
+         <option value="sardina">Finalizado</option>
          </select>
          </label>
       <button class="btn-cv">Ver CV enviado</button>
