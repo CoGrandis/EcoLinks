@@ -57,70 +57,52 @@ class ReclamoModel {
         }
 
      
-}
-
-
-    public function update(){
-        $query = $this->conn->prepare("
-            UPDATE `reclamo`
-            SET
-                `FK_ID_EMPLEADO` = :idEmpleado,
-                `FK_ID_TIPO` = :idTipo,
-                `asunto` = :asunto,
-                `descripcion` = :descripcion
-            WHERE `id` = :id
-        "); 
-
-        $query->bindParam(':idEmpleado', $_SESSION['user']['FK_ID_EMPLOYEE']);
-        $query->bindParam(':idTipo', $_POST['tipo']);
-        $query->bindParam(':asunto', $_POST['asunto']);
-        $query->bindParam(':descripcion', $_POST['descripcion']);
-        $query->bindParam(':id', $_POST['id']);
-        $query->execute();
-        return $this->conn->lastInsertId();
     }
 
     public function cambiarEstadoReclamo($id, $estado){
         $query = $this->conn->prepare("
-            UPDATE `reclamo`
+            UPDATE reclamo
             SET
-                `estado` = :estado
-            WHERE `ID_RECLAMO` = :id
+                estado = :estado
+            WHERE ID_RECLAMO = :id
         ");
 
         $query->bindParam(':estado', $estado);
-        $query->bindParam(':id', $id);
-        return $query->execute();
-    }
-
-    public function cambiarPrioridadReclamo($id, $prioridad){
-        $query = $this->conn->prepare("
-            UPDATE `reclamo`
-            SET
-                `prioridad` = :prioridad
-            WHERE `ID_RECLAMO` = :id
-        ");
-
-        $query->bindParam(':prioridad', $prioridad);
         $query->bindParam(':id', $id);
         return $query->execute();
     }
 
     public function get(){
-        $query = $this->conn->prepare("SELECT * FROM reclamo");
+        $query = $this->conn->prepare("
+            SELECT 
+                reclamo.*,
+                empleado.Nombre AS nombre_empleado,
+                empleado.Apellido AS apellido_empleado,
+                supervisor.Nombre AS nombre_supervisor,
+                supervisor.Apellido AS apellido_supervisor
+            FROM reclamo
+            INNER JOIN empleado ON empleado.ID_EMPLEADO = reclamo.FK_ID_EMPLEADO
+            INNER JOIN empleado supervisor ON supervisor.ID_EMPLEADO = reclamo.FK_ID_SUPERVISOR
+            ORDER BY reclamo.fecha_denuncia DESC
+        ");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
-    }
+    }   
 
-    public function getByStatus($estado){
-        $query = $this->conn->prepare("SELECT * FROM `reclamo` INNER JOIN tipo_reclamo ON reclamo.FK_ID_TIPO = tipo_reclamo.ID_TIPO WHERE `estado` = :estado");
-        $query->bindParam(':estado', $estado);
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_ASSOC);
-    }
 
     public function getById($id){
-        $query = $this->conn->prepare("SELECT * FROM `reclamo` WHERE `ID_RECLAMO` = :id");
+        $query = $this->conn->prepare("
+            SELECT 
+                reclamo.*,
+                empleado.Nombre AS nombre_empleado,
+                empleado.Apellido AS apellido_empleado,
+                supervisor.Nombre AS nombre_supervisor,
+                supervisor.Apellido AS apellido_supervisor
+            FROM reclamo
+            INNER JOIN empleado ON empleado.ID_EMPLEADO = reclamo.FK_ID_EMPLEADO
+            INNER JOIN empleado supervisor ON supervisor.ID_EMPLEADO = reclamo.FK_ID_SUPERVISOR
+            WHERE ID_RECLAMO = :id
+        ");
         $query->bindParam(':id', $id);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -129,11 +111,11 @@ class ReclamoModel {
     public function responderReclamo($form){
         $query = $this->conn->prepare("
             INSERT INTO 
-            `respuesta_reclamo`
+            respuesta_reclamo
             (
-                `FK_ID_RECLAMO`, 
-                `FK_ID_EMPLEADO`, `
-                respuesta`
+                FK_ID_RECLAMO, 
+                FK_ID_EMPLEADO,
+                respuesta
             )
             VALUES
             (
@@ -144,12 +126,88 @@ class ReclamoModel {
         ");
 
         $query->bindParam(':respuesta', $form['respuesta']);
-        $query->bindParam(':id_reclamo', $form['id_reclamo']);
-        $query->bindParam(':id_empleado', $_SESSION['user']['FK_ID_EMPLEADO']);
+        $query->bindParam(':id_reclamo', $form['idReclamo']);
+            $query->bindParam(':id_empleado', $_SESSION['user']['FK_ID_EMPLEADO']);
         return $query->execute();
 
     }
 
-   
+    public function asignarResponsable($idReclamo, $idResponsable) {
+        $query = $this->conn->prepare("
+            UPDATE reclamo 
+            SET FK_ID_RESPONSABLE = :idResponsable
+            WHERE ID_RECLAMO = :idReclamo
+        ");
+        $query->bindParam(':idResponsable', $idResponsable);
+        $query->bindParam(':idReclamo', $idReclamo);
+        return $query->execute();
+    }
+
+    public function cambiarPrioridadReclamo($id, $prioridad) {
+        $query = $this->conn->prepare("
+            UPDATE reclamo 
+            SET prioridad = :prioridad 
+            WHERE ID_RECLAMO = :id
+        ");
+        $query->bindParam(':prioridad', $prioridad);
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
+
+    public function buscarReclamos($filtros = []) {
+    $sql = "
+        SELECT 
+            r.*, 
+            e.nombre AS nombre_empleado,
+            e.apellido AS apellido_empleado
+        FROM reclamo r
+        INNER JOIN empleado e ON e.ID_EMPLEADO = r.FK_ID_EMPLEADO
+        WHERE 1=1
+    ";
+
+    $params = [];
+
+    // Filtro por empleado (nombre o ID)
+    if (!empty($filtros['empleado'])) {
+        $sql .= " AND (e.nombre LIKE :empleado OR e.apellido LIKE :empleado OR e.ID_EMPLEADO = :empleadoExacto)";
+        $params[':empleado'] = "%{$filtros['empleado']}%";
+        $params[':empleadoExacto'] = $filtros['empleado'];
+    }
+
+    // Filtro por estado
+    if (!empty($filtros['estado'])) {
+        $sql .= " AND r.estado = :estado";
+        $params[':estado'] = $filtros['estado'];
+    }
+
+    // Filtro por prioridad
+        if (!empty($filtros['prioridad'])) {
+            $sql .= " AND r.prioridad = :prioridad";
+            $params[':prioridad'] = $filtros['prioridad'];
+        }
+
+        $sql .= " ORDER BY r.fecha_denuncia DESC";
+
+        $query = $this->conn->prepare($sql);
+        foreach ($params as $key => $value) {
+            $query->bindValue($key, $value);
+        }
+
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getComentariosByReclamo($idReclamo){
+        $query = $this->conn->prepare("
+            SELECT respuesta_reclamo.*, empleado.Nombre AS nombre_empleado, empleado.Apellido AS apellido_empleado
+            FROM respuesta_reclamo 
+            INNER JOIN empleado ON empleado.ID_EMPLEADO = respuesta_reclamo.FK_ID_EMPLEADO
+            WHERE respuesta_reclamo.FK_ID_RECLAMO = :idReclamo
+        ");
+        $query->bindParam(':idReclamo', $idReclamo);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

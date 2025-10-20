@@ -1,5 +1,5 @@
 @extends(head)
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
 
 <body>
   <div class="login-wrapper">

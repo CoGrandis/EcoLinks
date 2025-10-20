@@ -1,15 +1,22 @@
 @import url('style.css');
 
+/* === CONTENEDOR PRINCIPAL === */
 .reclamo-detalle {
   margin-left: 220px;
   padding: 2rem;
   font-family: var(--font-family);
   color: var(--text-color);
+  background-color: var(--background-color);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* === TÍTULOS Y BOTÓN VOLVER === */
 .reclamo-detalle h2 {
   color: var(--accent-color);
   margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .btn-volver {
@@ -20,58 +27,87 @@
   text-decoration: none;
   font-weight: 500;
   margin-bottom: 1.5rem;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.2s;
 }
-.btn-volver:hover { color: var(--accent-color); }
 
+.btn-volver:hover {
+  color: var(--accent-color);
+  transform: translateX(-3px);
+}
+
+/* === INFORMACIÓN DEL RECLAMO === */
 .reclamo-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: .8rem;
+  gap: 1rem;
   background: var(--secondary-color);
-  padding: 1rem;
+  padding: 1.2rem;
   border-radius: 12px;
   margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
 }
 
+/* === DETALLES DEL RECLAMO === */
 .reclamo-detalles h3 {
   margin-top: 1.2rem;
   color: var(--dark-color);
+  font-weight: 600;
 }
 
 .reclamo-detalles p {
-  background: #fff;
-  padding: .8rem;
+  background: var(--background-color);
+  padding: .9rem;
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  line-height: 1.6;
+  border: 1px solid var(--primary-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* === GESTIÓN DEL RECLAMO === */
 .reclamo-gestion {
   margin-top: 2rem;
   background: var(--secondary-color);
   padding: 1.5rem;
   border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .input-group label {
   font-weight: 600;
   margin-bottom: .5rem;
+  color: var(--text-color);
 }
 
 .input-group select,
 .input-group textarea {
-  padding: .7rem;
-  border: 1px solid #ccc;
+  padding: .8rem;
+  border: 1px solid var(--primary-color);
   border-radius: 8px;
   font-family: var(--font-family);
+  font-size: .95rem;
+  resize: vertical;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
 
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 4px rgba(109, 80, 255, 0.3);
+}
+
+/* === BOTÓN GUARDAR === */
 .btn-guardar {
   background: var(--accent-color);
   color: #fff;
@@ -80,11 +116,91 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: background .3s;
+  transition: background .3s, transform .2s, box-shadow .2s;
 }
-.btn-guardar:hover { background: var(--dark-color); }
 
-@media (max-width: 768px) {
-  .reclamo-detalle { margin-left: 0; padding: 1rem; }
-  .reclamo-info { grid-template-columns: 1fr; }
+.btn-guardar:hover {
+  background: var(--dark-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
+
+/* === RESPONSIVE === */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .reclamo-detalle {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+
+  .reclamo-info {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .reclamo-gestion {
+    padding: 1.2rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .reclamo-detalle {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .reclamo-info {
+    grid-template-columns: 1fr;
+  }
+
+  .reclamo-detalles h3 {
+    font-size: 1rem;
+  }
+
+  .reclamo-detalles p {
+    font-size: .9rem;
+  }
+
+  .input-group label {
+    font-size: .9rem;
+  }
+
+  .input-group select,
+  .input-group textarea {
+    font-size: .9rem;
+    padding: .6rem;
+  }
+
+  .btn-guardar {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .reclamo-detalle {
+    padding: .8rem;
+  }
+
+  .reclamo-info {
+    padding: .8rem;
+  }
+
+  .reclamo-detalles p {
+    padding: .6rem;
+    font-size: .85rem;
+  }
+
+  .btn-volver {
+    font-size: .9rem;
+  }
+
+  .btn-guardar {
+    font-size: .85rem;
+    padding: .6rem;
+  }
+}
+

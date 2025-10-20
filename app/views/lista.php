@@ -10,10 +10,11 @@
     <article class="emple-container">
     
         <div class="emple-card">
+            <h2>Gestión de Empleados</h2>
             <form method="POST" class="emple-searchbar">
                 <input type="text" name="search" placeholder="Buscar empleado...">
                 <button type="submit">
-                    <i class="bi bi-search"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
         <!-- lista de empleados -->
@@ -22,22 +23,19 @@
                     <h3>Empleados</h3>
                     <ul>
                         <?php foreach ($employees as $employee) : ?>
-                            
                             <li>
-                            <div class="emple-info">
-                                <i class="bi bi-person-circle"></i>
-                                <span><?= $employee["Nombre"]." ".$employee["Apellido"] ?></span>
-                            </div>
-                            <div class="emple-actions">
-                                <i class="bi bi-eye"></i>
-                                <i class="bi bi-pencil-square"></i>
-                            </div>
-                        </li>
+                                <div class="emple-info">
+                                    <i class="fa-solid fa-user-circle"></i>
+                                    <span><?= $employee["Nombre"]." ".$employee["Apellido"] ?></span>
+                                </div>
+                                <div class="emple-actions">
+                                    <i class="fa-solid fa-eye"></i>
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </div>
+                            </li>
                         <?php endforeach;?>
-                        
                     </ul>
                 </section>
-
             </div>
         </div>
 

@@ -12,7 +12,7 @@ body {
 .reclamo-container {
     max-width: 800px;
     margin: 40px auto;
-    background: #fff;
+    background: var(--background-color);
     border-radius: 16px;
     padding: 40px 50px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -44,7 +44,7 @@ body {
     border: 1.5px solid var(--secondary-color);
     border-radius: 8px;
     font-size: 0.95rem;
-    background-color: #fff;
+    background-color:var(--background-color);
     transition: all 0.3s ease;
 }
 
@@ -65,7 +65,7 @@ body {
 #signature {
     border: 2px dashed var(--secondary-color);
     border-radius: 10px;
-    background-color: #fff;
+    background-color: var(--background-color);
     display: block;
     margin: 10px 0;
     cursor: crosshair;
@@ -93,7 +93,7 @@ body {
 
 .btn-clear:hover {
     background-color: var(--accent-color);
-    color: #fff;
+    color: var(--background-color);
 }
 
 /* BOTÓN PRINCIPAL */
@@ -101,7 +101,7 @@ body {
     display: block;
     width: 100%;
     background-color: var(--accent-color);
-    color: #fff;
+    color: var(--background-color);
     border: none;
     padding: 12px;
     font-size: 1rem;

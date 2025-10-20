@@ -1,13 +1,14 @@
 @import url('style.css');
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 
+.main-dashboard {
+    margin-left: 250px; /* espacio para el menú */
+}
 body {
     font-family: var(--font-family);
     background-color: var(--background-color);
     margin: 0;
     padding: 0;
 }
-
 
 /* Header */
 .perfil-header {
@@ -16,6 +17,7 @@ body {
     gap: 25px;
     margin-bottom: 20px;
     padding: 20px;
+    flex-wrap: wrap;
 }
 
 .perfil-img {
@@ -58,10 +60,9 @@ body {
 /* Cuerpo perfil */
 .perfil-body {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 4fr;
     gap: 30px;
     padding: 20px;
-
 }
 
 /* Trayectoria */
@@ -87,15 +88,16 @@ body {
 
 .perfil-btn {
     background: var(--primary-color);
-    color: #fff;
+    color: var(--text-color);
     border: none;
     border-radius: 10px;
     padding: 12px;
     font-size: 14px;
-    font-weight: 500;
     cursor: pointer;
     transition: 0.3s;
     text-align: left;
+    display: flex;
+    align-items: center;
 }
 
 .perfil-btn:hover {
@@ -107,6 +109,7 @@ body {
     font-size: 16px;
     vertical-align: middle;
 }
+
 /* Editar datos */
 .formulario {
     max-width: 900px;
@@ -139,7 +142,7 @@ body {
     font-size: 14px;
     transition: border-color 0.3s;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: var(--background-color);
     margin-top: 5px;
 }
 .formulario button {
@@ -152,16 +155,16 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 5px;
-
 }
 .formulario a {
-        color: var(--dark-color);
-    }
+    color: var(--dark-color);
+}
+
 /* FIRMA */
 #signature {
     border: 2px dashed var(--secondary-color);
     border-radius: 10px;
-    background-color: #fff;
+    background-color: var(--background-color);
     display: block;
     margin: 10px 0;
     cursor: crosshair;
@@ -175,7 +178,7 @@ body {
     margin-top: 8px;
 }
 
-.btn-clear{
+.btn-clear {
     background-color: transparent;
     color: var(--accent-color);
     border: 1.5px solid var(--accent-color);
@@ -189,5 +192,113 @@ body {
 
 .btn-clear:hover {
     background-color: var(--accent-color);
-    color: #fff;
+    color: var(--background-color);
+}
+
+/* ------------------------------
+   🌐 RESPONSIVE DESIGN
+--------------------------------*/
+
+/* Tablets (<= 992px) */
+@media (max-width: 992px) {
+    .perfil-body {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .perfil-btn {
+        flex: 1 1 45%;
+        text-align: center;
+    }
+
+    .perfil-header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .perfil-info h1 {
+        font-size: 24px;
+    }
+
+    .perfil-info h2 {
+        font-size: 16px;
+    }
+}
+
+/* Móviles medianos (<= 768px) */
+@media (max-width: 768px) {
+    .main-dashboard {
+    margin-left: 0px; /* espacio para el menú */
+    padding: 0px;      /* opcional, para separar del borde */
+}
+    .perfil-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .perfil-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .perfil-info h1 {
+        font-size: 22px;
+    }
+
+    .perfil-info h2 {
+        font-size: 15px;
+    }
+
+    .perfil-body {
+        padding: 15px;
+    }
+
+    .perfil-btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .formulario {
+        padding: 15px;
+    }
+
+    .formulario label {
+        font-size: 16px;
+    }
+}
+
+/* Móviles pequeños (<= 480px) */
+@media (max-width: 480px) {
+    .perfil-btn {
+        flex: 1 1 100%;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .perfil-info h1 {
+        font-size: 20px;
+    }
+
+    .perfil-info h2 {
+        font-size: 14px;
+    }
+
+    .perfil-trayectoria p {
+        font-size: 13px;
+    }
+
+    .formulario {
+        box-shadow: none;
+        background: transparent;
+    }
+
+    #signature {
+        max-width: 100%;
+    }
 }

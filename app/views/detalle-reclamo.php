@@ -15,19 +15,19 @@
 
         <div class="reclamo-info">
           <div class="info-item">
-            <strong>Empleado:</strong> <?= $reclamo['FK_ID_EMPLEADO'] ?>
+            <strong>Empleado:</strong> <?= htmlspecialchars($reclamo['nombre_empleado']) . ' ' . htmlspecialchars($reclamo['apellido_empleado']) ?>
           </div>
           <div class="info-item">
-            <strong>Fecha:</strong> <?= $reclamo['fecha'] ?>
+            <strong>Fecha:</strong> <?= $reclamo['fecha_denuncia'] ?>
           </div>
           <div class="info-item">
-            <strong>Supervisor:</strong> <?= $reclamo['supervisor']  ?>
+            <strong>Supervisor:</strong> <?= htmlspecialchars($reclamo['nombre_supervisor']) . ' ' . htmlspecialchars($reclamo['apellido_supervisor']) ?>
           </div>
         </div>
 
         <div class="reclamo-detalles">
           <h3>Detalles del Reclamo</h3>
-          <p><?= $reclamo['detalle']?></p>
+          <p><?= $reclamo['descripcion']?></p>
 
           <h3>Impacto</h3>
           <p><?= $reclamo['impacto']?></p>
@@ -40,7 +40,7 @@
         </div>
 
         <form class="reclamo-gestion" method="POST" action="/reclamo/estado">
-          <input type="hidden" name="id_reclamo" value="<?= $reclamo['ID_RECLAMO'] ?>">
+          <input type="hidden" name="idReclamo" value="<?= $reclamo['ID_RECLAMO'] ?>">
           <div class="input-group">
             <label for="estado"><i class="fas fa-flag"></i> Estado del reclamo</label>
             <select name="estado" id="estado">
@@ -57,7 +57,27 @@
 
           <button type="submit" class="btn-guardar"><i class="fas fa-save"></i> Guardar cambios</button>
         </form>
+        <div class="reclamo-comentarios">
+        <h3>Comentarios / Respuestas</h3>
+          <?php if (!empty($comentarios)): ?>
+            <?php foreach ($comentarios as $c): ?>
+              <div class="comentario">
+                <div class="comentario-header">
+                  <strong><?= htmlspecialchars($c['nombre_empleado']) . ' ' . htmlspecialchars($c['apellido_empleado']) ?></strong>
+                  <span class="fecha"><?= $c['fecha_respuesta'] ?></span>
+                </div>
+                <div class="comentario-contenido">
+                  <p><?= htmlspecialchars($c['respuesta']) ?></p>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <p>No hay comentarios aún.</p>
+          <?php endif; ?>
+      </div>
       </section>
+      
+
     </main>
   </section>
 </body>

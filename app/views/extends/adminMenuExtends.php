@@ -1,4 +1,8 @@
-<nav class="admin-menu">
+<nav class="admin-menu" id="adminMenu">
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
     <ul>
         <li class=""><a href="{{ APP_URL }}dashboard"></a></li>
         <li class="{{ DASHBOARD_ACTIVE }}"><i class=" icon fa-solid fa-house"></i><a href="{{ APP_URL }}dashboard">Dashboard</a></li>
@@ -9,3 +13,5 @@
         <li><i class=" icon fa-solid fa-left-from-bracket"></i><a href="{{ APP_URL }}logout">Cerrar Sesión</a></li>
     </ul>
 </nav>
+
+<script src="../../../assets/js/fun.js"></script>

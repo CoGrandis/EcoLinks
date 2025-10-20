@@ -1,5 +1,7 @@
 @extends(head)
 <link rel="stylesheet" href="../../assets/css/postulaciones.css">
+<!-- Importamos Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <body>
   <section class="admin-dashboard">
@@ -22,7 +24,7 @@
                 <h3>Diseñador UX/UI</h3>
                 <p>Echolinks.S.A</p>
               </div>
-              <i class="bi bi-three-dots"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
             <div class="post-body">
               <p>Buscamos un diseñador con experiencia en interfaces modernas y herramientas Figma / Adobe XD.</p>
@@ -38,7 +40,7 @@
                 <h3>Analista de RRHH</h3>
                 <p>Echolinks.S.A</p>
               </div>
-              <i class="bi bi-three-dots"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
             <div class="post-body">
               <p>Responsable de procesos de selección, onboarding y capacitación para nuevas incorporaciones.</p>
@@ -54,7 +56,7 @@
                 <h3>Desarrollador Full Stack</h3>
                 <p>Echolinks.S.A</p>
               </div>
-              <i class="bi bi-three-dots"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
             <div class="post-body">
               <p>Participarás en proyectos web con tecnologías modernas: Django, React y PostgreSQL.</p>
