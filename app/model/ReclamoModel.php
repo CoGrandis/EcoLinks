@@ -105,7 +105,7 @@ class ReclamoModel {
         ");
         $query->bindParam(':id', $id);
         $query->execute();
-        return $query->fetch(PDO::FETCH_ASSOC); 
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function responderReclamo($form){

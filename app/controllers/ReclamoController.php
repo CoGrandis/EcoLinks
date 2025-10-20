@@ -108,7 +108,7 @@ class ReclamoController{
         $pdf->AliasNbPages();
         $pdf->AddPage();
 
-        $pdf->bloqueDatos($reclamo);
+        $pdf->bloqueDatos($reclamo[0]);
         $pdf->bloqueTexto('Descripción', $reclamo['descripcion']);
         $pdf->bloqueTexto('Impacto', $reclamo['impacto'], [255,245,230]);
         $pdf->bloqueTexto('Solución', $reclamo['solucion'], [240,255,240]);
@@ -116,7 +116,7 @@ class ReclamoController{
 
         $pdf->Output('D','reclamo_'.$reclamo['ID_RECLAMO'].'.pdf');
     }
-    
+
 
 
 }

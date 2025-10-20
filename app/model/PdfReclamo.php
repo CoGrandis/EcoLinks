@@ -11,8 +11,8 @@ class PDFReclamo extends FPDF {
         $this->Rect(0, 0, 210, 30, 'F');
 
         // Logo
-        if (file_exists('../../assets/img/logo/logo.svg')) {
-            $this->Image('../../assets/img/logo/logo.svg', 10, 8, 20);
+        if (file_exists(__DIR__ . '../../assets/img/logo/logo.svg')) {
+            $this->Image(__DIR__ . '../../assets/img/logo/logo.svg', 10, 8, 20);
         }
 
         // Título principal
