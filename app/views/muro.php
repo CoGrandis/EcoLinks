@@ -1,5 +1,5 @@
 @extends(head)
-    <link rel="stylesheet" href="../../../assets/css/muro.css">
+    <link rel="stylesheet" href="../../assets/css/muro.css">
      <link rel="stylesheet" href="../../../assets/fonts/fontawesom/fawesome-all.css">
 <body>
     <section class="admin-dashboard">
@@ -60,10 +60,6 @@
                                 <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
-
-                    <div class="post-footer">
-                        <button class="comment-btn">Comentar</button>
-                    </div>
                 </section>
             <?php endforeach; ?>
         <?php else : ?>

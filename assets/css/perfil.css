@@ -1,5 +1,8 @@
 @import url('style.css');
 
+.main-dashboard {
+    margin-left: 250px; /* espacio para el menú */
+}
 body {
     font-family: var(--font-family);
     background-color: var(--background-color);
@@ -229,6 +232,10 @@ body {
 
 /* Móviles medianos (<= 768px) */
 @media (max-width: 768px) {
+    .main-dashboard {
+    margin-left: 0px; /* espacio para el menú */
+    padding: 0px;      /* opcional, para separar del borde */
+}
     .perfil-header {
         flex-direction: column;
         align-items: center;

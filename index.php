@@ -20,6 +20,7 @@ $router->get('/', ['HomeController', 'index']);
 
 
     $router->get('/dashboard', ['AdminController','dashboard'])->only([1]);
+    $router->get('/calendario', ['CalendarioController','calendario'])->only([1]);
     $router->get('/noticias', ['PostController', 'muro'])->only([1,2,3]);
     $router->post('/noticias', ['PostController', 'muro'])->only([1]);
 

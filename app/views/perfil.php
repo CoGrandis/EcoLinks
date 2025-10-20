@@ -24,20 +24,7 @@
 
       <!-- Trayectoria -->
       <section class="perfil-body">
-            <!-- Accesos laterales -->
-        <aside class="perfil-sidebar">
-          <button class="perfil-btn">
-            <i class="fa-solid fa-id-card"></i> Mis datos
-          </button>
-          <button class="perfil-btn">
-            <i class="fa-solid fa-triangle-exclamation"></i> Mis Reclamos
-          </button>
-          <button class="perfil-btn">
-            <i class="fa-solid fa-folder-open"></i> Mis Archivos
-          </button>
-        </aside>
-
-        <div class="perfil-trayectoria">
+       <div class="perfil-trayectoria">
           <h3>Trayectoria</h3>
           <p>
             {{ EMPLOYEE_HIRING_DATE }} - Fecha de contratación<br>
@@ -46,9 +33,9 @@
 
             <!-- Accesos laterales -->
             <aside class="perfil-sidebar">
-                <button class="perfil-btn"> <i class="bi bi-file-earmark-person"></i> Mis datos</button>
-                <button class="perfil-btn"> <i class="bi bi-exclamation-diamond"></i>Mis Reclamos</button>
-                <button class="perfil-btn"><i class="bi bi-inbox-fill"></i>Mis archivos</button>
+                <button class="perfil-btn" onclick="window.location.href='/perfil'"> <i class="bi bi-file-earmark-person"></i> Mis datos</button>
+                <button class="perfil-btn" onclick="window.location.href='/mis-reclamos'"> <i class="bi bi-exclamation-diamond"></i>Mis Reclamos</button>
+                <button class="perfil-btn" onclick="window.location.href='/documentos'"><i class="bi bi-inbox-fill"></i>Mis archivos</button>
             
             </aside>
         </section>
