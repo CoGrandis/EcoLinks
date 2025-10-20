@@ -1,132 +1,208 @@
 @import url('style.css');
 
-/* Estructura general */
+/* === ESTRUCTURA GENERAL === */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-family);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    gap: 80px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 80px;
+  overflow: hidden;
+  position: relative;
 }
 
-/* Contenedor de texto */
+/* === CONTENEDOR DE TEXTO === */
 #error {
-    max-width: 500px;
-    text-align: left;
+  max-width: 500px;
+  text-align: left;
+  z-index: 3;
 }
 
 #error h1 {
-    font-size: 100px;
-    color: var(--accent-color);
-    margin: 0;
+  font-size: 6rem;
+  color: var(--accent-color);
+  margin: 0;
+  font-weight: 800;
 }
 
 #error h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 10px 0;
-    text-transform: capitalize;
-    color: var(--dark-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 10px 0;
+  text-transform: capitalize;
+  color: var(--dark-color);
 }
 
 #error p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 25px;
-    color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  color: var(--text-color);
 }
 
+/* === BOTÓN VOLVER === */
 #error a {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--accent-color);
-    border: 1.8px solid var(--accent-color);
-    padding: 10px 22px;
-    border-radius: 50px;
-    font-weight: 500;
-    transition: 0.3s ease;
-    background-color: transparent;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: transparent;
 }
 
 #error a:hover {
-    background-color: var(--accent-color);
-    color: #fff;
+  background-color: var(--accent-color);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
-/* Imagen */
+/* === IMAGEN === */
 body img {
-    width: 550px;
-    max-width: 100%;
+  width: 550px;
+  max-width: 90%;
+  z-index: 3;
 }
-/* --- OLA ANIMADA --- */
+
+/* === OLA ANIMADA === */
 .wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    height: 290px;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg"><path d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z" fill="%2390B3BF"/></svg>');
-    background-size: 50% 100%;
-    animation: wave 8s linear infinite;
-    opacity: 0.6;
-    z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 300px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg"><path d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z" fill="%2390B3BF"/></svg>');
+  background-size: 50% 100%;
+  animation: wave 8s linear infinite;
+  opacity: 0.6;
+  z-index: 1;
 }
 
 .wave:nth-child(3) {
-    animation-delay: -3s;
-    opacity: 0.4;
+  animation-delay: -3s;
+  opacity: 0.4;
 }
 
-/* Animación */
+/* === ANIMACIÓN === */
 @keyframes wave {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
+/* === RESPONSIVE DESIGN === */
 
-/* Responsividad */
+/* TABLETS (<= 1024px) */
+@media (max-width: 1024px) {
+  body {
+    flex-direction: column;
+    gap: 50px;
+    height: auto;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  body img {
+    width: 400px;
+    order: -1;
+  }
+
+  #error {
+    text-align: center;
+  }
+
+  #error h1 {
+    font-size: 5rem;
+  }
+
+  #error h2 {
+    font-size: 1.25rem;
+  }
+
+  .wave {
+    height: 200px;
+  }
+}
+
+/* MÓVILES (<= 768px) */
 @media (max-width: 768px) {
-    body {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-        gap: 40px;
-    }
+  body {
+    gap: 30px;
+    padding: 1.5rem;
+  }
 
-    body img {
-        display: none;
-    }
+  body img {
+    width: 320px;
+    max-width: 85%;
+  }
 
-    #error {
-        max-width: 100%;
-    }
+  #error h1 {
+    font-size: 4rem;
+  }
 
-    #error h1 {
-        font-size: 80px;
-    }
+  #error h2 {
+    font-size: 1.1rem;
+  }
 
-    #error h2 {
-        font-size: 20px;
-    }
-     .wave {
-        height: 120px;
-    }
+  #error p {
+    font-size: 0.95rem;
+  }
+
+  #error a {
+    padding: 9px 20px;
+    font-size: 0.9rem;
+  }
+
+  .wave {
+    height: 150px;
+  }
 }
-@media (max-width: 480px) {
-    #error h1 {
-        font-size: 60px;
-    }
 
-    #error h2 {
-        font-size: 18px;
-    }
+/* MÓVILES PEQUEÑOS (<= 480px) */
+@media (max-width: 480px) {
+  body {
+    gap: 20px;
+    padding: 1rem;
+  }
+
+  body img {
+    display: none;
+  }
+
+  #error {
+    max-width: 100%;
+  }
+
+  #error h1 {
+    font-size: 3rem;
+  }
+
+  #error h2 {
+    font-size: 1rem;
+  }
+
+  #error p {
+    font-size: 0.9rem;
+  }
+
+  #error a {
+    font-size: 0.85rem;
+    padding: 8px 18px;
+  }
+
+  .wave {
+    height: 120px;
+    opacity: 0.5;
+  }
 }

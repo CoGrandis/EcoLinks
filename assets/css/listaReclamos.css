@@ -1,16 +1,17 @@
 @import url('style.css');
 
+/* === BASE === */
 body {
   background-color: var(--background-color);
   font-family: var(--font-family);
   margin: 0;
+  color: var(--text-color);
 }
 
 /* === CONTENEDOR PRINCIPAL === */
 .main-dashboard {
   margin-left: 220px; /* espacio para el menú lateral */
   padding: 2rem;
-  color: var(--text-color);
 }
 
 .Reclamos-section {
@@ -22,11 +23,77 @@ body {
 /* === TÍTULO === */
 .Reclamos-section h2 {
   font-size: 2rem;
-  color: var(--text-color);
+  color: var(--accent-color);
   margin-bottom: 1.5rem;
   font-weight: 600;
   letter-spacing: 1px;
 }
+
+/* === BUSCADOR === */
+.search-container {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-radius: 30px;
+  padding: 0.4rem 1rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.search-bar i.fa-search {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  margin-right: 0.6rem;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  padding: 0.5rem 0;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid var(--primary-color);
+  margin-left: 0.8rem;
+  padding-left: 0.8rem;
+}
+
+.filter-group i {
+  color: var(--accent-color);
+  font-size: 1rem;
+  margin-right: 0.4rem;
+}
+
+.filter-group select {
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+.search-bar:hover {
+  background-color: var(--primary-color);
+}
+
 /* === TABLA === */
 .table-container {
   background-color: var(--background-color);
@@ -42,7 +109,6 @@ table {
   border-spacing: 0 0.5rem;
   text-align: left;
   font-size: 0.95rem;
-
 }
 
 thead th {
@@ -53,8 +119,12 @@ thead th {
 }
 
 tbody tr {
- 
   border-radius: 10px;
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background: var(--secondary-color);
 }
 
 tbody td {
@@ -70,8 +140,8 @@ tbody td {
   border-radius: 12px;
   font-weight: 600;
   font-size: 0.85rem;
-  color:var(--font-family);
   text-align: center;
+  color: #fff;
 }
 
 .prioridad.leve {
@@ -107,7 +177,7 @@ tbody td {
 /* === BOTÓN REVISAR === */
 .boton-revisar {
   background-color: var(--dark-color);
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 12px;
   padding: 0.4rem 0.9rem;
@@ -166,10 +236,6 @@ table select:focus {
   .main-dashboard {
     margin-left: 0;
     padding: 1rem;
-  }
-
-  .search-bar {
-    max-width: 100%;
   }
 
   table {

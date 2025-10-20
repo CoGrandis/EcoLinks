@@ -1,6 +1,6 @@
 @extends(head)
-    <link rel="stylesheet" href="../../../assets/css/muro.css">
-
+    <link rel="stylesheet" href="../../assets/css/muro.css">
+     <link rel="stylesheet" href="../../../assets/fonts/fontawesom/fawesome-all.css">
 <body>
     <section class="admin-dashboard">
     <?php if ($_SESSION['user']['FK_ID_ROL'] === 3) : ?>
