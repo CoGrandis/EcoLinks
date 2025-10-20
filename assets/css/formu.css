@@ -1,105 +1,152 @@
 @import url('style.css');
 
+/* === TÍTULO === */
 .form-title {
-    font-size: 24px;
-    color: var(--text-color);
-    margin: 20px;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin: 1.5rem 1.2rem;
+  font-weight: 600;
 }
 
-/* Formulario */
+/* === FORMULARIO PRINCIPAL === */
 .employee-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* dos columnas */
-    gap: 20px 30px;
-    background:var(--background-color);
-    color: var(--text-color);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 2px 6px rgba(0,0,0,.05);
-    margin:20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */
+  gap: 1.2rem 2rem;
+  background: var(--background-color);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  margin: 1.5rem;
+  transition: all .3s ease;
 }
 
-/* Inputs */
+/* === CAMPOS DEL FORMULARIO === */
 .form-group {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--dark-color);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: .4rem;
+  color: var(--dark-color);
 }
 
 .employee-form input,
 .employee-form select {
-    padding: 10px;
-    border: 1px solid var(--primary-color);
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    transition: 0.3s;
+  padding: .7rem .9rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  font-size: .95rem;
+  font-family: var(--font-family);
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .employee-form input:focus,
 .employee-form select:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 4px var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 4px var(--accent-color);
 }
 
-/* Botón */
+/* === BOTÓN DE ENVÍO === */
 .form-actions {
-    grid-column: span 2; /* ocupa todo el ancho */
-    text-align: right;
+  grid-column: span 2; /* Ocupa todo el ancho */
+  text-align: right;
 }
 
 .submit-btn {
-    background: var(--accent-color);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: .8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .submit-btn:hover {
-    background: var(--dark-color);
+  background: var(--dark-color);
+  transform: translateY(-2px);
 }
-/* Responsive */
-/* para telefonos */
 
+/* === RESPONSIVE === */
+
+/* TABLETS (<= 1024px) */
+@media (max-width: 1024px) {
+  .employee-form {
+    grid-template-columns: 1fr; /* Una columna */
+    padding: 1.8rem;
+    gap: 1rem;
+  }
+
+  .form-actions {
+    grid-column: span 1;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+/* MÓVILES MEDIANOS (<= 768px) */
 @media (max-width: 768px) {
-    .employee-form {
-        grid-template-columns: 1fr; /* una columna */
-    }
-    .form-actions {
-        grid-column: span 1; /* ocupa todo el ancho */
-        text-align: center;
-    }
+  .form-title {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  .employee-form {
+    margin: 1rem;
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .employee-form input,
+  .employee-form select {
+    font-size: 0.9rem;
+    padding: .6rem .8rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: .8rem;
+    font-size: .95rem;
+  }
 }
+
+/* MÓVILES PEQUEÑOS (<= 480px) */
 @media (max-width: 480px) {
-    .form-title {
-        font-size: 20px;
-    }
-    .employee-form {
-        padding: 15px;
-    }
-    .submit-btn {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-    .form-group {
-        margin-bottom: 15px;
-    }
-    .form-group input,
-    .form-group select {
-        font-size: 13px;
-    }
+  .employee-form {
+    padding: 1rem;
+    margin: .8rem;
+  }
+
+  .form-title {
+    font-size: 1.1rem;
+  }
+
+  .form-group {
+    margin-bottom: .8rem;
+  }
+
+  .employee-form input,
+  .employee-form select {
+    font-size: .85rem;
+    padding: .6rem;
+  }
+
+  .submit-btn {
+    font-size: .85rem;
+    padding: .6rem;
+  }
 }
-/* Ajuste para modo oscuro */
-
-

@@ -1,25 +1,28 @@
 @import url('style.css');
 
+/* === BODY === */
 body {
   background-color: var(--background-color);
   font-family: var(--font-family);
   margin: 0;
   display: flex;
   height: 100vh;
+  transition: all 0.3s ease;
 }
 
-/* Contenedor principal */
+/* === CONTENEDOR PRINCIPAL === */
 .main-content {
   margin-left: 220px; 
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   padding: 40px;
   gap: 40px;
   flex-wrap: wrap; 
+  transition: all 0.3s ease;
 }
 
-/* --- Sección del calendario --- */
+/* === CALENDARIO === */
 .calendar {
   flex: 1;
   display: flex;
@@ -30,13 +33,14 @@ body {
 }
 
 .calendar-container {
-  background: white;
+  background: var(--secondary-color);
   border-radius: 20px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 2rem;
   width: 400px;
-  max-width: 90vw; /* para que no desborde en móviles */
+  max-width: 90vw;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .calendar-header {
@@ -55,6 +59,12 @@ body {
   color: var(--dark-color);
   font-size: 1.3rem;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.calendar-header button:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
 }
 
 .calendar-days {
@@ -64,9 +74,11 @@ body {
 }
 
 .calendar-days div {
-  padding: 0.5rem;
+  padding: 0.6rem;
   border-radius: 10px;
   color: var(--text-color);
+  font-size: 0.9rem;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .calendar-days div.today {
@@ -79,7 +91,7 @@ body {
   color: #bbb;
 }
 
-/* --- Aside lateral derecho --- */
+/* === ASIDE LATERAL DERECHO === */
 aside.record {
   width: 250px;
   background-color: var(--secondary-color);
@@ -88,14 +100,15 @@ aside.record {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   min-width: 250px;
+  transition: all 0.3s ease;
 }
 
 .record h3 {
   margin: 0;
   color: var(--text-color);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 #day {
@@ -106,6 +119,7 @@ aside.record {
   width: 100%;
   text-align: center;
   margin: 1rem 0;
+  transition: all 0.3s ease;
 }
 
 #day .fecha {
@@ -114,7 +128,7 @@ aside.record {
 }
 
 #pendiente {
-  background-color: white;
+  background-color: var(--background-color);
   border-radius: 15px;
   padding: 1rem;
   width: 100%;
@@ -139,28 +153,37 @@ aside.record {
   color: var(--dark-color);
 }
 
-/* --- RESPONSIVE --- */
+/* === RESPONSIVE === */
+
+/* Tablets (<= 1024px) */
 @media (max-width: 1024px) {
   .main-content {
-    margin-left: 0; /* el menú puede ocultarse o hacerse hamburguesa */
+    margin-left: 0;
     padding: 20px;
     gap: 20px;
   }
+
+  aside.record {
+    width: 100%;
+    border-radius: 15px;
+  }
 }
 
+/* Pequeños tablets / móviles grandes (<= 900px) */
 @media (max-width: 900px) {
   body {
     flex-direction: column;
     align-items: center;
     height: auto;
+    padding-bottom: 20px;
   }
 
   .main-content {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    margin-left: 0;
+    gap: 20px;
     padding: 1rem;
+    margin-left: 0;
   }
 
   .calendar-container {
@@ -179,6 +202,7 @@ aside.record {
   }
 }
 
+/* Móviles (<= 500px) */
 @media (max-width: 500px) {
   .calendar-header {
     font-size: 1rem;
@@ -189,11 +213,19 @@ aside.record {
   }
 
   .calendar-days div {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     padding: 0.4rem;
   }
 
   #day .fecha {
     font-size: 1.5rem;
+  }
+
+  #pendiente {
+    padding: 0.8rem;
+  }
+
+  aside.record h3 {
+    font-size: 0.85rem;
   }
 }

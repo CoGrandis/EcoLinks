@@ -1,4 +1,10 @@
 @import url('style.css');
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
 
 /* === CONTENEDOR GENERAL === */
 .admin-dashboard {
@@ -51,7 +57,7 @@
 
 /* === FORMULARIO NUEVA OFERTA === */
 .form-oferta {
-  background-color: #fff;
+  background-color: var(--background-color);
   border: 1px solid var(--primary-color);
   border-radius: 12px;
   overflow: hidden;
@@ -111,7 +117,7 @@
 }
 
 .footer-left i {
-  color: white;
+  color: var(--background-color);
   margin-right: 10px;
   font-size: 1.2rem;
   cursor: pointer;
@@ -126,7 +132,7 @@
 
 .btn-subir {
   background-color: var(--accent-color);
-  color: #fff;
+  color: var(--background-color);
   border: none;
   padding: 0.4rem 1.2rem;
   border-radius: 20px;
@@ -150,7 +156,7 @@
 }
 
 .postulacion-card {
-  background-color: #fff;
+  background-color: var(--background-color);
   border: 1px solid var(--primary-color);
   border-radius: 10px;
   overflow: hidden;
@@ -180,14 +186,14 @@
 
 .info h4 {
   margin: 0;
-  color: white;
+  color: var(--background-color);
   font-size: 1rem;
 }
 
 .info p {
   margin: 0;
   font-size: 0.85rem;
-  color: white;
+  color: var(--background-color);
   opacity: 0.9;
 }
 
@@ -205,7 +211,7 @@
 
 .btn-cv {
   background-color: var(--accent-color);
-  color: white;
+  color: var(--background-color);
   border: none;
   border-radius: 20px;
   padding: 0.4rem 1rem;
@@ -220,20 +226,41 @@
 }
 
 /* === RESPONSIVE === */
-@media (max-width: 768px) {
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .main-dashboard {
+    padding: 30px;
+  }
+
   .ofertas-section {
     margin-left: 0;
-    padding: 1rem;
+  }
+
+  .postulaciones-container {
+    gap: 20px;
   }
 
   .form-oferta,
   .postulacion-card {
-    border-radius: 8px;
+    border-radius: 10px;
+  }
+
+  .oferta-header {
+    gap: 0.8rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .main-dashboard {
+    padding: 20px;
   }
 
   .oferta-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
   }
 
   .oferta-input {
@@ -242,6 +269,7 @@
 
   .oferta-footer {
     flex-direction: column;
+    align-items: stretch;
     gap: 10px;
   }
 
@@ -256,7 +284,34 @@
     width: 100%;
   }
 
-  .postulacion-body p {
+  .postulacion-body {
+    font-size: 0.85rem;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .main-dashboard {
+    padding: 15px;
+  }
+
+  .oferta-header .perfil {
+    width: 35px;
+    height: 35px;
+  }
+
+  .oferta-input,
+  .oferta-textarea {
+    font-size: 0.9rem;
+  }
+
+  .postulacion-body {
+    font-size: 0.8rem;
+  }
+
+  .btn-subir,
+  .btn-cv {
+    padding: 0.3rem;
     font-size: 0.85rem;
   }
 }

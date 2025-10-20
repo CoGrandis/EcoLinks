@@ -1,46 +1,53 @@
 @extends(head)
-    <link rel="stylesheet" href="../../assets/css/perfil.css">
+<link rel="stylesheet" href="../../assets/css/perfil.css">
+
 <body>
-    <section  class="admin-dashboard">
-     
+  <section class="admin-dashboard">
+
     <?php if ($_SESSION['user']['FK_ID_ROL'] === 3) : ?>
-        @extends(menuEmployee)
+      @extends(menuEmployee)
     <?php else: ?>
-        @extends(menu)
+      @extends(menu)
     <?php endif; ?>
 
+    <main class="main-dashboard">
+      <!-- Cabecera perfil -->
+      <section class="perfil-header">
+        <div class="perfil-img"></div>
+        <div class="perfil-info">
+          <h1 class="perfil-nombre">{{ EMPLOYEE_NAME }}</h1>
+          <h2 class="perfil-puesto">{{ EMPLOYEE_POSITION }}</h2>
+        </div>
+      </section>
 
-      <main class="main-dashboard"> 
-        <!-- Cabecera perfil -->
-        <section class="perfil-header">
-            <div class="perfil-img"></div>
-            <div class="perfil-info">
-                <h1 class="perfil-nombre">{{ EMPLOYEE_NAME }}</h1>
-                <h2 class="perfil-puesto">{{ EMPLOYEE_POSITION }}</h2>
-            </div>
-        </section>
+      <hr class="perfil-divider">
 
-        <hr class="perfil-divider">
-
-        <!-- Trayectoria -->
-        <section class="perfil-body">
-            <div class="perfil-trayectoria">
-                <h3>Trayectoria</h3>
-                <p>
-                    {{ EMPLOYEE_HIRING_DATE }} - Fecha de contratación<br>
-                </p>
-            </div>
-
+      <!-- Trayectoria -->
+      <section class="perfil-body">
             <!-- Accesos laterales -->
-            <aside class="perfil-sidebar">
-                <button class="perfil-btn"> <i class="bi bi-file-earmark-person"></i> Mis datos</button>
-                <button class="perfil-btn"> <i class="bi bi-exclamation-diamond"></i>Mis Reclamos</button>
-                <button class="perfil-btn"><i class="bi bi-inbox-fill"></i>mis archivos</button>
-            
-            </aside>
-        </section>
+        <aside class="perfil-sidebar">
+          <button class="perfil-btn">
+            <i class="fa-solid fa-id-card"></i> Mis datos
+          </button>
+          <button class="perfil-btn">
+            <i class="fa-solid fa-triangle-exclamation"></i> Mis Reclamos
+          </button>
+          <button class="perfil-btn">
+            <i class="fa-solid fa-folder-open"></i> Mis Archivos
+          </button>
+        </aside>
+
+        <div class="perfil-trayectoria">
+          <h3>Trayectoria</h3>
+          <p>
+            {{ EMPLOYEE_HIRING_DATE }} - Fecha de contratación<br>
+          </p>
+        </div>
+
+    
+      </section>
     </main>
-    </section>
+  </section>
 
 </body>
 </html>
