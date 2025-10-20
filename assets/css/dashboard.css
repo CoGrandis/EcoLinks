@@ -1,68 +1,117 @@
 @import url('style.css');
 
-.admin-dashboard{
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.admin-dashboard {
   display: flex;
   height: 100%;
   width: 100%;
 }
-.main-dashboard{
-  flex:5;
+
+.main-dashboard {
+  flex: 5;
   height: 100vh;
-  overflow:scroll;
+  overflow: auto;
+  transition: margin-left 0.3s ease;
 }
-.admin-menu{
-  flex:1;
+
+/* ===== MENU ===== */
+.admin-menu {
+  position: fixed; /* fijo en pantalla */
+  left: 0;
+  top: 0;
+  width: 220px;
   height: 100vh;
   background-color: var(--primary-color);
   display: flex;
   flex-direction: column;
-  
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
-.admin-menu ul{
+
+.admin-menu ul {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-items: center;
+  align-items: flex-start;
   padding-left: 30px;
-
+  margin-top: 60px; /* deja espacio para toggle */
 }
-li{
+
+li {
   list-style-type: none;
-  width:100%;
+  width: 100%;
   color: white;
   display: flex;
   align-items: center;
-  gap:10px;
+  gap: 10px;
   padding: 10px;
-
+  border-radius: 0 50px 50px 0;
 }
-.icon{
-  flex:1;
+
+.icon {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-a{
+
+a {
   text-decoration: none;
   color: white;
-  flex:6;
+  flex: 6;
 }
 
-.active{
+.active {
   background-color: white;
-  border-radius: 50px 0px 0 50px;
 }
 
-.active i{
-  color: var(--dark-color)
+.active i,
+.active a {
+  color: var(--dark-color);
 }
 
-.active a{
-  color: var(--dark-color)
-}
-img{
+img {
   width: 8rem;
   margin: 20px 0;
+}
+
+/* ===== BOTÓN DE TOGGLE ===== */
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: -45px;
+  background: var(--primary-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  z-index: 1100;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .admin-menu {
+    transform: translateX(-180px); /* escondido lateralmente */
+    width: 180px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-dashboard {
+    margin-left: 0;
+  }
+
+  .admin-menu.open {
+    transform: translateX(0);
+  }
 }
