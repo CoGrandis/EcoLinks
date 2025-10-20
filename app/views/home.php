@@ -1,5 +1,6 @@
 @extends(head)
-    <link rel="stylesheet" href="../../../assets/css/home.css">
+    <link rel="stylesheet" href="../../assets/css/home.css">
+       <link rel="stylesheet" href="../../../assets/fonts/fontawesom/fawesome-all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <body>
         <header class="header-container">
@@ -8,9 +9,10 @@
                 <h1>EchoLinks</h1>
                 
             </section>
+             <i class="fa-solid fa-bars menu" id="menu-toggle"></i> <!-- Ícono hamburguesa -->
             <nav class="navegacion">
-                
-                <div class="nav-links">
+               
+                <div class="nav-links" id="nav-links">
                     <a class="nav-item" href="/">que somos</a>
                     <a class="nav-item" href="/login">Iniciar Sesión</a>
                     <a class="nav-item btn-registrarse"  href="/register" >Registrarse</a>
@@ -90,12 +92,12 @@
                 </div>
                 <div class="team-card">
                     <div class="avatar"><img src="../../../assets/img/nosotros/coni.JPG" alt=""></div>
-                    <h3>Constanza Granids</h3>
+                    <h3>Constanza Grandis</h3>
                 </div>
             </section>
         </main>
 
         <footer class="footer"></footer>
-        <script src="../../../assets/js/menu.js"></script>
     </body>
+<script src="../../assets/js/menu.js"></script>
 </html>

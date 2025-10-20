@@ -21,7 +21,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
-  background: white;
+  background: var(--background-color);
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
@@ -120,7 +120,8 @@ body {
 
 #flip {
   display: inline-block;       /* mantiene el texto en línea con h1 */
-  height: 45px;   
+  height: 56px;
+  line-height: 56px;           /* centra verticalmente el texto */
   width: 100%;
   vertical-align: middle;
   overflow: hidden;     
@@ -134,6 +135,9 @@ body {
   opacity: 0;
   transform: translateY(100%); /* empieza fuera de la vista */
   animation: flip 16s  linear infinite;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent-color);
 }
 
 /* delays para que roten una tras otra */
@@ -197,13 +201,14 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
   margin: 2rem;
+  padding: 2rem 3rem;
 }
 
 .funcion-card {
-  background: white;
+  background: var(--background-color);
   color: var(--text-color);
   border-radius: 14px;
-  padding: 2rem 1rem;
+  padding: 2rem 3rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
 }
@@ -232,7 +237,7 @@ body {
 }
 
 .team-card {
-  background: #fff;
+  background: var(--background-color);
   border-radius: 12px;
   padding: 1.5rem;
   width: 230px;
@@ -296,8 +301,9 @@ body {
     text-align: center;
   }
   .main-text h1 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
+  
   .main-img img {
     margin-top: 2rem;
     width: 250px;
@@ -311,12 +317,48 @@ body {
     position: absolute;
     top: 100%;
     right: 0;
-    background: white;
+    background: var(--background-color);
     width: 100%;
     padding: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
   .nav-links.active {
     display: flex; /* se muestra cuando tenga la clase active */
+  }
+  .nav-item {
+    margin: 1rem 0;
+  }
+  #flip span {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 480px) {
+/* HEADER */
+  .header-container {
+    padding: 1rem 1.5rem; 
+  }
+  .nav-item {
+    margin-left: 1rem;
+  }
+  .nav-item a {
+    font-size: 0.9rem;
+  }
+/* HERO */
+  .main-info {
+    padding: 2rem 2%;
+    display: block;
+  }
+  .main-img img {
+    width: 200px;
+  }
+
+  .main-text h1 {
+    font-size: 3rem;
+  }
+  .main-text h4 {
+    font-size: 1rem;
+  }
+  .funciones-grid {
+    grid-template-columns: 1fr; /* una columna */
   }
 }

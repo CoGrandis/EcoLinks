@@ -1,13 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
-:root{
-    --primary-color: #90B3BF;
-    --dark-color: #5E9AAB;
-    --secondary-color:#C6E2F1;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --font-family: 'Heebo', sans-serif;
-    --accent-color:#6D50FF;
-}
 
 *{
     margin: 0;
@@ -19,6 +10,7 @@ body{
     height: 100vh;
     width: 100vw;
     font-family: var(--font-family);
+    background-color: var(--background-color);
 
 }
 
@@ -27,4 +19,48 @@ body{
     height: auto;
     width: 100vw;
     background-color: var(--background-color);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #5E9AAB;     
+  --dark-color: #90B3BF;        
+  --secondary-color: #2C3A43;   
+  --background-color: #1E1E24;  
+  --accent-color: #6D50FF;      
+  --text-color: #EAEAEA;
+  --font-family: 'Heebo', sans-serif;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: #90B3BF;
+    --dark-color: #5E9AAB;
+    --secondary-color:#C6E2F1;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --font-family: 'Heebo', sans-serif;
+    --accent-color:#6D50FF;
+  }
+}
+
+:root[data-tema="light"] {
+    --primary-color: #90B3BF;
+    --dark-color: #5E9AAB;
+    --secondary-color:#C6E2F1;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --font-family: 'Heebo', sans-serif;
+    --accent-color:#6D50FF;
+}
+:root[data-tema="dark"] {
+  --primary-color: #5E9AAB;    
+  --dark-color: #90B3BF;        
+  --secondary-color: #2C3A43;   
+  --background-color: #1E1E24;  
+  --accent-color: #6D50FF;      
+  --text-color: #EAEAEA;  
+  --font-family: 'Heebo', sans-serif;
 }
