@@ -91,6 +91,7 @@ class EmployeeController {
         // Cargar plantilla con datos
         $tpl = new TemplateMotor("perfil");
         $tpl->assing([
+            "PROFILE_ACTIVE" => 'active',
             "EMPLOYEE_NAME" => $empleado['Nombre'] . " " . $empleado['Apellido'],
             "EMPLOYEE_POSITION" => $empleado['Puesto'] ?? 'Sin asignar',
             "EMPLOYEE_DEPARTMENT" => $empleado['Departamento'] ?? 'No asignado',

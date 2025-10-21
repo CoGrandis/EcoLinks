@@ -118,7 +118,26 @@ class ReclamoController{
     }
 
 
-
+    public function misReclamos(){
+        $empleadoModel = new EmpleadoModel();
+        $empleado = $empleadoModel->getEmpleadosById($_SESSION['user']['FK_ID_EMPLEADO']);
+        $reclamos = $this->reclamoModel->getByIdEmpleado($_SESSION['user']['FK_ID_EMPLEADO']);
+        $tpl = new TemplateMotor("mis-reclamos");
+    
+        $tpl->assing([
+            "reclamos" => $reclamos,
+            "PROFILE_ACTIVE" => 'active',
+            "EMPLOYEE_NAME" => $empleado['Nombre'] . " " . $empleado['Apellido'],
+            "EMPLOYEE_POSITION" => $empleado['Puesto'] ?? 'Sin asignar',
+            "EMPLOYEE_DEPARTMENT" => $empleado['Departamento'] ?? 'No asignado',
+            "EMPLOYEE_HIRING_DATE" => $empleado['FechaContratacion']?? '',
+            "EMPLOYEE_BIRTH_DATE" => $empleado['FechaNacimiento']?? '',
+            "EMPLOYEE_EMAIL" => $empleado['Email']?? '',
+            "EMPLOYEE_ADDRESS" => $empleado['Direccion']?? '',
+            "EMPLOYEE_STATUS" => $empleado['Estado'] ?? 'Activo'
+        ]);
+        $tpl->printToScreen();
+    }
 }
 
 ?>

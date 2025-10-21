@@ -2,6 +2,10 @@
 include '.env.php';
 include 'core/Router.php';
 include 'app/librarys/TemplateMotor/TemplateMotor.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 
 $router =  new Router();    
@@ -24,7 +28,9 @@ $router->get('/', ['HomeController', 'index']);
     $router->get('/noticias', ['PostController', 'muro'])->only([1,2,3]);
     $router->post('/noticias', ['PostController', 'muro'])->only([1]);
 
-    $router->get('/documentos', ['AdminController', 'files'])->only([1,2,3]);
+    $router->get('/documentos', ['DocumentosController', 'misDocumentos'])->only([1,2,3]);
+    $router->post('/documentos/subir', ['DocumentosController', 'subirDocumentos'])->only([1,2,3]);
+    $router->post('/documentos/eliminar', ['DocumentosController', 'eliminarDocumento'])->only([1,2,3]);
 
     $router->get('/empleados/registrar', ['EmployeeController', 'register'])->only([1]);
     $router->post('/empleados/registrar', ['EmployeeController', 'register'])->only([1]);
@@ -33,6 +39,8 @@ $router->get('/', ['HomeController', 'index']);
     $router->post('/empleados', ['EmployeeController', 'list'])->only([1]);
 
     // RUTAS RECLAMOS
+    $router->get('/mis-reclamos', ['ReclamoController', 'misReclamos']);
+
     $router->get('/reclamos', ['ReclamoController', 'buscar']);
     $router->post('/reclamos', ['ReclamoController', 'buscar']);
     $router->post('/reclamo/actualizar', ['ReclamoController', 'actualizarTabla']);

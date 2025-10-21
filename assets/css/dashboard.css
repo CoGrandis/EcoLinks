@@ -64,7 +64,8 @@ a {
 }
 
 .active {
-  background-color: white;
+   background-color: var(--background-color);
+
 }
 
 .active i,
