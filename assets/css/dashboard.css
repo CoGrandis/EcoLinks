@@ -47,7 +47,7 @@ li {
   align-items: center;
   gap: 10px;
   padding: 10px;
-  border-radius: 50px 0px 0px 50px;
+  border-radius:50px 0px 0px 50px;
 }
 
 .icon {
@@ -64,7 +64,8 @@ a {
 }
 
 .active {
-  background-color: white;
+   background-color: var(--background-color);
+
 }
 
 .active i,

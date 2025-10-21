@@ -209,5 +209,23 @@ class ReclamoModel {
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getByIdEmpleado($id){
+        $query = $this->conn->prepare("
+            SELECT 
+                reclamo.*,
+                empleado.Nombre AS nombre_empleado,
+                empleado.Apellido AS apellido_empleado,
+                supervisor.Nombre AS nombre_supervisor,
+                supervisor.Apellido AS apellido_supervisor
+            FROM reclamo
+            INNER JOIN empleado ON empleado.ID_EMPLEADO = reclamo.FK_ID_EMPLEADO
+            INNER JOIN empleado supervisor ON supervisor.ID_EMPLEADO = reclamo.FK_ID_SUPERVISOR
+            WHERE FK_ID_EMPLEADO = :id
+        ");
+        $query->bindParam(':id', $id);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

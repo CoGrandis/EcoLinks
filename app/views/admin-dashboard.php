@@ -37,7 +37,7 @@
                     <p class="no-pending">no hay pendientes!</p>
                 </div>
 
-                <a href="#" class="home-link side-link">ver más ></a>
+                <a href="/calendario" class="home-link side-link">ver más ></a>
             </aside>
         </section>
         </main>

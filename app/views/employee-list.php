@@ -5,7 +5,6 @@
         @extends(menu)
         
         <main class="main-dashboard"> 
-            <h1>Lista de Empleados</h1>
             <div class=".emple-searchbar">
                 <form action="" method="post">
                 <input type="text" name="search"placeholder="Buscar empleado...">

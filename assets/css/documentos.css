@@ -1,0 +1,177 @@
+@import url('style.css');
+
+.upload-dragdrop {
+    border: 2px dashed var(--primary-color);
+    border-radius: 10px;
+    padding: 30px 20px;
+    background-color: var(--background-color);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-dragdrop:hover {
+    border-color: var(--accent-color);
+    background-color: var(--secondary-color);
+}
+
+.drag-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-height: 150px;
+}
+
+.drag-area.dragover {
+    background-color: var(--secondary-color);
+    border-color: var(--accent-color);
+}
+
+.drag-area i {
+    font-size: 40px;
+    color: var(--accent-color);
+}
+
+.drag-area p {
+    font-size: 1em;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.upload-dragdrop input[type="file"] {
+    display: none; /* ocultamos el input real */
+}
+
+.upload-dragdrop .btn-import {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-color)
+}
+
+#preview {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.preview-item {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.mis-documentos-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.doc-card {
+    width: 180px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--secondary-color);
+    transition: 0.2s;
+}
+
+.doc-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.doc-icon {
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.doc-info {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.doc-name {
+    font-weight: bold;
+    display: block;
+    word-break: break-all;
+}
+
+.doc-date {
+    font-size: 0.8em;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.doc-actions {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+}
+
+.doc-actions .btn-download,
+.doc-actions .form-delete {
+    flex: 1; /* ambos ocupan el mismo ancho */
+    display: flex;
+}
+
+.form-delete {
+    margin: 0;
+}
+
+.form-delete .btn-delete {
+    flex: 1; /* el botón ocupa todo el ancho del form */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.85em;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 5px 0;
+}
+
+.btn-download {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.85em;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 5px 0;
+}
+
+/* Hover opcional */
+.btn-download:hover {
+    background-color: var(--accent-color);
+}
+
+.btn-delete:hover {
+    background-color: var(--primary-color);
+}
+
+.btn-download i,
+.btn-delete i {
+    pointer-events: none;
+}
+
+.inline-form {
+    display: inline-block;
+    margin: 0;
+}

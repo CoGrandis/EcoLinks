@@ -13,7 +13,6 @@
             <nav class="navegacion">
                
                 <div class="nav-links" id="nav-links">
-                    <a class="nav-item" href="/">que somos</a>
                     <a class="nav-item" href="/login">Iniciar Sesión</a>
                     <a class="nav-item btn-registrarse"  href="/register" >Registrarse</a>
                 </div>
@@ -77,7 +76,7 @@
 
             <!-- Cartas de presentación -->
             <section class="team-section">
-                <h2>Quienes somos?</h2>
+                <h2>¿Quienes somos?</h2>
                 <div class="team-card">
                     <div class="avatar"> <img src="../../../assets/img/nosotros/nanu.JPG" alt=""></div>
                     <h3>Nahir Fonseca</h3>
