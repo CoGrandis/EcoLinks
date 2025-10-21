@@ -27,7 +27,7 @@ class PDFReclamo extends FPDF {
         $this->SetY(-20);
         $this->SetFont('Arial', 'I', 9);
         $this->SetTextColor(130,130,130);
-        $this->Cell(0, 10,  utf8_decode('Página '.$this->PageNo().'/{nb}  |  RRHH Digital'), 0, 0, 'C');
+        $this->Cell(0, 10,  mb_convert_encoding('Página '.$this->PageNo().'/{nb}  |  RRHH Digital', 'ISO-8859-1', 'UTF-8'), 0, 0, 'C');
     }
 
     // === BLOQUE DE DATOS DEL RECLAMO ===
@@ -47,16 +47,16 @@ class PDFReclamo extends FPDF {
         $this->SetTextColor(50,50,50);
 
         $this->Cell(45,8,'ID Reclamo:',0,0); 
-        $this->Cell(60,8,utf8_decode($reclamo['ID_RECLAMO']),0,1);
+        $this->Cell(60,8,mb_convert_encoding($reclamo['ID_RECLAMO'], 'ISO-8859-1', 'UTF-8'),0,1);
 
         $this->Cell(45,8,'Empleado:',0,0);
-        $this->Cell(60,8,utf8_decode($reclamo['nombre_empleado'].' '.$reclamo['apellido_empleado']),0,1);
+        $this->Cell(60,8,mb_convert_encoding($reclamo['nombre_empleado'].' '.$reclamo['apellido_empleado'], 'ISO-8859-1', 'UTF-8'),0,1);
 
         $this->Cell(45,8,'Supervisor:',0,0);
-        $this->Cell(60,8,utf8_decode($reclamo['nombre_supervisor'].' '.$reclamo['apellido_supervisor']),0,1);
+        $this->Cell(60,8,mb_convert_encoding($reclamo['nombre_supervisor'].' '.$reclamo['apellido_supervisor'], 'ISO-8859-1', 'UTF-8'),0,1);
 
         $this->Cell(45,8,'Fecha:',0,0);
-        $this->Cell(60,8,utf8_decode($reclamo['fecha_denuncia']),0,1);
+        $this->Cell(60,8,mb_convert_encoding($reclamo['fecha_denuncia'], 'ISO-8859-1', 'UTF-8'),0,1);
 
         $this->Cell(45,8,'Estado:',0,0);
         $this->SetFont('Arial','B',12);
@@ -70,13 +70,13 @@ class PDFReclamo extends FPDF {
         if(empty($contenido)) return;
         $this->SetFont('Arial','B',13);
         $this->SetTextColor(40,60,120);
-        $this->Cell(0,10,utf8_decode($titulo),0,1,'L');
+        $this->Cell(0,10,mb_convert_encoding($titulo, 'ISO-8859-1', 'UTF-8'),0,1,'L');
 
         $this->SetFillColor($color[0], $color[1], $color[2]);
         $this->SetDrawColor(220,220,220);
         $this->SetFont('Arial','',12);
         $this->SetTextColor(50,50,50);
-        $this->MultiCell(0,8,utf8_decode($contenido),0,'L',true);
+        $this->MultiCell(0,8,mb_convert_encoding($contenido, 'ISO-8859-1', 'UTF-8'),0,'L',true);
         $this->Ln(5);
     }
 

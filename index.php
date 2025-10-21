@@ -51,6 +51,9 @@ $router->get('/', ['HomeController', 'index']);
     $router->get('/reclamo/pdf/{id}', ['ReclamoController', 'generarPDF']);
 
 
+    $router->get('/recibo-sueldo', ['ReciboSueldoController', 'crearRecibo']);
+    $router->post('/recibo-sueldo', ['ReciboSueldoController', 'crearRecibo']);
+
     $router->resolve();
 
 ?>
