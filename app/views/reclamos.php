@@ -1,6 +1,8 @@
 @extends(head)
 
 <link rel="stylesheet" href="../../../assets/css/reclamos.css">
+<link rel="stylesheet" href="../../../assets/css/dashboard.css">
+
 
 <body>
     <section class="admin-dashboard">

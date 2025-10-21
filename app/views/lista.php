@@ -10,7 +10,6 @@
     <article class="emple-container">
     
         <div class="emple-card">
-            <h2>Gestión de Empleados</h2>
             <form method="POST" class="emple-searchbar">
                 <input type="text" name="search" placeholder="Buscar empleado...">
                 <button type="submit">
