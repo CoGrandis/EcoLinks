@@ -28,7 +28,7 @@ if (fileInput) {
         reader.readAsDataURL(file);
       } else {
         const p = document.createElement('p');
-        p.textContent = `📎 ${file.name}`;
+        p.textContent = `${file.name}`;
         preview.appendChild(p);
       }
     }

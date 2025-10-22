@@ -61,7 +61,7 @@
                                 <?php if (preg_match('/\.(jpg|jpeg|png|gif)$/i', $p['direccionArchivo'])): ?>
                                     <img src="/<?= htmlspecialchars($p['direccionArchivo']) ?>" alt="Imagen del post" class="post-image">
                                 <?php else: ?>
-                                    <a href="/<?= htmlspecialchars($p['direccionArchivo']) ?>" target="_blank">📎 Ver archivo adjunto</a>
+                                    <a href="/<?= htmlspecialchars($p['direccionArchivo']) ?>" target="_blank">Ver archivo adjunto</a>
                                 <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
