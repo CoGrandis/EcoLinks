@@ -28,10 +28,10 @@ class ReciboSueldoController {
     public function crearRecibo(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $form = $_POST;
-            $idRecibo = $this->reciboModel->create($form);
+             $idRecibo = $this->reciboModel->create($form);
 
             // Generar PDF
-            $this->generarPDF($form['employee_id'], $form['periodo']);
+            $this->generarPDF($idRecibo);
             exit;
         }
 
@@ -44,17 +44,15 @@ class ReciboSueldoController {
         $tpl->printToScreen();
     }
 
-    public function generarPDF($idEmpleado, $periodo){
-        $recibos = $this->reciboModel->getByEmpleado($idEmpleado, $periodo);
-        if(empty($recibos)) return;
+    public function generarPDF($idRecibo){
+        $recibos = $this->reciboModel->getByEmpleado($idRecibo);
 
-        $recibo = $recibos[0];
         $pdf = new PDFReciboSueldo();
         $pdf->AliasNbPages();
         $pdf->AddPage();
-        $pdf->bloqueEmpleado($recibo);
-        $pdf->bloqueSueldo($recibo);
-        $pdf->Output('D', 'Recibo_Sueldo_'.$recibo['Nombre'].'.pdf');
+        $pdf->bloqueEmpleado($recibos);
+        $pdf->bloqueSueldo($recibos);
+        $pdf->Output('D', 'Recibo_Sueldo_'.$recibos['Nombre'].'.pdf');
     }
 }
 ?>

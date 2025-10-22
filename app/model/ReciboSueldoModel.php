@@ -44,23 +44,19 @@ class ReciboSueldoModel {
         return false;
     }
 
-    public function getByEmpleado($idEmpleado, $periodo = null){
+    public function getByEmpleado($idEmpleado){
         $sql = "SELECT r.*, e.Nombre, e.Apellido, d.departamento AS Departamento, p.puesto AS Puesto, e.fechaContratacion AS FECHA_CONTRATACION
                 FROM recibos_sueldo r
                 JOIN empleado e ON e.ID_EMPLEADO = r.FK_ID_EMPLEADO
                 JOIN departamento d ON e.FK_ID_DEPARTAMENTO = d.ID_DEPARTAMENTO
                 JOIN puesto p ON e.FK_ID_PUESTO = p.ID_PUESTO
-                WHERE r.FK_ID_EMPLEADO = :idEmpleado";
+                WHERE r.ID_RECIBO = :idEmpleado";
 
-        if($periodo){
-            $sql .= " AND r.PERIODO = :periodo";
-        }
-
+  
         $query = $this->conn->prepare($sql);
         $query->bindParam(':idEmpleado', $idEmpleado);
-        if($periodo) $query->bindParam(':periodo', $periodo);
         $query->execute();
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getAllRecibos(){
