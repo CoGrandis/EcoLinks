@@ -57,6 +57,11 @@ $router->get('/', ['HomeController', 'index']);
     $router->get('/recibo-sueldo', ['ReciboSueldoController', 'crearRecibo']);
     $router->post('/recibo-sueldo', ['ReciboSueldoController', 'crearRecibo']);
 
+
+    $router->get('/seleccion', ['SeleccionPersonalController','subirCV']);
+    $router->post('/seleccion/subir_cv', ['SeleccionPersonalController','subirCV']);
+    $router->get('/seleccion/resultados', ['SeleccionPersonalController','verResultados']);
+
     $router->resolve();
 
 ?>
