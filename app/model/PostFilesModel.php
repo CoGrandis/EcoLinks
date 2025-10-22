@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/../../config/connection.php';
 
+
+
 class PostFilesModel {
     private $conn; 
 
@@ -22,6 +24,7 @@ class PostFilesModel {
         $query->bindParam(':filepath', $data['filepath']);
         return $query->execute();
     }
+
 
 }
 

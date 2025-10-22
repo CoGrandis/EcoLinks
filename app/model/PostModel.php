@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/../../config/connection.php';
 require_once __DIR__ . '/PostFilesModel.php';
+require_once __DIR__ . '/ComentarioModel.php';
+
 class PostModel {
     private $conn; 
     private $fileModel;
@@ -37,6 +39,42 @@ class PostModel {
         $query->bindParam(':id', $_SESSION['user']['ID_USUARIO']);
         return $query->execute();
     }
+
+    public function getAllWithFilesAndComments() {
+        $query = $this->conn->prepare("
+            SELECT 
+                post.*, 
+                usuario.usuario AS username,
+                empleado.nombre AS nombre_empleado,
+                empleado.apellido AS apellido_empleado
+            FROM post 
+            JOIN usuario ON post.FK_ID_USUARIO = usuario.ID_USUARIO
+            INNER JOIN empleado ON usuario.FK_ID_EMPLEADO = empleado.ID_EMPLEADO
+            ORDER BY post.fechaCreado DESC
+        ");
+        $query->execute();
+        $posts = $query->fetchAll(PDO::FETCH_ASSOC);
+        $commentModel = new ComentarioModel();
+
+        foreach ($posts as &$post) {
+            $post['files'] = $this->fileModel->getByPost($post['ID_POST']);
+            $post['comentarios'] = $commentModel->getByPost($post['ID_POST']);
+        }
+
+        return $posts;
+    }
+     public function agregarComentario($postId, $usuarioId, $comentario) {
+        $query = $this->conn->prepare("
+            INSERT INTO comentario (FK_ID_POST, FK_ID_USUARIO, comentario)
+            VALUES (:post_id, :user_id, :comment)
+        ");
+        $query->bindParam(':post_id', $postId);
+        $query->bindParam(':user_id', $usuarioId);
+        $query->bindParam(':comment', $comentario);
+        return $query->execute();
+    }
+
 }
+
 
 ?>

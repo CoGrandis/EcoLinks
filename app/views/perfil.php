@@ -19,6 +19,7 @@
         <div class="perfil-info">
           <h1 class="perfil-nombre">{{ EMPLOYEE_NAME }}</h1>
           <h2 class="perfil-puesto">{{ EMPLOYEE_POSITION }}</h2>
+          
         </div>
       </section>
 
@@ -29,6 +30,7 @@
         <!-- Accesos laterales -->
             <aside class="perfil-sidebar">
                 <button class="perfil-btn" onClick="window.location.href='/perfil'"> <i class="bi bi-file-earmark-person"></i> Mis datos</button>
+                <button class="perfil-btn" onClick="window.location.href='/perfil/editar/{{ EMPLOYEE_TOKEN }}'"><i class="bi bi-inbox-fill"></i>Editar Datos</button>
                 <button class="perfil-btn" onClick="window.location.href='/mis-reclamos'"> <i class="bi bi-exclamation-diamond"></i>Mis Reclamos</button>
                 <button class="perfil-btn" onClick="window.location.href='/documentos'"><i class="bi bi-inbox-fill"></i>Mis archivos</button>
             

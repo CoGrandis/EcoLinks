@@ -28,8 +28,8 @@
                                     <span><?= $employee["Nombre"]." ".$employee["Apellido"] ?></span>
                                 </div>
                                 <div class="emple-actions">
-                                    <i class="fa-solid fa-eye"></i>
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <a href='/perfil/<?=$employee["token"]?>'><i class="fa-solid fa-eye"></i></a>
+                                    <a href='/perfil/editar/<?=$employee["token"]?>'><i class="fa-solid fa-pen-to-square"></i></a>
                                 </div>
                             </li>
                         <?php endforeach;?>
@@ -41,7 +41,6 @@
         <!--panel de acciones -->
         <aside class="emple-actions-panel">
             <button onClick="location.href='/reclamos'"><i class="bi bi-megaphone"></i> Reclamos</button>
-            <button onClick="location.href='/reclamos'"><i class="bi bi-file-earmark-text"></i> Informe</button>
             <button onClick="location.href='/empleados/registrar'"><i class="bi bi-person-plus"></i> Agregar personal</button>
         </aside>
     </article>

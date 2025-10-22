@@ -13,7 +13,7 @@ class UploadService {
         if (!is_dir($this->baseDir)) {
 
 
-            mkdir($this->baseDir, 0777, true);
+            mkdir($this->baseDir, 755, true);
 
 
         }
