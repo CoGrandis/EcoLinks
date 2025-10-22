@@ -65,34 +65,32 @@
             return $query->execute();
         }
 
-            public function update($form) {
-            $query = $this->conn->prepare("
-                UPDATE empleado SET 
-                    Nombre = :name, 
-                    Apellido = :surname, 
-                    Email = :email, 
-                    FechaNacimiento = :dateBirth, 
-                    Direccion = :address, 
-                    FechaContratacion = :hiringDate, 
-                    Estado = :estado, 
-                    FK_ID_DEPARTAMENTO = :department, 
-                    FK_ID_PUESTO = :position 
-                WHERE ID_EMPLEADO = :id
-            ");
+    public function update($form) {
+        $query = $this->conn->prepare("
+            UPDATE empleado SET 
+                Nombre = :name, 
+                Apellido = :surname, 
+                Email = :email, 
+                FechaNacimiento = :dateBirth, 
+                Direccion = :address, 
+                firma_digital = :firmaDigital
+            WHERE ID_EMPLEADO = :id
+        ");
 
-            $query->bindParam(':id', $form['id'], PDO::PARAM_INT);
-            $query->bindParam(':name', $form['name']);
-            $query->bindParam(':surname', $form['surname']);
-            $query->bindParam(':email', $form['email']);
-            $query->bindParam(':dateBirth', $form['dateBirth']);
-            $query->bindParam(':address', $form['address']);
-            $query->bindParam(':hiringDate', $form['hiringDate']);
-            $query->bindParam(':estado', $form['estado']);
-            $query->bindParam(':department', $form['department']);
-            $query->bindParam(':position', $form['position']);
+        $query->bindParam(':id', $form['id']);
+        $query->bindParam(':name', $form['name']);
+        $query->bindParam(':surname', $form['surname']);
+        $query->bindParam(':email', $form['email']);
+        
+        // Manejar fechas nulas
+        $query->bindValue(':dateBirth', !empty($form['dateBirth']) ? $form['dateBirth'] : null, !empty($form['dateBirth']) ? PDO::PARAM_STR : PDO::PARAM_NULL);
+        
+        $query->bindParam(':address', $form['address']);
+        $query->bindParam(':firmaDigital', $form['firma_digital']);
 
-            return $query->execute();
-        }
+        return $query->execute();
+    }
+
     }   
 
     ?>

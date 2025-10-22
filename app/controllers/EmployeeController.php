@@ -99,7 +99,9 @@ class EmployeeController {
             "EMPLOYEE_BIRTH_DATE" => $empleado['FechaNacimiento']?? '',
             "EMPLOYEE_EMAIL" => $empleado['Email']?? '',
             "EMPLOYEE_ADDRESS" => $empleado['Direccion']?? '',
-            "EMPLOYEE_STATUS" => $empleado['Estado'] ?? 'Activo'
+            "EMPLOYEE_STATUS" => $empleado['Estado'] ?? 'Activo',
+            "EMPLOYEE_TOKEN" => $empleado['token']
+
         ]);
 
         $tpl->printToScreen();
@@ -121,7 +123,8 @@ class EmployeeController {
             "EMPLOYEE_BIRTH_DATE" => $empleado['FechaNacimiento']?? '',
             "EMPLOYEE_EMAIL" => $empleado['Email']?? '',
             "EMPLOYEE_ADDRESS" => $empleado['Direccion']?? '',
-            "EMPLOYEE_STATUS" => $empleado['Estado'] ?? 'Activo'
+            "EMPLOYEE_STATUS" => $empleado['Estado'] ?? 'Activo',
+            "EMPLOYEE_TOKEN" => $empleado['token']
         ]);
 
         $tpl->printToScreen();
@@ -134,5 +137,51 @@ class EmployeeController {
         header("Location: /admin/employee");
         exit;
     }   
+
+
+    public function editarDatos($token){
+        $empleadoModel = new EmpleadoModel();
+
+        $empleado = $empleadoModel->getEmpleadosByToken($token);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $form = [
+                "id" => $_POST['id'],
+                "name" => $_POST['name'] ?? '',
+                "surname" => $_POST['surname'] ?? '',
+                "email" => $_POST['email'] ?? '',
+                "dateBirth" => $_POST['dateBirth'] ?? null,
+                "address" => $_POST['address'] ?? '',
+                "firma_digital" => $_POST['firma_digital'] ?? ''
+            ];
+
+            $success = $empleadoModel->update($form);
+
+            if ($success) {
+                header("Location: /perfil"); // Redirigir al perfil
+                exit;
+            } else {
+                echo "Error al actualizar los datos del empleado.";
+            }
+        }
+
+        
+        $tpl = new TemplateMotor("edit-datos");
+        $tpl->assing([
+            "EMPLOYEE_NAME" => $empleado['Nombre'] . " " . $empleado['Apellido'],
+            "EMPLOYEE_FIRSTNAME" => $empleado['Nombre'] . " " . $empleado['Apellido'],
+            "EMPLOYEE_SURNAME" => $empleado['Nombre'] . " " . $empleado['Apellido'],
+            "EMPLOYEE_ID" => $empleado['ID_EMPLEADO'],
+            "EMPLOYEE_POSITION" => $empleado['Puesto'] ?? 'Sin asignar',
+            "EMPLOYEE_DEPARTMENT" => $empleado['Departamento'] ?? 'No asignado',
+            "EMPLOYEE_HIRING_DATE" => $empleado['FechaContratacion']?? '',
+            "EMPLOYEE_BIRTH_DATE" => $empleado['FechaNacimiento'],
+            "EMPLOYEE_EMAIL" => $empleado['Email']?? '',
+            "EMPLOYEE_ADDRESS" => $empleado['Direccion']?? '',
+            "EMPLOYEE_STATUS" => $empleado['Estado'] ?? 'Activo'
+        ]);
+
+        $tpl->printToScreen();
+    }
 }   
 ?>

@@ -22,6 +22,8 @@ $router->get('/', ['HomeController', 'index']);
 
     $router->get('/perfil', ['EmployeeController','profile'])->only([1 , 2, 3]);
     $router->get('/perfil/{token}', ['EmployeeController','perfilEmpleado'])->only([1 , 2]);
+    $router->get('/perfil/editar/{token}', ['EmployeeController','editarDatos'])->only([1 , 2, 3]);
+    $router->post('/perfil/editar/{token}', ['EmployeeController','editarDatos'])->only([1 , 2, 3]);
 
 
     $router->get('/dashboard', ['AdminController','dashboard'])->only([1, 2]);
