@@ -41,7 +41,6 @@
         <!--panel de acciones -->
         <aside class="emple-actions-panel">
             <button onClick="location.href='/reclamos'"><i class="bi bi-megaphone"></i> Reclamos</button>
-            <button onClick="location.href='/reclamos'"><i class="bi bi-file-earmark-text"></i> Informe</button>
             <button onClick="location.href='/empleados/registrar'"><i class="bi bi-person-plus"></i> Agregar personal</button>
         </aside>
     </article>

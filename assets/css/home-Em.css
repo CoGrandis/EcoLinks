@@ -1,14 +1,7 @@
 @import url('style.css');
-
-body {
-    background-color: var(--background-color);
-    font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
-}
-
+/* Contenedor principal */
 .home-main {
-    margin-left: 220px; /* espacio para el menú lateral */
+    margin-left: 120px;/* espacio para el menú lateral */
     padding: 40px;
     transition: margin-left 0.3s ease;
 }
@@ -20,133 +13,121 @@ body {
     font-weight: 600;
     margin: 0;
 }
-
 .home-header span {
     color: var(--accent-color);
 }
-
 .home-header p {
     color: var(--text-color);
     opacity: 0.7;
     margin-top: 6px;
 }
 
-/* Contenedor principal */
+/* Contenido principal */
 .home-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
-    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-/* Tarjetas */
+/* Panel izquierdo (gráficos) */
+.left-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Panel derecho (fecha y stats) */
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Tarjetas generales */
 .home-card, .home-sidebar div {
     background-color: var(--primary-color);
     border-radius: 16px;
     padding: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    color: #fff;
 }
 
-/* Tarjeta de estadísticas */
+/* Títulos internos */
 .stats-card h2 {
-    color: #fff;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
+    margin-bottom: 15px;
 }
 
-.chart-placeholder {
-    background-color: var(--secondary-color);
-    border-radius: 10px;
-    height: 180px;
-    margin-top: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Contenedor de gráficos */
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.95); /* fondo claro */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.chart-placeholder img {
-    width: 80%;
-    opacity: 0.9;
+/* Canvas ocupa todo el contenedor y mantiene altura */
+.chart-container canvas {
+    width: 100% !important;
+    height: 300px !important;
 }
 
-.home-link {
-    display: block;
-    text-align: right;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-}
-.home-link:hover {
-    text-decoration: underline;
-}
-
-/* Lateral */
-.home-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.date-card, .pending-card {
+/* Fecha y stat cards */
+.date-card, .stat-card {
     border-radius: 16px;
     text-align: center;
-    padding: 15px;
-}
-
-#hola{
-    background-color:var(--background-color);
-    color:var(--accent-color);
-}
-
-#border{
-    border: 10px solid var(--primary-color);
-}
-
-.date-card p {
+    padding: 20px;
+    background-color: #fff;
     color: var(--text-color);
-    margin: 0 0 8px 0;
-    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+/* Caja de fecha */
 .date-box {
-    background: var(--primary-color);
+    background-color: var(--accent-color);
     color: #fff;
     border-radius: 12px;
     padding: 10px 0;
+    margin-top: 8px;
 }
-
 .date-box .day {
     display: block;
     font-size: 26px;
     font-weight: 700;
 }
-
 .date-box .month {
     display: block;
     font-size: 14px;
     text-transform: lowercase;
 }
 
-.pending-card p {
-    margin: 4px 0;
-    color: var(--text-color);
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
 }
-
-.no-pending {
-    color: var(--accent-color);
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+th {
     font-weight: 600;
 }
 
-.side-link {
-    align-self: flex-end;
+/* Enlaces */
+.home-link, .side-link {
     color: var(--accent-color);
+    font-weight: 600;
     text-decoration: none;
-    font-weight: 600;
-    text-align: right;
 }
-.side-link:hover {
+.home-link:hover, .side-link:hover {
     text-decoration: underline;
 }
 
@@ -160,18 +141,11 @@ body {
         margin-left: 180px;
         padding: 25px;
     }
-
     .home-content {
-        grid-template-columns: 1fr;
-        gap: 25px;
+        flex-direction: column;
     }
-
-    .home-header h1 {
-        font-size: 24px;
-    }
-
-    .chart-placeholder {
-        height: 160px;
+    .chart-container canvas {
+        height: 280px !important;
     }
 }
 
@@ -181,33 +155,8 @@ body {
         margin-left: 0;
         padding: 20px;
     }
-
-    .home-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .home-card, .home-sidebar div {
-        padding: 15px;
-    }
-
-    .home-header h1 {
-        font-size: 22px;
-        text-align: center;
-    }
-
-    .home-header p {
-        text-align: center;
-        font-size: 14px;
-    }
-
-    .chart-placeholder img {
-        width: 100%;
-    }
-
-    .side-link, .home-link {
-        text-align: center;
-        font-size: 13px;
+    .chart-container canvas {
+        height: 260px !important;
     }
 }
 
@@ -216,20 +165,13 @@ body {
     .home-main {
         padding: 15px;
     }
-
-    .home-header h1 {
-        font-size: 20px;
+    .chart-container canvas {
+        height: 220px !important;
     }
-
     .date-box .day {
         font-size: 22px;
     }
-
     .date-box .month {
         font-size: 12px;
-    }
-
-    .chart-placeholder {
-        height: 140px;
     }
 }

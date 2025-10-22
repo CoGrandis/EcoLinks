@@ -112,6 +112,12 @@ class EmployeeController {
         $empleadoModel = new EmpleadoModel();
         
         $empleado = $empleadoModel->getEmpleadosByToken($token);
+        if (!empty($empleado['FechaContratacion'])) {
+            $hiringDate = new DateTime($empleado['FechaContratacion']);
+            $today = new DateTime();
+            $interval = $today->diff($hiringDate);
+            $tenure = $interval->y . ' años, ' . $interval->m . ' meses';
+        }
 
         // Cargar plantilla con datos
         $tpl = new TemplateMotor("perfil-empleado");
@@ -124,7 +130,8 @@ class EmployeeController {
             "EMPLOYEE_EMAIL" => $empleado['Email']?? '',
             "EMPLOYEE_ADDRESS" => $empleado['Direccion']?? '',
             "EMPLOYEE_STATUS" => $empleado['Estado'] ?? 'Activo',
-            "EMPLOYEE_TOKEN" => $empleado['token']
+            "EMPLOYEE_TOKEN" => $empleado['token'],
+            "EMPLOYEE_TENURE" => $tenure,
         ]);
 
         $tpl->printToScreen();

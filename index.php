@@ -26,7 +26,7 @@ $router->get('/', ['HomeController', 'index']);
     $router->post('/perfil/editar/{token}', ['EmployeeController','editarDatos'])->only([1 , 2, 3]);
 
 
-    $router->get('/dashboard', ['AdminController','dashboard'])->only([1, 2]);
+    $router->get('/dashboard', ['EstadisticasController','dashboard'])->only([1, 2]);
     $router->get('/calendario', ['CalendarioController','calendario'])->only([1, 2]);
     $router->get('/noticias', ['PostController', 'muro'])->only([1,2,3]);
     $router->post('/noticias', ['PostController', 'muro'])->only([1, 2,3]);
