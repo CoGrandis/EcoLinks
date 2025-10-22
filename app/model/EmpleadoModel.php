@@ -27,6 +27,15 @@
             return $query->fetch(PDO::FETCH_ASSOC);
         }
 
+
+
+        public function getEmpleadosByToken($token){
+            $query = $this->conn->prepare("SELECT e.*, d.departamento AS Departamento, p.puesto AS Puesto FROM empleado e LEFT JOIN departamento d ON e.FK_ID_DEPARTAMENTO = d.ID_DEPARTAMENTO LEFT JOIN puesto p ON e.FK_ID_PUESTO = p.ID_PUESTO WHERE token = :token");
+            $query->bindParam(':token', $token);
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+
         public function delete($id) {
             $query = $this->conn->prepare("DELETE FROM empleado WHERE ID_EMPLEADO = :id");
             $query->bindParam(':id', $id, PDO::PARAM_INT);

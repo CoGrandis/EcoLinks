@@ -103,6 +103,28 @@ class EmployeeController {
         ]);
 
         $tpl->printToScreen();
+
+    }
+
+    public function perfilEmpleado($token){
+        $empleadoModel = new EmpleadoModel();
+        
+        $empleado = $empleadoModel->getEmpleadosByToken($token);
+
+        // Cargar plantilla con datos
+        $tpl = new TemplateMotor("perfil-empleado");
+        $tpl->assing([
+            "EMPLOYEE_NAME" => $empleado['Nombre'] . " " . $empleado['Apellido'],
+            "EMPLOYEE_POSITION" => $empleado['Puesto'] ?? 'Sin asignar',
+            "EMPLOYEE_DEPARTMENT" => $empleado['Departamento'] ?? 'No asignado',
+            "EMPLOYEE_HIRING_DATE" => $empleado['FechaContratacion']?? '',
+            "EMPLOYEE_BIRTH_DATE" => $empleado['FechaNacimiento']?? '',
+            "EMPLOYEE_EMAIL" => $empleado['Email']?? '',
+            "EMPLOYEE_ADDRESS" => $empleado['Direccion']?? '',
+            "EMPLOYEE_STATUS" => $empleado['Estado'] ?? 'Activo'
+        ]);
+
+        $tpl->printToScreen();
     }
 
     public function delete($id) {

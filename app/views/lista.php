@@ -28,8 +28,8 @@
                                     <span><?= $employee["Nombre"]." ".$employee["Apellido"] ?></span>
                                 </div>
                                 <div class="emple-actions">
-                                    <i class="fa-solid fa-eye"></i>
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <a href='/perfil/<?=$employee["token"]?>'><i class="fa-solid fa-eye"></i></a>
+                                    <a href='/perfil/editar/<?=$employee["token"]?>'><i class="fa-solid fa-pen-to-square"></i></a>
                                 </div>
                             </li>
                         <?php endforeach;?>

@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../model/PostModel.php';
 require_once __DIR__ . '/../model/PostFilesModel.php';
+require_once __DIR__ . '/../model/ComentarioModel.php';
 require_once __DIR__ . '/../services/UploadService.php';
 
 class PostController {   
@@ -13,12 +14,12 @@ class PostController {
     }
 
     public function muro() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $usuarioId = $_SESSION['user']['ID_USUARIO'] ?? null;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['accion'] ?? '') === 'nuevo_post') {
             $title = $_POST['title'] ?? '';
             $content = $_POST['content'] ?? '';
-            $userId = $_SESSION['user']['ID_USUARIO'] ?? null;
 
-            $postId = $this->postModel->create($userId, $title, $content);
+            $postId = $this->postModel->create($usuarioId, $title, $content);
             
             if (!empty($_FILES['files']['name'][0])) {
                 $uploadService = new UploadService();
@@ -37,12 +38,18 @@ class PostController {
             exit;
         }
 
-        $posts = $this->postModel->getAllWithFiles();
+         if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['accion'] ?? '') === 'nuevo_comentario') {
+            $this->postModel->agregarComentario($_POST['post_id'], $usuarioId, $_POST['comentario']);
+            header('Location: /noticias');
+            exit;
+        }
+
+        $posts = $this->postModel->getAllWithFilesAndComments();
         $tpl = new TemplateMotor("muro");
         $current_page = basename($_SERVER['REQUEST_URI']);
         $tpl->assing([
             "NEWS_ACTIVE" => (strpos($current_page, 'noticias') !== false) ? 'active' : '',
-            "posts" => $posts
+            "posts" => $posts,
         ]);
         $tpl->printToScreen();
     }
